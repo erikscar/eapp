@@ -1,0 +1,15 @@
+<section class="register-container">
+    <h1>Registrar-se</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="register(registerForm)">
+        <label for="">Email: </label>
+        <input type="text" formControlName="email">
+    
+        <label for="">Senha:</label>
+        <input type="text" formControlName="passwordHash">
+    
+        <label for="">Confirme sua Senha:</label>
+        <input type="text" formControlName="confirmPassword">
+    
+        <button type="submit">Registrar-se</button>
+    </form>
+</section>
