@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -17,5 +17,13 @@ export class UserService {
 
   login(data: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/login`, data);
+  }
+
+  getUser(): Observable<any> {
+    const token = localStorage.getItem('token')
+    console.log("Token Enviado: ", token);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    return this.http.get(`${this.apiUrl}`, { headers });
   }
 }
