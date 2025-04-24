@@ -2,9 +2,9 @@
     <h1>Login</h1>
     <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
         <label for="">Email: </label>
-        <input type="text" name="" id="">
+        <input type="text" formControlName="email">
         <label for="">Senha: </label>
-        <input type="text" name="" id="">
+        <input type="text" formControlName="passwordHash">
         
         <button type="submit">Login</button>
     </form>

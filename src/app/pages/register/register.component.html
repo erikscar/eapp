@@ -11,6 +11,10 @@
         <input type="text" formControlName="confirmPassword">
     
         <button type="submit">Registrar-se</button>
+
+        <div *ngIf="registerForm.errors?.['missmatch'] && registerForm.touched">
+            <p style="color: red;">As Senhas não Coincidem</p>
+        </div>
     </form>
     <a routerLink="/">Já tem uma Conta? Faça Login</a>
 </section>

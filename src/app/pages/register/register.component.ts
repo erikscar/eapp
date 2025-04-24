@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -11,22 +11,27 @@ import { RouterLink } from '@angular/router';
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   registerForm = new FormGroup({
     email: new FormControl("", [Validators.required, Validators.email]),
     passwordHash: new FormControl("", [Validators.required]),
     confirmPassword: new FormControl("", [Validators.required])
-  })
+  }, { validators: this.passwordMismatchValidator})
 
   register(form: FormGroup) {
     this.userService.register(form.value).subscribe({
       next: (res) => {
         console.log("Usuário Registrado com Sucesso: ", res);
+        this.router.navigate(["/home"]);
       },
       error: (err) => {
         console.error(err);
       }
     })
+  }
+
+  passwordMismatchValidator(control: AbstractControl) : ValidationErrors | null {
+    return control.get("passwordHash")?.value !== control.get("confirmPassword")?.value ? { missmatch: true} : null;
   }
 }

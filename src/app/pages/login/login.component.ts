@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { UserService } from '../../services/user.service';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   loginForm = new FormGroup({
     email: new FormControl("", [Validators.required, Validators.email]),
@@ -21,6 +21,7 @@ export class LoginComponent {
     this.userService.login(form.value).subscribe({
       next: (res) => {
         console.log("Login Realizado com Sucesso: ", res);
+        this.router.navigate(["/home"]);
       },
       error: (err) => {
         console.error(err);
