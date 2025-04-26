@@ -22,7 +22,7 @@ export class LoginComponent {
       next: (res) => {
         console.log("Login Realizado com Sucesso: ", res);
         this.router.navigate(["/home"]);
-        localStorage.setItem('token', res.token);
+        sessionStorage.setItem('token', res.token);
       },
       error: (err) => {
         console.error(err);

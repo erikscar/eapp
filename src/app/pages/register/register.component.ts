@@ -24,7 +24,7 @@ export class RegisterComponent {
       next: (res) => {
         console.log("Usuário Registrado com Sucesso: ", res);
         this.router.navigate(["/home"]);
-        localStorage.setItem('token', res);
+        sessionStorage.setItem('token', res.token);
       },
       error: (err) => {
         console.error(err);
