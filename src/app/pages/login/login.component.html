@@ -1,15 +1,35 @@
 <section class="login-container">
-    <h1>Login</h1>
-    <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
-        <label for="">Email: </label>
-        <input type="text" formControlName="email">
-        <label for="">Senha: </label>
-        <input type="text" formControlName="passwordHash">
+    <img src="/back.png" alt="login-background">
+
+    <div class="login-form-wrapper">
+        <div class="logo-wrapper">
+            <img src="/logo.png" alt="logo-image">
+            <h1>Eapp</h1>
+        </div>
+        <h2>Login</h2>
+        <p>Bem-Vindo(a) de Volta. Faça seu Login para Acessar!</p>
+        <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
+
+            <div class="input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="text" formControlName="email" placeholder="Email">
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="text" formControlName="passwordHash" placeholder="Senha">
+            </div>
+
+            <div class="login-options">
+                <div class="rememberme">
+                    <input type="checkbox" name="" id="">
+                    <label>Lembrar de mim</label>
+                </div>
+                <a class="forgot-password">Esqueceu a Senha?</a>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <span>Não Possui uma conta? <a routerLink="/register">Registre-se</a> </span>
         
-        <button type="submit">Login</button>
-    </form>
-
-    <a routerLink="/register">Não Possui uma conta? Registre-se</a>
-
+    </div>
 </section>
-
