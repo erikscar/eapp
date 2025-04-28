@@ -28,19 +28,22 @@
       align-items: center;
       justify-content: center;
       gap: .5rem;
-      margin-bottom: 3rem;
+      margin-bottom: 1rem;
 
       img {
-        width: 3rem;
-        height: 2rem;
+        width: 3.5rem;
+        height: 2.5rem;
         display: block
       }
 
-    }
+      h1 {
+        font-size: 36px;
+        margin-bottom: .5rem;
+        font-family: "Charm", cursive;
+        margin: 0;
+        color: #622dbd;
+      }
 
-    h2 {
-      font-size: 30px;
-      margin-bottom: .5rem;
     }
 
     p {
@@ -123,6 +126,13 @@
         color: #fff;
         font-size: 18px;
         font-weight: 700;
+        cursor: pointer;
+        transition: .5s;
+
+        &:hover {
+          box-shadow: 0 0 20px #622dbd;
+          transform: scale(1.03);
+        }
       }
     }
 

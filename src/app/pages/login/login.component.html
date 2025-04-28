@@ -6,7 +6,6 @@
             <img src="/logo.png" alt="logo-image">
             <h1>Eapp</h1>
         </div>
-        <h2>Login</h2>
         <p>Bem-Vindo(a) de Volta. Faça seu Login para Acessar!</p>
         <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
 
@@ -22,7 +21,7 @@
 
             <div class="login-options">
                 <div class="rememberme">
-                    <input type="checkbox" name="" id="">
+                    <input type="checkbox" formControlName="rememberme">
                     <label>Lembrar de mim</label>
                 </div>
                 <a class="forgot-password">Esqueceu a Senha?</a>
