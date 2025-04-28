@@ -1,20 +1,35 @@
 <section class="register-container">
-    <h1>Registrar-se</h1>
-    <form [formGroup]="registerForm" (ngSubmit)="register(registerForm)">
-        <label for="">Email: </label>
-        <input type="text" formControlName="email">
-    
-        <label for="">Senha:</label>
-        <input type="text" formControlName="passwordHash">
-    
-        <label for="">Confirme sua Senha:</label>
-        <input type="text" formControlName="confirmPassword">
-    
-        <button type="submit">Registrar-se</button>
+    <img src="/back.png" alt="register-background">
 
-        <div *ngIf="registerForm.errors?.['missmatch'] && registerForm.touched">
-            <p style="color: red;">As Senhas não Coincidem</p>
+    <div class="register-form-wrapper">
+        <div class="logo-wrapper">
+            <img src="/logo.png" alt="logo-image">
+            <h1>Eapp</h1>
         </div>
-    </form>
-    <a routerLink="/">Já tem uma Conta? Faça Login</a>
+        <p>Seja Bem-Vindo(a). Faça seu Registro para Acessar!</p>
+        <form [formGroup]="registerForm" (ngSubmit)="register(registerForm)">
+
+            <div class="input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="text" formControlName="email" placeholder="Email">
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="text" formControlName="passwordHash" placeholder="Senha">
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="text" formControlName="confirmPassword" placeholder="Confirme sua Senha">
+            </div>
+
+            <button type="submit">Registrar-se</button>
+
+            <div *ngIf="registerForm.errors?.['missmatch'] && registerForm.touched">
+                <p style="color: red;">As Senhas não Coincidem</p>
+            </div>
+        </form>
+        <span>Já Possui uma conta? <a routerLink="/">Faça Login!</a> </span>
+    </div>
 </section>
