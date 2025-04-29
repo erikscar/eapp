@@ -1,4 +1,5 @@
 @use "../../../scss/variables.scss" as *;
+@use "../../../scss/mixins.scss" as *;
 
 .register-container {
   display: flex;
@@ -59,28 +60,8 @@
       width: 22rem;
 
       .input-group {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        font-size: 18px;
-        color: $grey-color;
-        border: 1px solid $grey-color;
-        border-radius: 1rem;
-        padding: .25rem .75rem;
+        @include input-group();
         margin-bottom: 1rem;
-
-        input {
-          display: block;
-          padding: .5rem 0;
-          width: 100%;
-          border: none;
-          outline: 0;
-          font-size: 16px;
-          font-weight: 700;
-          &::placeholder {
-            font-size: 16px;
-          }
-        }
       }
 
       button {

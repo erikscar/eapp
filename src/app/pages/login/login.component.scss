@@ -1,5 +1,5 @@
 @use "../../../scss/variables.scss" as *;
-
+@use "../../../scss/mixins.scss" as *;
 
 .login-container {
   display: flex;
@@ -59,31 +59,8 @@
       width: 22rem;
 
       .input-group {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        font-size: 18px;
-        color: $grey-color;
-        border: 1px solid $grey-color;
-        border-radius: 1rem;
-        padding: .25rem .75rem;
+        @include input-group();
         margin-bottom: 1rem;
-        
-        i {
-          color: $grey-color;
-        }
-
-        input {
-          display: block;
-          padding: .5rem 0;
-          width: 100%;
-          border: none;
-          outline: 0;
-
-          &::placeholder {
-            font-size: 16px;
-          }
-        }
       }
 
       .login-options {
