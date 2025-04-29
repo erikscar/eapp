@@ -14,6 +14,8 @@ export class RegisterComponent {
   constructor(private userService: UserService, private router: Router) {}
 
   registerForm = new FormGroup({
+    firstName: new FormControl("", [Validators.required]),
+    lastName: new FormControl("", [Validators.required]),
     email: new FormControl("", [Validators.required, Validators.email]),
     passwordHash: new FormControl("", [Validators.required]),
     confirmPassword: new FormControl("", [Validators.required])
