@@ -1,0 +1,42 @@
+@use "../../../scss/variables.scss" as *;
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .75rem 5rem;
+    background-color: $secondary-color;
+
+    .top-bar-desc {
+        font-weight: 700;
+        color: $grey-color;
+    }
+
+    .top-links-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        .top-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: .5rem;
+            padding: 0 .75rem;
+
+            p, i {
+                color: $grey-color;
+            }
+           
+        }
+
+        .top-links:nth-child(2) {
+            border-left: 1px solid $grey-color;
+            border-right:  1px solid $grey-color;
+            padding: 0 1.25rem;
+        }
+    }
+}
+
+.home-container {}

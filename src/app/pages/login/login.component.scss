@@ -1,3 +1,6 @@
+@use "../../../scss/variables.scss" as *;
+
+
 .login-container {
   display: flex;
   align-items: center;
@@ -21,7 +24,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    position: relative;
 
     .logo-wrapper {
       display: flex;
@@ -31,7 +33,7 @@
       margin-bottom: 1rem;
 
       img {
-        width: 3.5rem;
+        width: 3rem;
         height: 2.5rem;
         display: block
       }
@@ -41,7 +43,7 @@
         margin-bottom: .5rem;
         font-family: "Charm", cursive;
         margin: 0;
-        color: #622dbd;
+        color: $primary-color;
       }
 
     }
@@ -49,7 +51,7 @@
     p {
       font-size: 18px;
       font-weight: 700;
-      color: #828282;
+      color: $grey-color;
       margin-bottom: 2rem;
     }
 
@@ -61,11 +63,15 @@
         align-items: center;
         gap: 1rem;
         font-size: 18px;
-        color: #828282;
-        border: 1px solid #b1b1b1;
+        color: $grey-color;
+        border: 1px solid $grey-color;
         border-radius: 1rem;
         padding: .25rem .75rem;
         margin-bottom: 1rem;
+        
+        i {
+          color: $grey-color;
+        }
 
         input {
           display: block;
@@ -93,22 +99,22 @@
 
           input {
             appearance: none;
-            width: 1.15rem;
-            height: 1.15rem;
-            border: 1px solid #828282;
+            width: 1rem;
+            height: 1rem;
+            border: 1px solid $grey-color;
             border-radius: .25rem;
             position: relative;
 
             &:checked {
-              background-color: #622dbd;
+              background-color: $primary-color;
             }
 
             &::after {
               content: "✔";
               color: #fff;
               position: absolute;
-              top: -5%;
-              right: 14%;
+              top: -15%;
+              right: 15%;
               font-weight: 600;
             }
           }
@@ -119,7 +125,7 @@
       button {
         width: 100%;
         margin: 1rem 0;
-        background-color: #622dbd;
+        background-color: $primary-color;
         border: none;
         padding: .5rem;
         border-radius: 1rem;
@@ -130,7 +136,7 @@
         transition: .5s;
 
         &:hover {
-          box-shadow: 0 0 20px #622dbd;
+          box-shadow: 0 0 20px $primary-color;
           transform: scale(1.03);
         }
       }
@@ -138,7 +144,7 @@
 
     a {
       font-weight: 700;
-      color: #622dbd;
+      color: $primary-color;
     }
   }
 }
