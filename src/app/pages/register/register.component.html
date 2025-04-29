@@ -9,6 +9,18 @@
             </div>
             <p>Seja Bem-Vindo(a). Faça seu Registro para Acessar!</p>
             <form [formGroup]="registerForm" (ngSubmit)="register(registerForm)">
+
+                <div class="input-name">
+                    <div class="input-group half">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" formControlName="firstName" placeholder="Nome">
+                    </div>
+                    
+                    <div class="input-group half">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" formControlName="lastName" placeholder="Sobrenome">
+                    </div>
+                </div>
     
                 <div class="input-group">
                     <i class="fa-solid fa-envelope"></i>

@@ -57,12 +57,20 @@
     }
 
     form {
-      width: 22rem;
+      width: 25rem;
+
+      .input-name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+      }
 
       .input-group {
         @include input-group();
         margin-bottom: 1rem;
       }
+
 
       button {
         width: 100%;
