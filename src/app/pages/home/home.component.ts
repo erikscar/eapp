@@ -2,17 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 
 export class HomeComponent implements OnInit {
-  users: any[] = [];
+  user: any = {};
 
   constructor(private userService: UserService) { }
 
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
      this.userService.getUser().subscribe({
        next: (res) => {
          console.log(res);
-         this.users = res;
+         this.user = res;
        },
        error: (err) => {
          console.log(err)

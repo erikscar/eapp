@@ -33,7 +33,10 @@
 
             <div class="user-cart-group">
                 <i class="fa-solid fa-user"></i>
-                <p>Erik Scarcela Araujo</p>
+                <a routerLink="/" *ngIf="!user.firstName || !user.lastName; else fullName">Fazer Login / Registrar-se</a>
+                <ng-template #fullName>
+                    <a>{{ user.firstName + " " + user.lastName }}</a>
+                </ng-template>
             </div>
             <div class="user-cart-group">
                 <i class="fa-solid fa-cart-shopping"></i>

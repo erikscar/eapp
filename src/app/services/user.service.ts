@@ -22,8 +22,9 @@ export class UserService {
   getUser(): Observable<any> {
     const token = localStorage.getItem('token')
     console.log("Token Enviado: ", token);
+
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    return this.http.get(`${this.apiUrl}`, { headers });
+    return this.http.get(`${this.apiUrl}/profile`, { headers });
   }
 }
