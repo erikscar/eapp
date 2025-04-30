@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
+import User from '../../interfaces/User';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +12,14 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 })
 
 export class HomeComponent implements OnInit {
-  user: any = {};
+  user: User = {
+    id: 0,
+    firstName: '',
+    lastName: '',
+    email: '',
+    createdAt: ''
+  };
+  
 
   constructor(private userService: UserService) { }
 

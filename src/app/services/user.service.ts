@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
+import User from '../interfaces/User';
 
 @Injectable({
   providedIn: 'root',
@@ -19,12 +20,10 @@ export class UserService {
     return this.http.post(`${this.apiUrl}/login`, data);
   }
 
-  getUser(): Observable<any> {
+  getUser(): Observable<User> {
     const token = localStorage.getItem('token')
-    console.log("Token Enviado: ", token);
-
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    return this.http.get(`${this.apiUrl}/profile`, { headers });
+    return this.http.get<User>(`${this.apiUrl}/profile`, { headers });
   }
 }
