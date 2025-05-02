@@ -11,7 +11,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem 2rem;
+        padding: 1.25rem 4rem;
         background-color: $primary-color;
         border-radius: 1rem;
 
@@ -138,7 +138,7 @@
             background-color: #e9e8e8;
         }
 
-        form {
+        .update-form-inputs {
             display: grid;
             gap: 1.5rem;
             grid-template-columns: repeat(3, 1fr);

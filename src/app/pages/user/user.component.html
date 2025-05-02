@@ -24,40 +24,40 @@
         </div>
     </div>
 
-    <div class="personal-info">
+    <form [formGroup]="updateForm" class="personal-info" (ngSubmit)="updateUser(updateForm)">
         <div class="personal-title-wrapper">
             <h2>Infomações Pessoais</h2>
-            <button>Salvar Alterações <i class="fa-solid fa-pen"></i></button>
+            <button type="submit" [disabled]="updateForm.errors?.['missmatch'] && updateForm.touched">Salvar Alterações <i class="fa-solid fa-pen"></i></button>
         </div>
         <div class="bar"></div>
 
-        <form action="">
+        <div class="update-form-inputs">
             <div class="input-label-group">
                 <label for="">Nome <i class="fa-solid fa-pen"></i></label>
-                <input type="text" [value]="user.firstName">
+                <input type="text" formControlName="firstName">
             </div>
             <div class="input-label-group">
                 <label for="">Sobrenome <i class="fa-solid fa-pen"></i></label>
-                <input type="text" [value]="user.lastName">
+                <input type="text"  formControlName="lastName">
             </div>
             <div class="input-label-group">
                 <label for="">Email <i class="fa-solid fa-pen"></i></label>
-                <input type="text" [value]="user.email">
+                <input type="text"  formControlName="email">
             </div>
             <div class="input-label-group">
                 <label for="">Telefone <i class="fa-solid fa-pen"></i></label>
-                <input type="text" [value]="'321312321'">
+                <input type="text" formControlName="phone">
             </div>
             <div class="input-label-group">
                 <label for="">Senha <i class="fa-solid fa-pen"></i></label>
-                <input type="text" value="•••••••••••••">
+                <input type="text" formControlName="passwordHash">
             </div>
             <div class="input-label-group">
                 <label for="">Confirme sua Senha <i class="fa-solid fa-pen"></i></label>
-                <input type="text" value="•••••••••••••">
+                <input type="text" formControlName="confirmPassword">
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
 
     <div class="address">
         <div class="personal-title-wrapper">
