@@ -15,10 +15,13 @@ export class UserComponent implements OnInit {
     firstName: '',
     lastName: '',
     email: '',
-    createdAt: ''
+    createdAt: '',
+    gender: '',
+    profileImageUrl: ''
   }
 
   dateOptions: Intl.DateTimeFormatOptions = {
+    weekday: 'long',
     year: 'numeric',
     month: 'long',
     day: 'numeric'

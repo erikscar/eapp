@@ -17,7 +17,9 @@ export class HomeComponent implements OnInit {
     firstName: '',
     lastName: '',
     email: '',
-    createdAt: ''
+    createdAt: '',
+    gender: '',
+    profileImageUrl: ''
   };
   
 

@@ -1,80 +1,84 @@
 <div class="user-container-wrapper">
     <div class="user-page-header">
-        <div class="user-greeting">
-            <h1>Bem vindo(a), {{ user.firstName }}</h1>
-            <p>{{ currentDate }}</p>
+        <div class="input-group">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Procure por Produtos, Eletrônicos e Muito Mais...">
         </div>
-        <div class="user-actions">
-            <div class="input-group">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Procure por Produtos, Eletrônicos e Muito Mais...">
+        <p>{{ currentDate }}</p>
+    </div>
+
+    <div class="user-title">
+        <h1>Meu Perfil</h1>
+        <div class="bar"></div>
+    </div>
+
+    <div class="user-info">
+        <img src="/me.jpeg" alt="">
+        <div class="user-info-wrapper">
+            <div class="user-info-title">
+                <h2>{{ user.firstName + " " + user.lastName }}</h2>
+                <a routerLink="/home">Voltar <i class="fa-solid fa-right-from-bracket"></i></a>
             </div>
-            <img src="/me.jpeg" alt="">
+            <p>Usuário</p>
+            <p>Vila Gilda, Rua Rui Barbosa, Brasil</p>
         </div>
     </div>
 
-    <div class="user-container">
-        <div class="gradient-bar"></div>
-
-        <div class="user-info-wrapper">
-            <div class="user-info">
-                <img src="/me.jpeg" alt="">
-                <div>
-                    <h1>{{ user.firstName + " " + user.lastName }}</h1>
-                    <p>{{ user.email }}</p>
-                </div>
-            </div>
-
-            <button>Editar</button>
+    <div class="personal-info">
+        <div class="personal-title-wrapper">
+            <h2>Infomações Pessoais</h2>
+            <button>Salvar Alterações <i class="fa-solid fa-pen"></i></button>
         </div>
+        <div class="bar"></div>
 
-        <form>
-            <div class="input-group">
-                <label for="">Nome</label>
-                <input type="text" placeholder="Seu Nome...">
+        <form action="">
+            <div class="input-label-group">
+                <label for="">Nome <i class="fa-solid fa-pen"></i></label>
+                <input type="text" [value]="user.firstName">
             </div>
-
-            <div class="input-group">
-                <label for="">Sobrenome</label>
-                <input type="text" placeholder="Seu Nome...">
+            <div class="input-label-group">
+                <label for="">Sobrenome <i class="fa-solid fa-pen"></i></label>
+                <input type="text" [value]="user.lastName">
             </div>
-
-            <div class="input-group">
-                <label for="">Genêro</label>
-                <input type="text" placeholder="Seu Nome...">
+            <div class="input-label-group">
+                <label for="">Email <i class="fa-solid fa-pen"></i></label>
+                <input type="text" [value]="user.email">
             </div>
-
-            <div class="input-group">
-                <label for="">Email</label>
-                <input type="text" placeholder="Seu Nome...">
+            <div class="input-label-group">
+                <label for="">Telefone <i class="fa-solid fa-pen"></i></label>
+                <input type="text" [value]="'321312321'">
             </div>
-            
-            <div class="input-group">
-                <label for="">Alterar Senha</label>
-                <input type="password" placeholder="Seu Nome...">
+            <div class="input-label-group">
+                <label for="">Senha <i class="fa-solid fa-pen"></i></label>
+                <input type="text" value="•••••••••••••">
             </div>
-
-            <div class="input-group">
-                <label for="">Confirme sua Senha</label>
-                <input type="password" placeholder="Seu Nome...">
+            <div class="input-label-group">
+                <label for="">Confirme sua Senha <i class="fa-solid fa-pen"></i></label>
+                <input type="text" value="•••••••••••••">
             </div>
         </form>
+    </div>
 
-        <p class="address-title">Meus Endereços de Entrega: </p>
-
-        <div class="address">
-            <div class="icon-wrapper">
-                <i class="fa-solid fa-location-dot"></i>
-            </div>
-            <div class="address-info">
-                <p class="main-address">Rua Rui Barbosa</p>
-                <p class="last-update">Última Atualização: 10 de Junho de 2024</p>
-            </div>
+    <div class="address">
+        <div class="personal-title-wrapper">
+            <h2>Endereço <i class="fa-solid fa-location-dot"></i></h2>
+            <button>Salvar Alterações <i class="fa-solid fa-pen"></i></button>
         </div>
+        <div class="bar"></div>
 
-        <div class="user-btns">
-            <button class="add-address-btn">+ Adicionar Endereço</button>
-            <a routerLink="/home"><i class="fa-solid fa-door-open"></i>Voltar</a>
-        </div>
+        <form action="">
+            <div class="input-label-group">
+                <label for="teste">Logradouro <i class="fa-solid fa-pen"></i></label>
+                <input type="text" value="Rua Rui Barbosa" id="teste">
+            </div>
+            <div class="input-label-group">
+                <label for="">País <i class="fa-solid fa-pen"></i></label>
+                <input type="text" value="Brasil">
+            </div>
+            <div class="input-label-group">
+                <label for="">Última Atualização</label>
+                <input type="text" value="10 de Junho de 2024" disabled>
+            </div>
+        </form>
     </div>
 </div>

@@ -7,94 +7,110 @@
     padding: 1rem 9rem;
     background-color: #f5f5f5;
 
-    .user-page-header{
+    .user-page-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin: 1rem 0;
-
-        .user-greeting {
-            h1 {
-                font-size: 26px;
-            }
-
-            p {
-                margin-top: .5rem;
-                color: $grey-color;
-                font-weight: 600;
-            }
-        }
-        .user-actions {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 3rem;
-
-            .input-group {
-                @include input-group();
-                background-color: $secondary-color;
-                width: 35rem;
-                padding: .5rem .75rem;
-                border: 0;
-
-                i {
-                    color: $primary-color
-                }
-
-                input {
-                    background-color: $secondary-color;
-                }
-
-            }
-
-            img {
-                width: 4rem;
-                height: 4rem;
-                border-radius: 1rem;
-            }
-        }
-       
-
-
-
-    }
-    .user-container {
-        width: 100%;
-        height: 90vh;
-        background-color: #fff;
+        padding: 1rem 2rem;
+        background-color: $primary-color;
         border-radius: 1rem;
 
-        .gradient-bar {
-            width: 100%;
-            height: 6rem;
-            background: linear-gradient(to right, #582dbd, #c03fd1);
-            border-top-right-radius: 1rem;
-            border-top-left-radius: 1rem;
+        .input-group {
+            @include input-group();
+            width: 40rem;
+            background-color: #fff;
+        }
+
+        p {
+            color: #fff;
+            font-weight: 700;
+            font-size: 18px;
+        }
+    }
+
+    .user-title {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 1rem 0;
+
+        h1 {
+            font-size: 28px;
+        }
+
+        .bar {
+            height: .05rem;
+            width: 89%;
+            background-color: #c0bebe;
+        }
+    }
+
+    .user-info {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        background-color: #fff;
+        padding: 1.5rem 4rem;
+        border-radius: 1rem;
+
+        img {
+            width: 8rem;
+            height: 8rem;
+            border-radius: 100%;
         }
 
         .user-info-wrapper {
             display: flex;
+            flex-direction: column;
+            gap: .25rem;
+            width: 90%;
+
+            .user-info-title {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                
+                h2 {
+                    color: $primary-color;
+                }
+
+                a {
+                    color: $primary-color;
+                    font-weight: 700;
+
+                    i {
+                        color: $primary-color;
+                        margin-left: .25rem;
+                    }
+                }
+            }
+          
+            p {
+                font-weight: 700;
+            }
+        }
+    }
+
+    .personal-info {
+        background-color: #fff;
+        padding: 1.25rem 4rem;
+        margin: 1rem 0;
+        border-radius: 1rem;
+
+        .personal-title-wrapper {
+            display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 2rem 4rem;
 
-            .user-info {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 1rem;
-
-                img {
-                    width: 7rem;
-                    height: 7rem;
-                    border-radius: 100%;
-                }
+            h2 {
+                color: $primary-color;
             }
 
             button {
+                margin: 1rem 0;
                 background-color: $primary-color;
                 border: none;
-                padding: .5rem 2rem;
+                padding: .5rem 1.25rem;
                 border-radius: .5rem;
                 color: #fff;
                 font-size: 16px;
@@ -106,115 +122,158 @@
                     box-shadow: 0 0 20px $primary-color;
                     transform: scale(1.03);
                 }
+
+                i {
+                    color: #fff;
+                    font-size: 14px;
+                    margin-left: .25rem;
+                }
             }
         }
 
-        form {
-            padding: 0 4rem;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+        .bar {
+            height: .05rem;
+            width: 100%;
+            margin: 1rem 0;
+            background-color: #e9e8e8;
+        }
 
-            .input-group {
+        form {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            margin-bottom: 1rem;
+
+            .input-label-group {
                 display: flex;
                 flex-direction: column;
 
-                label {
-                    margin-bottom: .5rem;
+                input {
+                    border: 0;
+                    background-color: transparent;
+                    font-size: 18px;
                     font-weight: 700;
+                    margin-top: .5rem;
+                    outline: 0;
+                    transition: 1s;
+
+                    &:focus {
+                        border-bottom: 1px solid #686767;
+                    }
                 }
 
-                input {
-                    background-color: $secondary-color;
-                    border: 0;
-                    padding: 1rem 1.25rem;
-                    border-radius: .5rem;
+                label {
+                    color: #858383;
 
-                    &::placeholder {
-                        font-weight: 700;
+                    i {
+                        font-size: 12px;
+                        margin-left: .5rem;
                     }
                 }
             }
         }
 
-        .address-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: $primary-color;
-            margin-top: 2rem;
-            padding: 0 4rem;
-        }
+    }
 
-        .address {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 0 4rem;
-            margin-top: 1rem;
+    .address {
+        background-color: #fff;
+        padding: 1.25rem 4rem;
+        margin: 1rem 0;
+        border-radius: 1rem;
 
-            .icon-wrapper {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 3rem;
-                width: 3rem;
-                border-radius: 100%;
-                background-color: $secondary-color;
-
-                i {
-                    font-size: 20px;
-                    color: $primary-color;
-                }
-            }
-
-            .address-info {
-
-                .main-address {
-                    font-weight: 700;
-                }
-
-                .last-update {
-                    color: $grey-color;
-                }
-            }
-        }
-
-        .user-btns {
+        .personal-title-wrapper {
             display: flex;
             justify-content: space-between;
-            margin: 2rem 4rem;
+            align-items: center;
 
-            .add-address-btn {
+            h2 {
+                color: $primary-color;
+
+                i {
+                    color: $primary-color;
+                    font-size: 18px;
+                }
+            }
+
+            button {
+                margin: 1rem 0;
                 background-color: $secondary-color;
-                border: none;
-                padding: .5rem 2rem;
+                border: 1px solid $primary-color;
+                padding: .5rem 1.25rem;
                 border-radius: .5rem;
                 color: $primary-color;
                 font-size: 16px;
                 font-weight: 700;
                 cursor: pointer;
                 transition: .5s;
-                
+
                 &:hover {
                     box-shadow: 0 0 20px $primary-color;
                     transform: scale(1.03);
                 }
-            }
-
-            a {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: .5rem;
-                color: $primary-color;
-                font-size: 18px;
 
                 i {
                     color: $primary-color;
+                    font-size: 14px;
+                    margin-left: .25rem;
                 }
             }
         }
 
+        .bar {
+            height: .05rem;
+            width: 100%;
+            margin: 1rem 0;
+            background-color: #e9e8e8;
+        }
+
+        form {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            margin-bottom: 1rem;
+
+            .input-label-group {
+                display: flex;
+                flex-direction: column;
+
+                input {
+                    border: 0;
+                    background-color: transparent;
+                    font-size: 18px;
+                    font-weight: 700;
+                    margin-top: .5rem;
+                    outline: 0;
+
+                    &:focus {
+                        border-bottom: 1px solid #686767;
+                    }
+                }
+
+                label {
+                    color: #858383;
+
+                    i {
+                        font-size: 12px;
+                        margin-left: .5rem;
+                    }
+                }
+            }
+        }
 
     }
+    .home-btn-wrapper {
+        display: flex;
+        justify-self: flex-end;
+        align-self: flex-end;
+        margin-right: 2rem;
+
+        a {
+            display: flex;
+            gap: .5rem;
+            font-size: 18px;
+            margin: .5rem 0;
+        }
+    }
+    
 }
