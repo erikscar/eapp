@@ -40,8 +40,8 @@ export class UserComponent implements OnInit {
       lastName: new FormControl(''),
       email: new FormControl(''),
       phone: new FormControl(''),
-      passwordHash: new FormControl('••••••'),
-      confirmPassword: new FormControl('••••••'),
+      passwordHash: new FormControl('', [Validators.required]),
+      confirmPassword: new FormControl('', [Validators.required]),
     }, { validators: this.passwordMismatchValidator });
 
     this.userService.getUser().subscribe({
