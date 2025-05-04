@@ -33,7 +33,8 @@
 
             <div class="user-cart-group">
                 <i class="fa-solid fa-user"></i>
-                <a routerLink="/" *ngIf="!user.firstName || !user.lastName; else fullName">Fazer Login / Registrar-se</a>
+                <a routerLink="/" *ngIf="!user.firstName || !user.lastName; else fullName">Fazer Login /
+                    Registrar-se</a>
                 <ng-template #fullName>
                     <a routerLink="/user">{{ user.firstName + " " + user.lastName }}</a>
                 </ng-template>
@@ -86,12 +87,21 @@
         <div class="qrcode-wrapper">
             <img src="/qrcode.png" class="qrcode-img">
             <div class="footer-btns-wrapper">
-                <button>
-                    <img src="/google-btn.png" alt="">
-                </button>
-                <button>
-                   <img src="/applestore-btn.png" alt="">
-                </button>
+                <div class="download-btns">
+                    <img src="/googleplay.png" alt="">
+                    <div class="btn-text">
+                        <p class="get-it">GET IT ON</p>
+                        <p class="brand-name">Google Play</p>
+                    </div>
+                </div>
+
+                <div class="download-btns">
+                    <img src="/apple.png" alt="">
+                    <div class="btn-text">
+                        <p class="get-it">Donwload on the</p>
+                        <p class="brand-name">Apple Store</p>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="social-links">

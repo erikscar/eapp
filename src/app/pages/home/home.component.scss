@@ -155,8 +155,8 @@ footer {
         }
 
         .qrcode-img {
-            width: 4rem;
-            height: 4rem;
+            width: 5rem;
+            height: 5rem;
         }
 
         .qrcode-wrapper {
@@ -167,7 +167,33 @@ footer {
             .footer-btns-wrapper {
                 display: flex;
                 flex-direction: column;
-                gap: .5rem;}
+                gap: .5rem;
+                
+                .download-btns {
+                    display: flex;
+                    align-items: center;
+                    gap: .5rem;
+                    border: 1px solid #fff;
+                    padding: .15rem .9rem;
+                    border-radius: .5rem;
+                    img {
+                        width: 1.15rem;
+                    }
+
+                    .btn-text {
+
+                        .get-it {
+                            font-size: 10px;
+                        }
+
+                        .brand-name {
+                            font-weight: 600;
+                            font-size: 11px;
+                        }
+                    }
+                }
+
+            }
             }
         }
 
