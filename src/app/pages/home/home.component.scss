@@ -104,7 +104,7 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
 
     .section-bar {
       background-color: $primary-color;
@@ -127,6 +127,7 @@
     h3 {
       font-size: 30px;
       font-weight: 600;
+      margin-bottom: 1rem;
     }
 
     .carrousel-switcher {
@@ -147,8 +148,25 @@
 
         i {
           font-size: 20px;
+          color: #000;
         }
       }
+    }
+
+    button {
+        border: 0;
+        border-radius: .25rem;
+        font-size: 16px;
+        padding: 1rem 1.75rem;
+        color: #fff;
+        background-color: $primary-color;
+        transition: 1s;
+        cursor: pointer;
+
+        &:hover {
+            box-shadow: 0 0 20px $primary-color;
+            transform: scale(1.03);
+          }
     }
   }
 
@@ -164,8 +182,46 @@
         .product-img-wrapper {
             background-color: #f5f5f5;
             border-radius: .5rem;
+            position: relative;
+
             img {
                 width: 100%;
+            }
+            .product-offer {
+                position: absolute;
+                top: .75rem;
+                left: .75rem;
+                background-color: #db4444;
+                color: #fff;
+                padding: .25rem .55rem;
+                border-radius: .5rem;
+                font-size: 14px;
+            }
+
+            .product-actions {
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+                padding: .5rem;
+                position: absolute;
+                top: 5px;
+                right: 0;
+
+                i {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 20px;
+                    background-color: #fff;
+                    padding: .5rem;
+                    transition: 1s;
+                    cursor: pointer;
+                    border-radius: 100%;
+
+                    &:hover {
+                        transform: scale(1.01);
+                    }
+                }
             }
         }
         h3 {
@@ -185,10 +241,34 @@
             gap: 1rem;
 
             i {
-                color: yellow;
+                color: rgb(255, 0, 0);
+            }
+            p {
+                color: $grey-color;
             }
         }
 
+    }
+  }
+
+  .viewall-products-btn {
+    margin: 2rem auto;
+    text-align: center;
+
+    button {
+        border: 0;
+        border-radius: .5rem;
+        font-size: 16px;
+        padding: 1rem 1.75rem;
+        color: #fff;
+        background-color: $primary-color;
+        transition: 1s;
+        cursor: pointer;
+
+        &:hover {
+            box-shadow: 0 0 20px $primary-color;
+            transform: scale(1.03);
+          }
     }
   }
 
