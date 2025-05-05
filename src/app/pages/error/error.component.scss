@@ -1,0 +1,244 @@
+@use "../../../scss/variables.scss" as *;
+@use "../../../scss/mixins.scss" as *;
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 8rem;
+    background-color: #f5f5f5;
+  
+    .top-bar-desc {
+      font-weight: 700;
+      color: $grey-color;
+    }
+  
+    .top-links-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+  
+      .top-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0 0.75rem;
+  
+        p,
+        i {
+          color: $primary-color;
+        }
+      }
+  
+      .top-links:nth-child(2) {
+        border-left: 1px solid $grey-color;
+        border-right: 1px solid $grey-color;
+        padding: 0 1.25rem;
+      }
+    }
+  }
+  
+  .error-container {
+    padding: 0 8rem;   
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid $light-grey-color;
+  
+      .logo-wrapper {
+        @include logo-wrapper();
+  
+        img {
+          height: 4rem;
+          width: 4.5rem;
+        }
+  
+        h1 {
+          font-size: 56px;
+        }
+      }
+  
+      .header-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        font-weight: 700;
+  
+        .input-group {
+          @include input-group();
+          background-color: $secondary-color;
+          width: 40rem;
+          padding: 0.5rem 0.75rem;
+          border: 0;
+  
+          i {
+            color: $primary-color;
+          }
+  
+          input {
+            background-color: $secondary-color;
+          }
+        }
+  
+        .user-cart-group {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.5rem;
+          border-right: 1px solid $light-grey-color;
+          padding-right: 1rem;
+  
+          i {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+
+   .error-info {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem 0 4rem 0;
+
+    h1 {
+        font-size: 120px;
+        font-weight: 600;
+    }
+
+    p {
+        font-size: 20px;
+    }
+
+    a {
+        border: 0;
+        border-radius: .25rem;
+        font-size: 16px;
+        padding: 1rem 1.75rem;
+        margin-top: 2rem;
+        color: #fff;
+        background-color: $primary-color;
+        transition: 1s;
+        cursor: pointer;
+
+        &:hover {
+            box-shadow: 0 0 20px $primary-color;
+            transform: scale(1.03);
+          }
+    }
+   }
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: #000;
+    color: #fff;
+    font-weight: 300;
+    padding: 2rem;
+  
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.9rem;
+  
+      h3,
+      h2 {
+        margin-bottom: 0.25rem;
+      }
+  
+      h3 {
+        font-weight: 500;
+      }
+  
+      .subscribe {
+        font-weight: 700;
+      }
+  
+      .footer-input {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem 1rem;
+        border: 1px solid #fff;
+        border-radius: 0.25rem;
+  
+        input {
+          background-color: transparent;
+          border: none;
+          outline: none;
+          color: #fff;
+  
+          &::placeholder {
+            font-size: 14px;
+            font-weight: 600;
+          }
+        }
+      }
+  
+      .qrcode-img {
+        width: 5rem;
+        height: 5rem;
+      }
+  
+      .qrcode-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+  
+        .footer-btns-wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+  
+          .download-btns {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid #fff;
+            padding: 0.15rem 0.9rem;
+            border-radius: 0.5rem;
+            img {
+              width: 1.15rem;
+            }
+  
+            .btn-text {
+              .get-it {
+                font-size: 10px;
+              }
+  
+              .brand-name {
+                font-weight: 600;
+                font-size: 11px;
+              }
+            }
+          }
+        }
+      }
+    }
+  
+    .new-user-offer {
+      font-size: 14px;
+      color: $grey-color;
+    }
+  
+    .social-links {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      margin: 1rem 0;
+  
+      i {
+        font-size: 22px;
+      }
+    }
+  }
+  
