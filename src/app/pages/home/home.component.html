@@ -1,114 +1,215 @@
 <div class="top-bar">
-    <p class="top-bar-desc">Bem Vindo(a) ao eApp o Melhor dos Marketplace!</p>
+  <p class="top-bar-desc">Bem Vindo(a) ao eApp o Melhor dos Marketplace!</p>
 
-    <div class="top-links-wrapper">
-        <div class="top-links">
-            <i class="fa-solid fa-location-dot"></i>
-            <p>Entregar para: 09190-370</p>
-        </div>
-        <div class="top-links">
-            <i class="fa-solid fa-truck"></i>
-            <p>Rastreie seu Pedido</p>
-        </div>
-        <div class="top-links">
-            <i class="fa-solid fa-tag"></i>
-            <p>Ver Ofertas</p>
-        </div>
+  <div class="top-links-wrapper">
+    <div class="top-links">
+      <i class="fa-solid fa-location-dot"></i>
+      <p>Entregar para: 09190-370</p>
     </div>
+    <div class="top-links">
+      <i class="fa-solid fa-truck"></i>
+      <p>Rastreie seu Pedido</p>
+    </div>
+    <div class="top-links">
+      <i class="fa-solid fa-tag"></i>
+      <p>Ver Ofertas</p>
+    </div>
+  </div>
 </div>
 
 <div class="home-container">
-    <header>
-        <div class="logo-wrapper">
-            <img src="/logo.png" alt="logo-image">
-            <h1>Eapp</h1>
-        </div>
-
-        <div class="header-actions">
-
-            <div class="input-group">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Procure por Produtos, Eletrônicos e Muito Mais...">
-            </div>
-
-            <div class="user-cart-group">
-                <i class="fa-solid fa-user"></i>
-                <a routerLink="/" *ngIf="!user.firstName || !user.lastName; else fullName">Fazer Login /
-                    Registrar-se</a>
-                <ng-template #fullName>
-                    <a routerLink="/user">{{ user.firstName + " " + user.lastName }}</a>
-                </ng-template>
-            </div>
-            <div class="user-cart-group">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <p>Carrinho</p>
-            </div>
-        </div>
-    </header>
-</div>
-
-<footer>
-    <div class="footer-links">
-        <h2>Eapp</h2>
-        <p class="subscribe">Inscreva-se</p>
-        <p>Adquira 10% OFF em Compras</p>
-        <div class="footer-input">
-            <input type="text" placeholder="Insira seu Email">
-            <i class="fa-regular fa-paper-plane"></i>
-        </div>
+  <header>
+    <div class="logo-wrapper">
+      <img src="/logo.png" alt="logo-image" />
+      <h1>Eapp</h1>
     </div>
 
-    <div class="footer-links">
-        <h3>Endereço</h3>
-        <p>Rua Rui Barbosa 377 Santo André, São Paulo</p>
-        <p>erikscarcela&#64;gmail.com</p>
-        <p>+55 (11) 94008-0990</p>
-    </div>
+    <div class="header-actions">
+      <div class="input-group">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input
+          type="text"
+          placeholder="Procure por Produtos, Eletrônicos e Muito Mais..."
+        />
+      </div>
 
-    <div class="footer-links">
-        <h3>Conta</h3>
-        <p>Minha Conta</p>
-        <p>Login / Registro</p>
+      <div class="user-cart-group">
+        <i class="fa-solid fa-user"></i>
+        <a
+          routerLink="/"
+          *ngIf="!user.firstName || !user.lastName; else fullName"
+          >Fazer Login / Registrar-se</a
+        >
+        <ng-template #fullName>
+          <a routerLink="/user">{{ user.firstName + " " + user.lastName }}</a>
+        </ng-template>
+      </div>
+      <div class="user-cart-group">
+        <i class="fa-solid fa-cart-shopping"></i>
         <p>Carrinho</p>
-        <p>Favoritos</p>
+      </div>
     </div>
+  </header>
 
-    <div class="footer-links">
-        <h3>Links Rápidos</h3>
-        <p>Política de Privacidade</p>
-        <p>Termos de Uso</p>
-        <p>FAQ</p>
-        <p>Contato</p>
+  <div class="section-title">
+    <div class="section-bar"></div>
+    <h2 class="section-title">Hoje</h2>
+  </div>
+  <div class="searchfor-wrapper">
+    <h3>Ofertas de Hoje</h3>
+    <div class="carrousel-switcher">
+      <button><i class="fa-solid fa-arrow-left"></i></button>
+      <button><i class="fa-solid fa-arrow-right"></i></button>
     </div>
+  </div>
 
-    <div class="footer-links">
-        <h3>Baixe o APP</h3>
-        <p class="new-user-offer">Usuário Novos Ganham R$10,00.</p>
-        <div class="qrcode-wrapper">
-            <img src="/qrcode.png" class="qrcode-img">
-            <div class="footer-btns-wrapper">
-                <div class="download-btns">
-                    <img src="/googleplay.png" alt="">
-                    <div class="btn-text">
-                        <p class="get-it">GET IT ON</p>
-                        <p class="brand-name">Google Play</p>
-                    </div>
-                </div>
-
-                <div class="download-btns">
-                    <img src="/apple.png" alt="">
-                    <div class="btn-text">
-                        <p class="get-it">Donwload on the</p>
-                        <p class="brand-name">Apple Store</p>
-                    </div>
-                </div>
+  <div class="products-container">
+    <div class="product-card">
+        <div class="product-img-wrapper"><img src="ps5-controller.png" alt=""></div>
+        <h3>Controle DualSense PS5</h3>
+        <p class="price">R$100,00</p>
+        <div class="stars-container">
+            <div>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
             </div>
-        </div>
-        <div class="social-links">
-            <i class="fa-brands fa-facebook-f"></i>
-            <i class="fa-brands fa-github"></i>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-linkedin-in"></i>
+            <p>(44)</p>
         </div>
     </div>
-</footer>
+  </div>
+
+  <div class="section-title">
+    <div class="section-bar"></div>
+    <h2 class="section-title">Categorias</h2>
+  </div>
+  <div class="searchfor-wrapper">
+    <h3>Busque por Categorias</h3>
+    <div class="carrousel-switcher">
+      <button><i class="fa-solid fa-arrow-left"></i></button>
+      <button><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+  </div>
+
+  <div class="categories-container">
+    <div>
+        <div class="category-img-wrapper">
+          <img src="/category-icons/car.png" alt="" />
+        </div>
+        <p class="category-title">AUTOMÓVEIS</p>
+    </div>
+
+    <div>
+        <div class="category-img-wrapper">
+          <img src="/category-icons/dress.png" alt="" />
+        </div>
+        <p class="category-title">ROUPAS</p>
+    </div>
+
+      <div>
+          <div class="category-img-wrapper">
+            <img src="/category-icons/smartphone.png" alt="" />
+          </div>
+          <p class="category-title">TELEFONES</p>
+      </div>
+
+      
+      <div>
+          <div class="category-img-wrapper">
+            <img src="/category-icons/toys.png" alt="" />
+          </div>
+          <p class="category-title">BRINQUEDOS</p>
+      </div>
+
+      <div>
+          <div class="category-img-wrapper">
+            <img src="/category-icons/tv.png" alt="" />
+          </div>
+          <p class="category-title">TELEVISÕES</p>
+      </div>
+
+      <div>
+        <div class="category-img-wrapper">
+          <img src="/category-icons/headphones.png" alt="" />
+        </div>
+        <p class="category-title">HEADPHONES</p>
+    </div>
+
+    <div>
+        <div class="category-img-wrapper">
+          <img src="/category-icons/sports.png" alt="" />
+        </div>
+        <p class="category-title">ESPORTES</p>
+    </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <h2>Eapp</h2>
+      <p class="subscribe">Inscreva-se</p>
+      <p>Adquira 10% OFF em Compras</p>
+      <div class="footer-input">
+        <input type="text" placeholder="Insira seu Email" />
+        <i class="fa-regular fa-paper-plane"></i>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <h3>Endereço</h3>
+      <p>Rua Rui Barbosa 377 Santo André, São Paulo</p>
+      <p>erikscarcela&#64;gmail.com</p>
+      <p>+55 (11) 94008-0990</p>
+    </div>
+
+    <div class="footer-links">
+      <h3>Conta</h3>
+      <p>Minha Conta</p>
+      <p>Login / Registro</p>
+      <p>Carrinho</p>
+      <p>Favoritos</p>
+    </div>
+
+    <div class="footer-links">
+      <h3>Links Rápidos</h3>
+      <p>Política de Privacidade</p>
+      <p>Termos de Uso</p>
+      <p>FAQ</p>
+      <p>Contato</p>
+    </div>
+
+    <div class="footer-links">
+      <h3>Baixe o APP</h3>
+      <p class="new-user-offer">Usuário Novos Ganham R$10,00.</p>
+      <div class="qrcode-wrapper">
+        <img src="/qrcode.png" class="qrcode-img" />
+        <div class="footer-btns-wrapper">
+          <div class="download-btns">
+            <img src="/googleplay.png" alt="" />
+            <div class="btn-text">
+              <p class="get-it">GET IT ON</p>
+              <p class="brand-name">Google Play</p>
+            </div>
+          </div>
+
+          <div class="download-btns">
+            <img src="/apple.png" alt="" />
+            <div class="btn-text">
+              <p class="get-it">Donwload on the</p>
+              <p class="brand-name">Apple Store</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="social-links">
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-github"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-linkedin-in"></i>
+      </div>
+    </div>
+  </footer>
+
