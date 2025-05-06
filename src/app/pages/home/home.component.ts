@@ -3,6 +3,7 @@ import { UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import User from '../../interfaces/User';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-home',
@@ -21,9 +22,11 @@ export class HomeComponent implements OnInit {
     phone: '',
     profileImageUrl: ''
   };
+
+  products: any[] = [];
   
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private productService: ProductService) { }
 
   ngOnInit(): void {
      this.userService.getUser().subscribe({
@@ -35,6 +38,18 @@ export class HomeComponent implements OnInit {
          console.log(err)
        }
      })
+
+     this.productService.getProducts().subscribe({
+      next: (res) => {
+        console.log("Produtos: " + res);
+        this.products = res;
+      },
+      error: (err) => {
+        console.log(err)
+      },
+     })
   }
+
+
 
 }
