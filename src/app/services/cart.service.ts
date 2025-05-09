@@ -24,4 +24,11 @@ export class CartService {
     return this.http.post(`${this.apiUrl}/add`, productId, { headers })
   }
 
+  removeProductFromCart(productId: number): Observable<any> {
+    const token = localStorage.getItem("token");
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`)
+
+    return this.http.post(`${this.apiUrl}/remove`, productId, { headers })
+  }
+
 }
