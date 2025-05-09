@@ -46,7 +46,7 @@
       </div>
       <div class="user-cart-group">
         <i class="fa-solid fa-cart-shopping"></i>
-        <p>Carrinho</p>
+        <a routerLink="/cart">Carrinho</a>
       </div>
     </div>
   </header>
@@ -85,7 +85,7 @@
         </div>
         <p>({{ product.reviewsNumber}})</p>
       </div>
-      <button class="addcart-btn">Adicionar ao Carrinho</button>
+      <button class="addcart-btn" (click)="addProductTocart(product.id)">Adicionar ao Carrinho</button>
     </div>
   </div>
 

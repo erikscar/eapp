@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import User from '../../interfaces/User';
 import { ProductService } from '../../services/product.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-home',
@@ -26,7 +27,7 @@ export class HomeComponent implements OnInit {
   products: any[] = [];
   
 
-  constructor(private userService: UserService, private productService: ProductService) { }
+  constructor(private userService: UserService, private productService: ProductService, private cartService: CartService) { }
 
   ngOnInit(): void {
      this.userService.getUser().subscribe({
@@ -50,6 +51,15 @@ export class HomeComponent implements OnInit {
      })
   }
 
-
+  addProductTocart(productId: number): void{
+    this.cartService.addProductToCart(productId).subscribe({
+      next:(res) => {
+        console.log(res.message)
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    });
+  }
 
 }

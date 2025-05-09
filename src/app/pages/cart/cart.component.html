@@ -19,10 +19,10 @@
 
   <div class="cart-container">
       <header>
-        <div class="logo-wrapper">
+        <a routerLink="/home" class="logo-wrapper">
           <img src="/logo.png" alt="logo-image" />
           <h1>Eapp</h1>
-        </div>
+        </a>
         <div class="header-actions">
           <div class="input-group">
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -54,19 +54,19 @@
 
       <div class="products-cart-container-wrapper">
           <div class="products-cart-container">
-            <div class="product-cart-card">
+            <div class="product-cart-card" *ngFor="let productCart of cart.products">
                 <div class="img-wrapper">
                     <img src="/ps5-controller.png" alt="">
                 </div>
                 <div class="product-info">
                     <div class="title-wrapper">
-                        <h2>Controle DualSense PS5</h2>
+                        <h2>{{ productCart.name }}</h2>
                         <i class="fa-solid fa-trash"></i>
                     </div>
-                    <p>Descrição: Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim rerum mollitia laudantium nostrum perspiciatis soluta?</p>
+                    <p>{{ productCart.description }}</p>
                     <p>Cor: Branca</p>
                     <div class="price-wrapper">
-                        <p>R$100,00</p>
+                        <p>R${{productCart.price}}</p>
                         <div class="quantity-btns">
                             <button><i class="fa-solid fa-minus"></i></button>
                             <p>1</p>
@@ -76,47 +76,6 @@
                 </div>
             </div>
 
-            <div class="product-cart-card">
-                <div class="img-wrapper">
-                    <img src="/ps5-controller.png" alt="">
-                </div>
-                <div class="product-info">
-                    <div class="title-wrapper">
-                        <h2>Controle DualSense PS5</h2>
-                        <i class="fa-solid fa-trash"></i>
-                    </div>
-                    <p>Descrição: Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim rerum mollitia laudantium nostrum perspiciatis soluta?</p>
-                    <p>Cor: Branca</p>
-                    <div class="price-wrapper">
-                        <p>R$100,00</p>
-                        <div class="quantity-btns">
-                            <button><i class="fa-solid fa-minus"></i></button>
-                            <p>1</p>
-                            <button><i class="fa-solid fa-plus"></i></button>
-                       </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-cart-card">
-                <div class="img-wrapper">
-                    <img src="/ps5-controller.png" alt="">
-                </div>
-                <div class="product-info">
-                    <div class="title-wrapper">
-                        <h2>Controle DualSense PS5</h2>
-                        <i class="fa-solid fa-trash"></i>
-                    </div>
-                    <div class="price-wrapper">
-                        <p>R$100,00</p>
-                        <div class="quantity-btns">
-                            <button><i class="fa-solid fa-minus"></i></button>
-                            <p>1</p>
-                            <button><i class="fa-solid fa-plus"></i></button>
-                       </div>
-                    </div>
-                </div>
-            </div>
           </div>
 
           <div class="order-summary">
