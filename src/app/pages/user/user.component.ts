@@ -2,16 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import User from '../../interfaces/User';
 import { Router, RouterLink } from '@angular/router';
-import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  ValidationErrors,
+  Validators,
+} from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AddressService } from '../../services/address.service';
+import Address from '../../interfaces/Address';
 
 @Component({
   selector: 'app-user',
   imports: [RouterLink, ReactiveFormsModule, CommonModule],
   templateUrl: './user.component.html',
-  styleUrl: './user.component.scss'
+  styleUrl: './user.component.scss',
 })
-
 export class UserComponent implements OnInit {
   user: User = {
     id: 0,
@@ -20,66 +28,135 @@ export class UserComponent implements OnInit {
     email: '',
     createdAt: '',
     phone: '',
-    imageUrl: ''
-  }
+    imageUrl: '',
+    address: undefined
+  };
+
+  address: Address = {
+    id: 0,
+    street: '',
+    number: '',
+    complement: '',
+    neighborhood: '',
+    city: '',
+    postalCode: '',
+  };
 
   dateOptions: Intl.DateTimeFormatOptions = {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
   };
 
-  currentDate: string = new Date().toLocaleDateString('pt-BR', this.dateOptions)
+  currentDate: string = new Date().toLocaleDateString(
+    'pt-BR',
+    this.dateOptions
+  );
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private addressService: AddressService,
+    private router: Router
+  ) {}
   updateForm!: FormGroup;
+  updateAddressForm!: FormGroup;
 
   ngOnInit(): void {
-    this.updateForm = new FormGroup({
-      firstName: new FormControl(''),
-      lastName: new FormControl(''),
-      email: new FormControl(''),
-      phone: new FormControl(''),
-      imageUrl: new FormControl(''),
-      passwordHash: new FormControl('', [Validators.required]),
-      confirmPassword: new FormControl('', [Validators.required]),
-    }, { validators: this.passwordMismatchValidator });
+    this.updateForm = new FormGroup(
+      {
+        firstName: new FormControl(''),
+        lastName: new FormControl(''),
+        email: new FormControl(''),
+        phone: new FormControl(''),
+        imageUrl: new FormControl(''),
+        passwordHash: new FormControl('', [Validators.required]),
+        confirmPassword: new FormControl('', [Validators.required]),
+      },
+      { validators: this.passwordMismatchValidator }
+    );
+
+    this.updateAddressForm = new FormGroup({
+      street: new FormControl(''),
+      number: new FormControl(''),
+      complement: new FormControl(''),
+      neighborhood: new FormControl(''),
+      city: new FormControl(''),
+      postalCode: new FormControl(''),
+    });
 
     this.userService.getUser().subscribe({
       next: (res) => {
         this.user = res;
-        this.user.createdAt = new Date(this.user.createdAt).toLocaleDateString('pt-BR', this.dateOptions);
+        this.user.createdAt = new Date(this.user.createdAt).toLocaleDateString(
+          'pt-BR',
+          this.dateOptions
+        );
 
         this.updateForm.patchValue({
           firstName: this.user.firstName,
           lastName: this.user.lastName,
           email: this.user.email,
           phone: this.user.phone,
-          imageUrl: "",
-          passwordHash: "",
-          confirmPassword: "",
-        })
-      },
-      error: (err) => {
-        console.log(err)
-      },
-    })
-  }
-
-  updateUser(updateForm: FormGroup){
-    console.log(updateForm.value);
-    this.userService.updateUser(updateForm.value).subscribe({
-      next: () => {
-        this.router.navigate(["/home"])
+          imageUrl: '',
+          passwordHash: '',
+          confirmPassword: '',
+        });
       },
       error: (err) => {
         console.log(err);
       },
-    })
+    });
+
+    this.addressService.getAddressByUser().subscribe({
+      next: (res) => {
+        console.log(res);
+        this.address = res;
+
+        this.updateAddressForm.patchValue({
+          street: this.address.street,
+          number: this.address.number,
+          complement: this.address.complement,
+          neighborhood: this.address.neighborhood,
+          city: this.address.city,
+          postalCode: this.address.postalCode,
+        });
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
-  passwordMismatchValidator(control: AbstractControl) : ValidationErrors | null {
-    return control.get("passwordHash")?.value !== control.get("confirmPassword")?.value ? { missmatch: true} : null;
+  updateUser(updateForm: FormGroup) {
+    console.log(updateForm.value);
+    this.userService.updateUser(updateForm.value).subscribe({
+      next: () => {
+        this.router.navigate(['/home']);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  updateAddress(updateAddressForm: FormGroup) {
+    console.log(updateAddressForm.value);
+    this.addressService.updateUserAddress(updateAddressForm.value).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.router.navigate(['/home']);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  passwordMismatchValidator(control: AbstractControl): ValidationErrors | null {
+    return control.get('passwordHash')?.value !==
+      control.get('confirmPassword')?.value
+      ? { missmatch: true }
+      : null;
   }
 }

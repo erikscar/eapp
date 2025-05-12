@@ -21,8 +21,8 @@
     (ngSubmit)="updateUser(updateForm)"
   >
     <div class="user-info">
-      <div class="profile-image-wrapper">
-        <img [src]="user.imageUrl" *ngIf="user.imageUrl; else blankUser" />
+      <div class="profile-image-wrapper" *ngIf="user.imageUrl; else blankUser">
+        <img [src]="user.imageUrl"  />
         <input
         type="text"
         class="url-input"
@@ -107,26 +107,42 @@
     </div>
   </form>
 
-  <div class="address">
+  <form [formGroup]="updateAddressForm" (ngSubmit)="updateAddress(updateAddressForm)" class="address">
     <div class="personal-title-wrapper">
       <h2>Endereço <i class="fa-solid fa-location-dot"></i></h2>
       <button>Salvar Alterações <i class="fa-solid fa-pen"></i></button>
     </div>
     <div class="bar"></div>
 
-    <form action="">
+    <div class="form-group">
       <div class="input-label-group">
         <label for="teste">Logradouro <i class="fa-solid fa-pen"></i></label>
-        <input type="text" value="Rua Rui Barbosa" id="teste" />
+        <input type="text" formControlName="street" />
       </div>
       <div class="input-label-group">
-        <label for="">País <i class="fa-solid fa-pen"></i></label>
-        <input type="text" value="Brasil" />
+        <label for="">Número <i class="fa-solid fa-pen"></i></label>
+        <input type="text" formControlName="number" />
+      </div>
+      <div class="input-label-group">
+        <label for="teste">Complemento <i class="fa-solid fa-pen"></i></label>
+        <input type="text" formControlName="complement" />
+      </div>
+      <div class="input-label-group">
+        <label for="teste">Bairro <i class="fa-solid fa-pen"></i></label>
+        <input type="text" formControlName="neighborhood"/>
+      </div>
+      <div class="input-label-group">
+        <label for="teste">Cidade <i class="fa-solid fa-pen"></i></label>
+        <input type="text" formControlName="city"/>
+      </div>
+      <div class="input-label-group">
+        <label for="teste">CEP <i class="fa-solid fa-pen"></i></label>
+        <input type="text" formControlName="postalCode"/>
       </div>
       <div class="input-label-group">
         <label for="">Última Atualização</label>
         <input type="text" value="10 de Junho de 2024" disabled />
       </div>
-    </form>
-  </div>
+    </div>
+</form>
 </div>

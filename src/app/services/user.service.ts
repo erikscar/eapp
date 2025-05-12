@@ -34,10 +34,4 @@ export class UserService {
     return this.http.put<User>(`${this.apiUrl}`, data, { headers })
   }
 
-  // postCart(data: any): Observable<any> {
-  //   const token = localStorage.getItem('token');
-  //   const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`)
-
-  //   return this.http.post("http://localhost:5104/api/User" , data, { headers })
-  // }
 }
