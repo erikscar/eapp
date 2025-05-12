@@ -3,10 +3,11 @@ import { UserService } from '../../services/user.service';
 import User from '../../interfaces/User';
 import { Router, RouterLink } from '@angular/router';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-user',
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule, CommonModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })
@@ -19,7 +20,7 @@ export class UserComponent implements OnInit {
     email: '',
     createdAt: '',
     phone: '',
-    profileImageUrl: ''
+    imageUrl: ''
   }
 
   dateOptions: Intl.DateTimeFormatOptions = {
@@ -40,6 +41,7 @@ export class UserComponent implements OnInit {
       lastName: new FormControl(''),
       email: new FormControl(''),
       phone: new FormControl(''),
+      imageUrl: new FormControl(''),
       passwordHash: new FormControl('', [Validators.required]),
       confirmPassword: new FormControl('', [Validators.required]),
     }, { validators: this.passwordMismatchValidator });
@@ -53,7 +55,8 @@ export class UserComponent implements OnInit {
           firstName: this.user.firstName,
           lastName: this.user.lastName,
           email: this.user.email,
-          phone: 321321,
+          phone: this.user.phone,
+          imageUrl: "",
           passwordHash: "",
           confirmPassword: "",
         })

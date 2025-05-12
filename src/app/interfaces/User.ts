@@ -3,7 +3,7 @@ export default interface User {
     firstName: string,
     lastName: string,
     phone: string,
-    profileImageUrl: string,
+    imageUrl: string,
     email: string,
     createdAt: string,
 }

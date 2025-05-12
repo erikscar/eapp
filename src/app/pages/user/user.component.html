@@ -1,84 +1,132 @@
 <div class="user-container-wrapper">
-    <div class="user-page-header">
-        <div class="input-group">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Procure por Produtos, Eletrônicos e Muito Mais...">
-        </div>
-        <p>{{ currentDate }}</p>
+  <div class="user-page-header">
+    <div class="input-group">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input
+        type="text"
+        placeholder="Procure por Produtos, Eletrônicos e Muito Mais..."
+      />
     </div>
+    <p>{{ currentDate }}</p>
+  </div>
 
-    <div class="user-title">
-        <h1>Meu Perfil</h1>
-        <div class="bar"></div>
-    </div>
+  <div class="user-title">
+    <h1>Meu Perfil</h1>
+    <div class="bar"></div>
+  </div>
 
+  <form
+    [formGroup]="updateForm"
+    class="personal-info"
+    (ngSubmit)="updateUser(updateForm)"
+  >
     <div class="user-info">
-        <img src="/me.jpeg" alt="">
-        <div class="user-info-wrapper">
-            <div class="user-info-title">
-                <h2>{{ user.firstName + " " + user.lastName }}</h2>
-                <a routerLink="/home">Voltar <i class="fa-solid fa-right-from-bracket"></i></a>
-            </div>
-            <p>Usuário</p>
-            <p>Vila Gilda, Rua Rui Barbosa, Brasil</p>
+      <div class="profile-image-wrapper">
+        <img [src]="user.imageUrl" *ngIf="user.imageUrl; else blankUser" />
+        <input
+        type="text"
+        class="url-input"
+        formControlName="imageUrl"
+        placeholder="Url da Imagem"/>
+      </div>
+    
+      <ng-template #blankUser>
+        <div class="blank-user-image-wrapper">
+          <i class="fa-solid fa-user"></i>
+          <input
+            type="text"
+            class="url-input"
+            formControlName="imageUrl"
+            placeholder="Url da Imagem"
+          />
         </div>
+      </ng-template>
+
+      <div class="user-info-wrapper">
+        <div class="user-info-title">
+          <h2>{{ user.firstName + " " + user.lastName }}</h2>
+          <a routerLink="/home"
+            >Voltar <i class="fa-solid fa-right-from-bracket"></i
+          ></a>
+        </div>
+        <p>Usuário</p>
+        <p>Vila Gilda, Rua Rui Barbosa, Brasil</p>
+      </div>
     </div>
-
-    <form [formGroup]="updateForm" class="personal-info" (ngSubmit)="updateUser(updateForm)">
-        <div class="personal-title-wrapper">
-            <h2>Infomações Pessoais</h2>
-            <button type="submit" [disabled]="updateForm.errors?.['missmatch'] && updateForm.touched">Salvar Alterações <i class="fa-solid fa-pen"></i></button>
+    <div class="personal-info">
+      <div class="personal-title-wrapper">
+        <h2>Infomações Pessoais</h2>
+        <button
+          type="submit"
+          [disabled]="updateForm.errors?.['missmatch'] && updateForm.touched"
+        >
+          Salvar Alterações <i class="fa-solid fa-pen"></i>
+        </button>
+      </div>
+      <div class="bar"></div>
+      <div class="update-form-inputs">
+        <div class="input-label-group">
+          <label for="">Nome <i class="fa-solid fa-pen"></i></label>
+          <input type="text" formControlName="firstName" />
         </div>
-        <div class="bar"></div>
-
-        <div class="update-form-inputs">
-            <div class="input-label-group">
-                <label for="">Nome <i class="fa-solid fa-pen"></i></label>
-                <input type="text" formControlName="firstName">
-            </div>
-            <div class="input-label-group">
-                <label for="">Sobrenome <i class="fa-solid fa-pen"></i></label>
-                <input type="text"  formControlName="lastName">
-            </div>
-            <div class="input-label-group">
-                <label for="">Email <i class="fa-solid fa-pen"></i></label>
-                <input type="text"  formControlName="email">
-            </div>
-            <div class="input-label-group">
-                <label for="">Telefone <i class="fa-solid fa-pen"></i></label>
-                <input type="text" formControlName="phone">
-            </div>
-            <div class="input-label-group">
-                <label for="">Senha <i class="fa-solid fa-pen"></i></label>
-                <input type="password" formControlName="passwordHash" placeholder="•••••••••••">
-            </div>
-            <div class="input-label-group">
-                <label for="">Confirme sua Senha <i class="fa-solid fa-pen"></i></label>
-                <input type="password" formControlName="confirmPassword" placeholder="•••••••••••">
-            </div>
+        <div class="input-label-group">
+          <label for="">Sobrenome <i class="fa-solid fa-pen"></i></label>
+          <input type="text" formControlName="lastName" />
         </div>
+        <div class="input-label-group">
+          <label for="">Email <i class="fa-solid fa-pen"></i></label>
+          <input type="text" formControlName="email" />
+        </div>
+        <div class="input-label-group">
+          <label for="">Telefone <i class="fa-solid fa-pen"></i></label>
+          <input
+            type="text"
+            formControlName="phone"
+            placeholder="Insira seu Telefone..."
+          />
+        </div>
+        <div class="input-label-group">
+          <label for="">Senha <i class="fa-solid fa-pen"></i></label>
+          <input
+            type="password"
+            formControlName="passwordHash"
+            placeholder="•••••••••••"
+          />
+        </div>
+        <div class="input-label-group">
+          <label for=""
+            >Confirme sua Senha <i class="fa-solid fa-pen"></i
+          ></label>
+          <input
+            type="password"
+            formControlName="confirmPassword"
+            placeholder="•••••••••••"
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="address">
+    <div class="personal-title-wrapper">
+      <h2>Endereço <i class="fa-solid fa-location-dot"></i></h2>
+      <button>Salvar Alterações <i class="fa-solid fa-pen"></i></button>
+    </div>
+    <div class="bar"></div>
+
+    <form action="">
+      <div class="input-label-group">
+        <label for="teste">Logradouro <i class="fa-solid fa-pen"></i></label>
+        <input type="text" value="Rua Rui Barbosa" id="teste" />
+      </div>
+      <div class="input-label-group">
+        <label for="">País <i class="fa-solid fa-pen"></i></label>
+        <input type="text" value="Brasil" />
+      </div>
+      <div class="input-label-group">
+        <label for="">Última Atualização</label>
+        <input type="text" value="10 de Junho de 2024" disabled />
+      </div>
     </form>
-
-    <div class="address">
-        <div class="personal-title-wrapper">
-            <h2>Endereço <i class="fa-solid fa-location-dot"></i></h2>
-            <button>Salvar Alterações <i class="fa-solid fa-pen"></i></button>
-        </div>
-        <div class="bar"></div>
-
-        <form action="">
-            <div class="input-label-group">
-                <label for="teste">Logradouro <i class="fa-solid fa-pen"></i></label>
-                <input type="text" value="Rua Rui Barbosa" id="teste">
-            </div>
-            <div class="input-label-group">
-                <label for="">País <i class="fa-solid fa-pen"></i></label>
-                <input type="text" value="Brasil">
-            </div>
-            <div class="input-label-group">
-                <label for="">Última Atualização</label>
-                <input type="text" value="10 de Junho de 2024" disabled>
-            </div>
-        </form>
-    </div>
+  </div>
 </div>

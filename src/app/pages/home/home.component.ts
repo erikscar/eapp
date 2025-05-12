@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     email: '',
     createdAt: '',
     phone: '',
-    profileImageUrl: ''
+    imageUrl: ''
   };
 
   products: any[] = [];
