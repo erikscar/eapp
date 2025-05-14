@@ -54,19 +54,19 @@
 
       <div class="products-cart-container-wrapper">
           <div class="products-cart-container">
-            <div class="product-cart-card" *ngFor="let productCart of cart.products">
+            <div class="product-cart-card" *ngFor="let productCart of cart.cartItems">
                 <div class="img-wrapper">
                     <img src="/ps5-controller.png" alt="">
                 </div>
                 <div class="product-info">
                     <div class="title-wrapper">
-                        <h2>{{ productCart.name }}</h2>
-                        <i (click)="removeProductFromCart(productCart.id)" class="fa-solid fa-trash"></i>
+                        <h2>{{ productCart.product.name }}</h2>
+                        <i (click)="removeProductFromCart(productCart.product.id)" class="fa-solid fa-trash"></i>
                     </div>
-                    <p>{{ productCart.description }}</p>
+                    <p>{{ productCart.product.description }}</p>
                     <p>Cor: Branca</p>
                     <div class="price-wrapper">
-                        <p>R${{productCart.price}}</p>
+                        <p>R${{productCart.product.price}}</p>
                         <div class="quantity-btns">
                             <button><i class="fa-solid fa-minus"></i></button>
                             <p>1</p>
@@ -95,7 +95,7 @@
             <hr>
             <div class="order-info">
                 <p>Total</p>
-                <p class="total-price">R$200,00</p>
+                <p class="total-price">{{ cart.totalPrice }}</p>
             </div>
             <div class="coupon-btn-wrapper">
                 <div class="input-group">
