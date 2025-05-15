@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 import User from '../interfaces/User';
 
 @Injectable({
@@ -10,7 +10,7 @@ import User from '../interfaces/User';
 export class UserService {
   apiUrl: string = "http://localhost:5104/api/User";
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   register(data: any): Observable<any> {
     return this.http.post(this.apiUrl, data);
@@ -24,7 +24,7 @@ export class UserService {
     const token = localStorage.getItem('token')
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    return this.http.get<User>(`${this.apiUrl}/profile`, { headers });
+    return this.http.get<User>(`${this.apiUrl}/profile`, { headers })
   }
 
   updateUser(data: any): Observable<User> {
@@ -33,5 +33,4 @@ export class UserService {
 
     return this.http.put<User>(`${this.apiUrl}`, data, { headers })
   }
-
 }

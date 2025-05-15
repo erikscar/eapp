@@ -1,0 +1,109 @@
+@use "../../../scss/variables.scss" as *;
+@use "../../../scss/mixins.scss" as *;
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: #000;
+    color: #fff;
+    font-weight: 300;
+    padding: 2rem;
+
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 0.9rem;
+
+        h3,
+        h2 {
+            margin-bottom: 0.25rem;
+        }
+
+        h3 {
+            font-weight: 500;
+        }
+
+        .subscribe {
+            font-weight: 700;
+        }
+
+        .footer-input {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+            border: 1px solid #fff;
+            border-radius: 0.25rem;
+
+            input {
+                background-color: transparent;
+                border: none;
+                outline: none;
+                color: #fff;
+
+                &::placeholder {
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .qrcode-img {
+            width: 5rem;
+            height: 5rem;
+        }
+
+        .qrcode-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            .footer-btns-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+
+                .download-btns {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    border: 1px solid #fff;
+                    padding: 0.15rem 0.9rem;
+                    border-radius: 0.5rem;
+
+                    img {
+                        width: 1.15rem;
+                    }
+
+                    .btn-text {
+                        .get-it {
+                            font-size: 10px;
+                        }
+
+                        .brand-name {
+                            font-weight: 600;
+                            font-size: 11px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .new-user-offer {
+        font-size: 14px;
+        color: $grey-color;
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 1rem 0;
+
+        i {
+            font-size: 22px;
+        }
+    }
+}   

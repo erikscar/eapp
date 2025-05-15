@@ -98,7 +98,7 @@ export class UserComponent implements OnInit {
           lastName: this.user.lastName,
           email: this.user.email,
           phone: this.user.phone,
-          imageUrl: '',
+          imageUrl: this.user.imageUrl,
           passwordHash: '',
           confirmPassword: '',
         });
