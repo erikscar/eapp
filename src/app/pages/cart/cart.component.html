@@ -18,7 +18,7 @@
             <p>R${{productCart.product.price}}</p>
             <div class="quantity-btns">
               <button><i class="fa-solid fa-minus"></i></button>
-              <p>1</p>
+              <p>{{ productCart.quantity}}</p>
               <button><i class="fa-solid fa-plus"></i></button>
             </div>
           </div>
@@ -31,11 +31,11 @@
       <h2>Resumo do Pedido</h2>
       <div class="order-info">
         <p>Subtotal</p>
-        <p>R$200,00</p>
+        <p>{{ cart.totalBRL }}</p>
       </div>
       <div class="order-info">
-        <p>Descontos</p>
-        <p class="discount">-R$10,00</p>
+        <p>Descontos ({{cart.discountPercentageAmount}}%)</p>
+        <p class="discount">-{{ cart.totalDiscountAmountBRL }}</p>
       </div>
       <div class="order-info">
         <p>Frete</p>
@@ -44,7 +44,7 @@
       <hr>
       <div class="order-info">
         <p>Total</p>
-        <p class="total-price">{{ cart.totalPrice }}</p>
+        <p class="total-price">{{ cart.totalWithDiscountBRL }}</p>
       </div>
       <div class="coupon-btn-wrapper">
         <div class="input-group">
