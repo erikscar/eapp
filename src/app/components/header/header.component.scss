@@ -67,6 +67,7 @@ header {
         gap: 2rem;
         font-weight: 700;
 
+
         .input-group {
             @include input-group();
             background-color: $secondary-color;
@@ -74,8 +75,14 @@ header {
             padding: 0.5rem 0.75rem;
             border: 0;
 
+             button {
+                background-color: none;
+                border: none;
+            }
+
             i {
                 color: $primary-color;
+                font-size: 20px;
             }
 
             input {
