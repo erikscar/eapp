@@ -41,4 +41,16 @@ export class CartComponent implements OnInit {
         }
       })
     }
+
+    addProductToCart(productId: number): void {
+      this.cartService.addProductToCart(productId).subscribe({
+        next: (res) => {
+          console.log(res);
+          this.loadCartProducts();
+        },
+        error: (err) => {
+          console.log(err);
+        }
+       })
+    }
 }
