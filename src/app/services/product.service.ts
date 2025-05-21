@@ -12,4 +12,8 @@ export class ProductService {
   getProducts(): Observable<any> {
     return this.http.get(this.apiUrl)
   }
+
+  getProductsBySearchValue(searchValue: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/search?searchValue=${searchValue}`)
+  }
 }

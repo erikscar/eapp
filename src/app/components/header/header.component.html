@@ -23,11 +23,10 @@
     </a>
 
     <div class="header-actions">
-        <div class="input-group">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Procure por Produtos, Eletrônicos e Muito Mais..." />
-        </div>
-
+        <form [formGroup]="searchForm" (submit)="searchForProducts()" class="input-group">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input type="text" placeholder="Procure por Produtos, Eletrônicos e Muito Mais..." formControlName="searchValue" />
+        </form>
         <div class="user-cart-group">
             <i class="fa-solid fa-user"></i>
              <a routerLink="/" *ngIf="!user.firstName || !user.lastName; else fullName">Fazer Login / Registrar-se</a> 

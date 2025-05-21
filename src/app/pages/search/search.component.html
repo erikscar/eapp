@@ -76,7 +76,7 @@
         </div>
       </aside>
       <div class="products-found-container">
-         <div class="product-card">
+         <div class="product-card" *ngFor="let product of products">
           <div class="product-img-wrapper">
             <img src="ps5-controller.png" alt="" />
             <div class="product-offer">10%</div>
@@ -85,9 +85,9 @@
               <i class="fa-solid fa-eye"></i>
             </div>
           </div>
-          <h3>Controle de PS5 DualSense</h3>
-          <p class="price">R$ 500,00</p>
-          <div class="stars-container">
+          <h3>{{ product.name}}</h3>
+          <p class="price">R${{ product.price }}</p>
+          <div class="stars-container"> 
             <div>
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
