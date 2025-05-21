@@ -20,7 +20,7 @@ export class CartComponent implements OnInit {
   loadCartProducts(): void {
      this.cartService.getCartByUserId().subscribe({
       next: (res) => {
-        console.log(res)
+        console.log("Carrinho: " + res)
         this.cart = res;
 
       },
