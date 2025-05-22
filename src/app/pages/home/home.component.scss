@@ -182,6 +182,7 @@
         background-color: $primary-color;
         transition: 1s;
         cursor: pointer;
+        
         &:hover {
             box-shadow: 0 0 20px $primary-color;
             transform: scale(1.03);

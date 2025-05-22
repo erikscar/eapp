@@ -8,6 +8,7 @@ import { ErrorComponent } from './pages/error/error.component';
 import { SearchComponent } from './pages/search/search.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { ProductComponent } from './pages/product/product.component';
 
 
 export const routes: Routes = [
@@ -24,6 +25,7 @@ export const routes: Routes = [
             { path: "search", component: SearchComponent },
             { path: "user", component: UserComponent },
             { path: "cart", component: CartComponent },
+            { path: "product", component: ProductComponent},
             { path: "**", component: ErrorComponent },
         ]
     },

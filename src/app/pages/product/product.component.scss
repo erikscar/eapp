@@ -1,0 +1,135 @@
+@use "../../../scss/variables.scss" as *;
+@use "../../../scss/mixins.scss" as *;
+
+
+.product-page-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 2rem 8rem;
+
+    img {
+        width: 50rem;
+        height: 40rem;
+    }
+
+    .product-features-container {
+        width: 40%;
+
+        .product-title {
+            font-weight: 500;
+        }
+
+        .title-bar {
+            width: 8rem;
+            height: 2px;
+            background-color: #000;
+            margin-top: .5rem;
+        }
+
+        .product-price {
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        .stars-container {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            margin: 1.25rem 0;
+
+            i {
+                color: rgb(255, 0, 0);
+            }
+
+            p {
+                color: $grey-color;
+            }
+        }
+
+        .product-description {
+            text-align: justify;
+            line-height: 1.5rem;
+        }
+
+        .addcart-btn {
+            width: 100%;
+            margin: 1.5rem 0;
+            padding: .5rem;
+            background-color: $secondary-color;
+            border: 1px solid $primary-color;
+            color: $primary-color;
+            font-weight: 700;
+            border-radius: .25rem;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .rating-title-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+
+            .rating-title {
+                display: flex;
+                align-items: center;
+                gap: .75rem;
+                color: $primary-color;
+
+                span {
+                    font-size: 14px;
+                    color: #fff;
+                    background-color: $primary-color;
+                    padding: .25rem .65rem;
+                    border-radius: 1rem;
+                }
+            }
+
+            .most-recent-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: .25rem;
+            }
+        }
+
+        .comments-container {
+            display: flex;
+            flex-direction: column;
+            gap: .75rem;
+            margin-top: .75rem;
+            max-height: 14rem;
+            overflow-y: auto;
+
+            .comment {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: .75rem;
+
+            img {
+                width: 5rem;
+                height: 5rem;
+                border-radius: 100%;
+            }
+
+            .comment-content {
+                
+                .comment-name {
+                    span {
+                        margin-left: .5rem;
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: $grey-color;
+                    }
+                }
+
+                i {
+                    color: rgb(255, 0, 0);
+                }
+            }
+        }
+        }
+    }
+}
