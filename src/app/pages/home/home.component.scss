@@ -57,11 +57,11 @@
       }
     }
 
-    button {
+    a{
         border: 0;
         border-radius: .25rem;
         font-size: 16px;
-        padding: 1rem 1.75rem;
+        padding: .5rem 1.5rem;
         color: #fff;
         background-color: $primary-color;
         transition: 1s;
@@ -170,10 +170,10 @@
   }
 
   .viewall-products-btn {
-    margin: 2rem auto;
+    margin: 3rem auto;
     text-align: center;
 
-    button {
+    a {
         border: 0;
         border-radius: .5rem;
         font-size: 16px;
@@ -182,7 +182,6 @@
         background-color: $primary-color;
         transition: 1s;
         cursor: pointer;
-
         &:hover {
             box-shadow: 0 0 20px $primary-color;
             transform: scale(1.03);

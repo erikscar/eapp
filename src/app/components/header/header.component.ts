@@ -46,6 +46,7 @@ export class HeaderComponent implements OnInit {
 
   searchForProducts(): void {
     const searchValue = this.searchForm.get('searchValue')?.value?.trim();
+    
     this.router.navigate(['/search'], { queryParams: { searchValue: searchValue } });
     this.searchForm.reset()
   }

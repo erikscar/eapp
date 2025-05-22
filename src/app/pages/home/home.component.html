@@ -40,7 +40,7 @@
   </div>
 
   <div class="viewall-products-btn">
-    <button>Ver Todos os Produtos</button>
+    <a routerLink="/search">Ver Todos os Produtos</a>
   </div>
 
   <div class="section-title">
@@ -57,49 +57,70 @@
 
   <div class="categories-container">
     <div>
-      <div class="category-img-wrapper">
+      <div class="category-img-wrapper" (click)="searchByCategory('Automóveis')">
         <img src="/category-icons/car.png" alt="" />
       </div>
       <p class="category-title">AUTOMÓVEIS</p>
     </div>
 
     <div>
-      <div class="category-img-wrapper">
+      <div class="category-img-wrapper" (click)="searchByCategory('Roupas')">
         <img src="/category-icons/dress.png" alt="" />
       </div>
       <p class="category-title">ROUPAS</p>
     </div>
 
     <div>
-      <div class="category-img-wrapper">
+      <div class="category-img-wrapper" (click)="searchByCategory('Telefones')">
         <img src="/category-icons/smartphone.png" alt="" />
       </div>
       <p class="category-title">TELEFONES</p>
     </div>
 
     <div>
-      <div class="category-img-wrapper">
+      <div class="category-img-wrapper" (click)="searchByCategory('Livros')">
+        <img src="/category-icons/book.png" alt="" />
+      </div>
+      <p class="category-title">LIVROS</p>
+    </div>
+
+    <div>
+      <div class="category-img-wrapper" (click)="searchByCategory('Jogos')">
+        <img src="/category-icons/games.png" alt="" />
+      </div>
+      <p class="category-title">JOGOS</p>
+    </div>
+
+      <div>
+      <div class="category-img-wrapper" (click)="searchByCategory('Pets')">
+        <img src="/category-icons/pets.png" alt="" />
+      </div>
+      <p class="category-title">PETS</p>
+    </div>
+
+    <div>
+      <div class="category-img-wrapper" (click)="searchByCategory('Brinquedos')">
         <img src="/category-icons/toys.png" alt="" />
       </div>
       <p class="category-title">BRINQUEDOS</p>
     </div>
 
     <div>
-      <div class="category-img-wrapper">
+      <div class="category-img-wrapper" (click)="searchByCategory('Televisões')">
         <img src="/category-icons/tv.png" alt="" />
       </div>
       <p class="category-title">TELEVISÕES</p>
     </div>
 
     <div>
-      <div class="category-img-wrapper">
+      <div class="category-img-wrapper" (click)="searchByCategory('Headphones')">
         <img src="/category-icons/headphones.png" alt="" />
       </div>
       <p class="category-title">HEADPHONES</p>
     </div>
 
     <div>
-      <div class="category-img-wrapper">
+      <div class="category-img-wrapper" (click)="searchByCategory('Esportes')">
         <img src="/category-icons/sports.png" alt="" />
       </div>
       <p class="category-title">ESPORTES</p>
@@ -111,8 +132,8 @@
     <h2 class="section-title">Oportunidades</h2>
   </div>
   <div class="searchfor-wrapper">
-    <h3>Os Mais Vendidos do Site</h3>
-    <button>Ver Todos</button>
+    <h3>Os Mais Populares do Site</h3>
+    <a routerLink="/search">Ver Todos</a>
   </div>
 
 

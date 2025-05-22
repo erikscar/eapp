@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import User from '../../interfaces/User';
 import { ProductService } from '../../services/product.service';
 import { CartService } from '../../services/cart.service';
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   products: any[] = [];
   
 
-  constructor(private userService: UserService, private productService: ProductService, private cartService: CartService) { }
+  constructor(private userService: UserService, private productService: ProductService, private cartService: CartService, private router: Router) { }
 
   ngOnInit(): void {
      this.userService.getUser().subscribe({
@@ -61,6 +61,10 @@ export class HomeComponent implements OnInit {
         console.log(err)
       }
     });
+  }
+
+  searchByCategory(category: string): void {
+    this.router.navigate(["/search"], { queryParams: { category }})
   }
 
 }

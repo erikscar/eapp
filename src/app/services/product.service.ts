@@ -13,7 +13,12 @@ export class ProductService {
     return this.http.get(this.apiUrl)
   }
 
+  getProductByCategory(category: string) {
+    return this.http.get(`${this.apiUrl}/category?category=${category}`);
+  }
+
   getProductsBySearchValue(searchValue: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/search?searchValue=${searchValue}`)
+
   }
 }
