@@ -8,13 +8,13 @@
   <div class="searchfor-wrapper">
     <h3>Ofertas de Hoje</h3>
     <div class="carrousel-switcher">
-      <button><i class="fa-solid fa-arrow-left"></i></button>
-      <button><i class="fa-solid fa-arrow-right"></i></button>
+      <button (click)="onCarrouselClick('left')" [disabled]="!(index > 0)"><i class="fa-solid fa-arrow-left"></i></button>
+      <button (click)="onCarrouselClick('right')" [disabled]="!(index + productsPerSection < products.length)"><i class="fa-solid fa-arrow-right"></i></button>
     </div>
   </div>
 
   <div class="products-container">
-    <div class="product-card" *ngFor="let product of products">
+    <div class="product-card" *ngFor="let product of products.slice(index, index + productsPerSection); let i = index" [ngStyle]="{'--delay': (i * 0.2) + 's'}">
       <div class="product-img-wrapper">
         <img src="ps5-controller.png" alt="" />
         <div class="product-offer">{{ product.offer }}%</div>
@@ -138,6 +138,7 @@
 
 
   <div class="products-container">
+
     <div class="product-card">
       <div class="product-img-wrapper">
         <img src="ps5-controller.png" alt="" />

@@ -25,6 +25,8 @@ export class HomeComponent implements OnInit {
     address: undefined
   };
 
+  index: number = 0;
+  productsPerSection = 5;
   products: any[] = [];
   
 
@@ -65,6 +67,22 @@ export class HomeComponent implements OnInit {
 
   searchByCategory(category: string): void {
     this.router.navigate(["/search"], { queryParams: { category }})
+  }
+
+  onCarrouselClick(direction: 'left' | 'right'): void {
+    const total = this.products.length;
+
+  if (direction === 'right') {
+    const nextIndex = this.index + this.productsPerSection;
+    if (nextIndex < total) {
+      this.index = nextIndex;
+    }
+  } else {
+    const prevIndex = this.index - this.productsPerSection;
+    if (prevIndex >= 0) {
+      this.index = prevIndex;
+    }
+  }
   }
 
 }
