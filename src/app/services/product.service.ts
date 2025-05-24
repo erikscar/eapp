@@ -13,6 +13,10 @@ export class ProductService {
     return this.http.get(this.apiUrl)
   }
 
+  getProductById(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${id}`)
+  }
+
   getProductByCategory(category: string) {
     return this.http.get(`${this.apiUrl}/category?category=${category}`);
   }

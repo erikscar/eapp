@@ -1,9 +1,9 @@
 <div class="product-page-container">
     <img src="ps5-controller.png" alt="">
     <div class="product-features-container">
-        <h1 class="product-title ">Camiseta Branca</h1>
+        <h1 class="product-title ">{{product.name}}</h1>
         <div class="title-bar"></div>
-        <h2 class="product-price">R$499,00</h2>
+        <h2 class="product-price">R${{product.price}}</h2>
 
         <div class="stars-container">
             <div>
@@ -13,19 +13,21 @@
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
             </div>
-            <p>(44) Avaliações</p>
+            <p>({{product.reviewsNumber}}) Avaliações</p>
         </div>
 
         <p class="product-description">
-            100% algodão, respirável e produzido de forma ética. Disponível nos tamanhos P ao GG. <br><br>
+            <!-- 100% algodão, respirável e produzido de forma ética. Disponível nos tamanhos P ao GG. <br><br>
             Esta não é apenas uma camisa — é a peça essencial do seu dia a dia. Feita com algodão premium, é macia ao
             toque, leve e projetada para garantir conforto o dia inteiro. Ideal tanto para sair quanto para relaxar em
             casa. <br><br>
             Com acabamento cuidadoso, possui corte clássico, costuras reforçadas e um design minimalista que combina com
-            tudo. Durável, versátil e cheia de estilo — é a camisa que faltava no seu guarda-roupa.
+            tudo. Durável, versátil e cheia de estilo — é a camisa que faltava no seu guarda-roupa. -->
+
+            {{product.description}}
         </p>
 
-        <button class="addcart-btn">Adicionar ao Carrinho</button>
+        <button class="addcart-btn" (click)="addProductTocart(product.id)">Adicionar ao Carrinho</button>
 
         <div class="rating-title-wrapper">
             <h2 class="rating-title">Avaliações<i class="fa-solid fa-comments"></i><span>45</span></h2>

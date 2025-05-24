@@ -25,7 +25,7 @@ export const routes: Routes = [
             { path: "search", component: SearchComponent },
             { path: "user", component: UserComponent },
             { path: "cart", component: CartComponent },
-            { path: "product", component: ProductComponent},
+            { path: "product/:id", component: ProductComponent},
             { path: "**", component: ErrorComponent },
         ]
     },

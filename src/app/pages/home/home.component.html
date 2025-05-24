@@ -16,11 +16,11 @@
   <div class="products-container">
     <div class="product-card" *ngFor="let product of products.slice(index, index + productsPerSection); let i = index" [ngStyle]="{'--delay': (i * 0.2) + 's'}">
       <div class="product-img-wrapper">
-        <img src="ps5-controller.png" alt="" />
-        <div class="product-offer">{{ product.offer }}%</div>
+        <img src="ps5-controller.png" alt="" [routerLink]="`/product/${product.id}`" />
+        <div class="product-offer" *ngIf="product.offer">{{ product.offer }}%</div>
         <div class="product-actions">
           <i class="fa-solid fa-heart"></i>
-          <i class="fa-solid fa-eye"></i>
+          <i class="fa-solid fa-eye" [routerLink]="`/product/${product.id}`"></i>
         </div>
       </div> 
       <h3>{{ product.name }}</h3>
@@ -49,10 +49,6 @@
   </div>
   <div class="searchfor-wrapper">
     <h3>Busque por Categorias</h3>
-    <div class="carrousel-switcher">
-      <button><i class="fa-solid fa-arrow-left"></i></button>
-      <button><i class="fa-solid fa-arrow-right"></i></button>
-    </div>
   </div>
 
   <div class="categories-container">
