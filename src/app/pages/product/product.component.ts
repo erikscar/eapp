@@ -28,16 +28,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      this.productService.getProductById(Number(params.get('id'))).subscribe({
-        next: (res) => {
-          console.log(res);
-          this.product = res;
-        },
-        error: (err) => {
-          console.log(err)
-        },
-      })
-
+      this.loadProduct(Number(params.get('id')))
       this.loadReviews(Number(params.get('id')))
     })
   }
@@ -81,14 +72,15 @@ export class ProductComponent implements OnInit {
       next: (res) => {
         console.log(res.message)
         this.loadReviews(productId);
+        this.loadProduct(productId);
         this.reviewForm.reset();
       },
       error: (err) => {
         console.log(err)
       }
     });
-
   }
+
   loadReviews(productId: number) {
     this.reviewService.getAllReviewsFromProduct(productId).subscribe({
       next: (res) => {
@@ -99,5 +91,17 @@ export class ProductComponent implements OnInit {
         console.log(err)
       },
     })
+  }
+
+  loadProduct(productId: number) {
+   this.productService.getProductById(productId).subscribe({
+        next: (res) => {
+          console.log(res);
+          this.product = res;
+        },
+        error: (err) => {
+          console.log(err)
+        },
+      })
   }
 }
