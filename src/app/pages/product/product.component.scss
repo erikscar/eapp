@@ -131,5 +131,16 @@
             }
         }
         }
+         .review-btn {
+            margin: 2rem 0 1rem 0;
+            padding: .5rem 1rem;
+            background-color: $primary-color;
+            border: none;
+            color: #fff;
+            font-weight: 500;
+            border-radius: .25rem;
+            font-size: 16px;
+            cursor: pointer;
+        }
     }
 }

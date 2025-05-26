@@ -7,13 +7,10 @@
 
         <div class="stars-container">
             <div>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star" *ngFor="let star of getStars(product.averageRating / 2)"></i>
+                <i class="fa-regular fa-star" *ngFor="let star of getStars(5 - product.averageRating / 2)"></i>
             </div>
-            <p>({{product.reviewsNumber}}) Avaliações</p>
+            <p> {{ product.averageRating}} - ({{reviews.length}}) Avaliações</p>
         </div>
 
         <p class="product-description">
@@ -30,57 +27,25 @@
         <button class="addcart-btn" (click)="addProductTocart(product.id)">Adicionar ao Carrinho</button>
 
         <div class="rating-title-wrapper">
-            <h2 class="rating-title">Avaliações<i class="fa-solid fa-comments"></i><span>45</span></h2>
+            <h2 class="rating-title">Avaliações<i class="fa-solid fa-comments"></i><span>{{reviews.length}}</span></h2>
             <div class="most-recent-wrapper">
                 <i class="fa-solid fa-arrow-up-wide-short"></i>
                 <p>Mais Recentes</p>
             </div>
         </div>
         <div class="comments-container">
-            <div class="comment">
+            <div class="comment" *ngFor="let review of reviews">
                 <img src="https://pbs.twimg.com/profile_images/1836440445510946817/sgxQsMlP_400x400.jpg" alt="">
                 <div class="comment-content">
-                    <h3 class="comment-name">Erik Scarcela Araujo <span>50 Minutos Atrás</span></h3>
-                    <p class="comment-description">Execelente Camiseta, ótimo acabamento</p>
-                     <div>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="comment">
-                <img src="https://pbs.twimg.com/profile_images/1836440445510946817/sgxQsMlP_400x400.jpg" alt="">
-                <div class="comment-content">
-                    <h3 class="comment-name">Erik Scarcela Araujo <span>50 Minutos Atrás</span></h3>
-                    <p class="comment-description">Execelente Camiseta, ótimo acabamento</p>
+                    <h3 class="comment-name">Erik Scarcela Araujo <span>{{getTimeAgo(review.createdAt)}}</span></h3>
+                    <p class="comment-description">{{ review.content}}</p>
                     <div>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="comment">
-                <img src="https://pbs.twimg.com/profile_images/1836440445510946817/sgxQsMlP_400x400.jpg" alt="">
-                <div class="comment-content">
-                    <h3 class="comment-name">Erik Scarcela Araujo <span>50 Minutos Atrás</span></h3>
-                    <p class="comment-description">Execelente Camiseta, ótimo acabamento</p>
-                     <div>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star" *ngFor="let star of getStars(review.rating)"></i>
+                        <i class="fa-regular fa-star" *ngFor="let star of getStars(5 - review.rating)"></i>
                     </div>
                 </div>
             </div>
         </div>
+        <button class="review-btn">Comentar</button>
     </div>
 </div>
