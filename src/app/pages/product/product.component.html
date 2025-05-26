@@ -10,7 +10,7 @@
                 <i class="fa-solid fa-star" *ngFor="let star of getStars(product.averageRating / 2)"></i>
                 <i class="fa-regular fa-star" *ngFor="let star of getStars(5 - product.averageRating / 2)"></i>
             </div>
-            <p> {{ product.averageRating}} - ({{reviews.length}}) Avaliações</p>
+            <p> {{ product.averageRating | number:'1.1-1' }} - ({{reviews.length}}) Avaliações</p>
         </div>
 
         <p class="product-description">
@@ -37,8 +37,8 @@
             <div class="comment" *ngFor="let review of reviews">
                 <img src="https://pbs.twimg.com/profile_images/1836440445510946817/sgxQsMlP_400x400.jpg" alt="">
                 <div class="comment-content">
-                    <h3 class="comment-name">Erik Scarcela Araujo <span>{{getTimeAgo(review.createdAt)}}</span></h3>
-                    <p class="comment-description">{{ review.content}}</p>
+                    <h3 class="comment-name">Erik Scarcela Araujo <span>{{ getTimeAgo(review.createdAt) }}</span></h3>
+                    <p class="comment-description">{{ review.content }}</p>
                     <div>
                         <i class="fa-solid fa-star" *ngFor="let star of getStars(review.rating)"></i>
                         <i class="fa-regular fa-star" *ngFor="let star of getStars(5 - review.rating)"></i>
@@ -46,6 +46,22 @@
                 </div>
             </div>
         </div>
-        <button class="review-btn">Comentar</button>
+        <form class="review-form" [formGroup]="reviewForm" (ngSubmit)="addReview(reviewForm, product.id)">
+            <input type="text" class="review-input" placeholder="Adicione um Comentário" (focus)="showReviewBtn = true"
+                formControlName="content">
+
+            <div class="review-form-btns" *ngIf="showReviewBtn">
+                <div class="star-rating">
+                    <i *ngFor="let star of stars" class="fa-star"
+                        [ngClass]="{'fa-solid': star <= reviewForm.get('rating')?.value,'fa-regular': star > reviewForm.get('rating')?.value}"
+                        (click)="setRating(star)"></i>
+                </div>
+                <div class="review-submit">
+                    <button (click)="showReviewBtn = false">Cancelar</button>
+                    <button type="submit">Comentar</button>
+                </div>
+            </div>
+        </form>
+
     </div>
 </div>
