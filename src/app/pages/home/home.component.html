@@ -1,6 +1,46 @@
-
 <div class="home-container">
-  
+  <div class="section-title">
+    <div class="section-bar"></div>
+    <h2 class="section-title">Destaques</h2>
+  </div>
+  <div class="searchfor-wrapper">
+    <h1>Confira os Novidades no Site</h1>
+  </div>
+
+  <div class="whatsnew-container">
+    <div class="essential-img-wrapper">
+      <img src="homepage1.png" alt="">
+      <div class="essential-content">
+        <h1>ESENCIAIS DO DIA A DIA</h1>
+        <p>Versáteis, modernos e prontos pra você, pensados para facilitar sua rotina com estilo e eficiência.</p>
+        <a href="">Compre Agora</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="home-img-wrapper">
+        <h1>VIDA INTELIGENTE</h1>
+        <p>Versáteis, modernos e prontos para você, eletrônicos que combinam inovação, qualidade e praticidade para seu dia a dia.</p>
+        <a href="">Compre Agora</a>
+        <img src="homepage2.png" alt="">
+      </div>
+      <div>
+        <div class="home-img-wrapper">
+          <h1>ESPORTES</h1>
+          <p>Confira as últimas novidades em esportes</p>
+          <a href="">Compre Agora</a>
+          <img src="homepage3.png" alt="">
+        </div>
+        <div class="home-img-wrapper">
+          <h1>ROUPAS</h1>
+          <p>Explore as últimas novidades da moda mundial</p>
+          <a href="">Compre Agora</a>
+          <img src="homepage4.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="section-title">
     <div class="section-bar"></div>
     <h2 class="section-title">Hoje</h2>
@@ -8,13 +48,16 @@
   <div class="searchfor-wrapper">
     <h3>Ofertas de Hoje</h3>
     <div class="carrousel-switcher">
-      <button (click)="onCarrouselClick('left')" [disabled]="!(index > 0)"><i class="fa-solid fa-arrow-left"></i></button>
-      <button (click)="onCarrouselClick('right')" [disabled]="!(index + productsPerSection < products.length)"><i class="fa-solid fa-arrow-right"></i></button>
+      <button (click)="onCarrouselClick('left')" [disabled]="!(index > 0)"><i
+          class="fa-solid fa-arrow-left"></i></button>
+      <button (click)="onCarrouselClick('right')" [disabled]="!(index + productsPerSection < products.length)"><i
+          class="fa-solid fa-arrow-right"></i></button>
     </div>
   </div>
 
   <div class="products-container">
-    <div class="product-card" *ngFor="let product of products.slice(index, index + productsPerSection); let i = index" [ngStyle]="{'--delay': (i * 0.2) + 's'}">
+    <div class="product-card" *ngFor="let product of products.slice(index, index + productsPerSection); let i = index"
+      [ngStyle]="{'--delay': (i * 0.2) + 's'}">
       <div class="product-img-wrapper">
         <img src="ps5-controller.png" alt="" [routerLink]="`/product/${product.id}`" />
         <div class="product-offer" *ngIf="product.offer">{{ product.offer }}%</div>
@@ -22,7 +65,7 @@
           <i class="fa-solid fa-heart"></i>
           <i class="fa-solid fa-eye" [routerLink]="`/product/${product.id}`"></i>
         </div>
-      </div> 
+      </div>
       <h3>{{ product.name }}</h3>
       <p class="price">R$ {{ product.price }}</p>
       <div class="stars-container">
@@ -87,7 +130,7 @@
       <p class="category-title">JOGOS</p>
     </div>
 
-      <div>
+    <div>
       <div class="category-img-wrapper" (click)="searchByCategory('Pets')">
         <img src="/category-icons/pets.png" alt="" />
       </div>
