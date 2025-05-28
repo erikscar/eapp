@@ -13,7 +13,7 @@
     <div class="overlay">
       <h2>Essenciais do Dia a Dia</h2>
       <p>Versáteis, modernos e prontos pra você, pensados para facilitar sua rotina com estilo e eficiência.</p>
-      <a href="#">Compre Agora</a>
+      <button (click)="searchByCategory('Roupas')">Compre Agora</button>
     </div>
   </div>
 
@@ -23,7 +23,7 @@
       <div class="overlay">
         <h2>Vida Inteligente</h2>
         <p>Eletrônicos que combinam inovação, qualidade e praticidade.</p>
-        <a href="#">Compre Agora</a>
+        <button (click)="searchByCategory('Eletrônicos')">Compre Agora</button>
       </div>
     </div>
     <div class="bottom-right">
@@ -33,7 +33,7 @@
           <span>Novos</span>
           <h2>ESPORTES</h2>
           <p>Confira as últimas novidades em esportes</p>
-          <a href="#">Compre Agora</a>
+          <button (click)="searchByCategory('Esportes')">Compre Agora</button>
         </div>
       </div>
       <div class="card">
@@ -42,7 +42,7 @@
           <span>Ofertas</span>
           <h2>ROUPAS</h2>
           <p>Explore as últimas novidades da moda mundial</p>
-          <a href="#">Compre Agora</a>
+          <button (click)="searchByCategory('Roupas')">Compre Agora</button>
         </div>
       </div>
     </div>
