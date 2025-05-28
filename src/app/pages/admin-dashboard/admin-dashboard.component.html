@@ -1,0 +1,25 @@
+<div class="sidebar" [class.open]="sidebarOpen">
+  <i class="fa-solid fa-xmark" (click)="toggleSidebar()"></i>
+  
+</div>
+
+<div class="app-wrapper" [class.sidebar-open]="sidebarOpen">
+    <header>
+      <i class="fa fa-bars" (click)="toggleSidebar()"></i>
+    
+      <div class="logo-container">
+        <div class="logo-wrapper">
+          <img src="/logo.png" alt="logo-img" />
+          <h1>Eapp</h1>
+        </div>
+        <p>Admin DashBoard</p>
+      </div>
+      <div class="user-info-wrapper">
+        <i class="fa fa-user"></i>
+        <div class="user-info">
+          <h2>Erik Scarcela Araujo</h2>
+          <p>Admin</p>
+        </div>
+      </div>
+    </header>
+</div>
