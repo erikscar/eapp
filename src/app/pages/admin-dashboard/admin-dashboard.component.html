@@ -1,25 +1,41 @@
 <div class="sidebar" [class.open]="sidebarOpen">
   <i class="fa-solid fa-xmark" (click)="toggleSidebar()"></i>
-  
+  <h1>- CRUD -</h1>
+
+  <h2 class="sidebar-title">Painel do Admin</h2>
+
+  <div class="logo-wrapper">
+    <img src="/white-logo.png" alt="logo-img" />
+    <h1>Eapp</h1>
+  </div>
+
+  <div class="dashboard-sections-btns">
+    <button class="active-btn"><i class="fa-solid fa-chart-pie"></i>Dashboard</button>
+    <button><i class="fa-solid fa-user"></i>Usuários</button>
+    <button><i class="fa-solid fa-cube"></i>Produtos</button>
+    <button><i class="fa-solid fa-thumbtack"></i>Categorias</button>
+    <button><i class="fa-solid fa-gear"></i>Configurações</button>
+  </div>
+  <button class="exit-btn"><i class="fa-solid fa-door-open"></i>Sair</button>
 </div>
 
 <div class="app-wrapper" [class.sidebar-open]="sidebarOpen">
-    <header>
-      <i class="fa fa-bars" (click)="toggleSidebar()"></i>
-    
-      <div class="logo-container">
-        <div class="logo-wrapper">
-          <img src="/logo.png" alt="logo-img" />
-          <h1>Eapp</h1>
-        </div>
-        <p>Admin DashBoard</p>
+  <header>
+    <i class="fa fa-bars" (click)="toggleSidebar()"></i>
+
+    <div class="logo-container">
+      <div class="logo-wrapper">
+        <img src="/white-logo.png" alt="logo-img" />
+        <h1>Eapp</h1>
       </div>
-      <div class="user-info-wrapper">
-        <i class="fa fa-user"></i>
-        <div class="user-info">
-          <h2>Erik Scarcela Araujo</h2>
-          <p>Admin</p>
-        </div>
+      <p class="admin-title">Admin Dashboard</p>
+    </div>
+    <div class="user-info-wrapper">
+      <i class="fa-solid fa-user-secret"></i>
+      <div class="user-info">
+        <h2>Erik Scarcela Araujo</h2>
+        <p>Admin</p>
       </div>
-    </header>
+    </div>
+  </header>
 </div>

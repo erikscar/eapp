@@ -2,23 +2,99 @@
 @use "../../../scss/variables.scss" as *;
 
 .sidebar {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   top: 0;
   left: 0;
   min-height: 100vh;
   width: 17rem;
+  padding: 1rem 1.5rem;
   background-color: $primary-color;
   transform: translateX(-100%);
   transition: transform 0.5s ease;
   z-index: 9999;
+  text-align: center;
+  color: #fff;
 
   .fa-xmark {
     display: flex;
-    justify-self: flex-end;
+    align-self: flex-end;
     font-size: 24px;
-    color: #fff;
-    padding: 1.5rem;
+    padding: .5rem;
+    color: $secondary-color;
     cursor: pointer;
+  }
+
+  h1 {
+    font-family: "Charm", sans-serif;
+    font-weight: 500;
+  }
+
+  h2 {
+    font-family: "Playwrite DK Loopet", cursive;
+  }
+
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: .5rem;
+
+    img {
+      width: 3rem;
+    }
+    
+  }
+
+  .dashboard-sections-btns {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 5rem;
+    gap: 1.5rem;
+    
+    button {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1rem;
+      background-color: transparent;
+      border: 0;
+      color: #fff;
+      font-size: 16px;
+      width: 100%;
+      padding: .6rem 1rem;
+      border-radius: .25rem;
+      cursor: pointer;
+
+      i {
+        font-size: 20px;
+      }
+
+      &.active-btn {
+        background-color: #fff;
+        color: $primary-color;
+      }
+    }
+  }
+
+  .exit-btn {
+      display: flex;
+      gap: 1rem;
+      background-color: transparent;
+      border: 0;
+      color: #fff;
+      font-size: 16px;
+      width: 100%;
+      padding: .6rem 1rem;
+      border-radius: .25rem;
+      cursor: pointer;
+      margin: auto;
+
+      i {
+        font-size: 20px;
+      }
   }
 
   &.open {
@@ -28,7 +104,7 @@
 }
 
 .app-wrapper {
-    transition: margin-left 0.5s ease;
+  transition: margin-left 0.5s ease;
 
   &.sidebar-open {
     margin-left: 17rem;
@@ -40,7 +116,8 @@
     align-items: center;
     padding: 0.5rem 5rem;
     width: 100%;
-    background-color: $secondary-color;
+    background: linear-gradient(to bottom, #545a5f, #31373c);
+    color: #fff;
 
     .fa-bars {
       font-size: 30px;
@@ -57,6 +134,7 @@
       display: flex;
       flex-direction: column;
       margin: 0 auto;
+
       .logo-wrapper {
         display: flex;
         justify-content: center;
@@ -69,8 +147,12 @@
 
         h1 {
           font-size: 34px;
-          color: $primary-color;
+          color: #fff;
           font-family: "Charm", sans-serif;
+        }
+
+        .admin-title {
+          font-weight: 900;
         }
       }
     }
@@ -81,12 +163,14 @@
       align-items: center;
       gap: 1.5rem;
       min-width: 200px;
+
       .user-info {
         h2 {
           font-size: 18px;
           font-weight: 600;
         }
       }
+
       i {
         font-size: 30px;
       }
