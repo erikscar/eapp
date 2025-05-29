@@ -10,11 +10,11 @@
   </div>
 
   <div class="dashboard-sections-btns">
-    <button class="active-btn"><i class="fa-solid fa-chart-pie"></i>Dashboard</button>
-    <button><i class="fa-solid fa-user"></i>Usuários</button>
-    <button><i class="fa-solid fa-cube"></i>Produtos</button>
-    <button><i class="fa-solid fa-thumbtack"></i>Categorias</button>
-    <button><i class="fa-solid fa-gear"></i>Configurações</button>
+    <a routerLink="/admin/dashboard" class="active-btn"><i class="fa-solid fa-chart-pie"></i>Dashboard</a>
+    <a routerLink="/admin/users"><i class="fa-solid fa-user"></i>Usuários</a>
+    <a routerLink="/admin/products"><i class="fa-solid fa-cube"></i>Produtos</a>
+    <a routerLink="/admin/categories"><i class="fa-solid fa-thumbtack"></i>Categorias</a>
+    <a routerLink="/admin/settings"><i class="fa-solid fa-gear"></i>Configurações</a>
   </div>
   <button class="exit-btn"><i class="fa-solid fa-door-open"></i>Sair</button>
 </div>
@@ -38,4 +38,8 @@
       </div>
     </div>
   </header>
+
+  <router-outlet></router-outlet>
+
 </div>
+

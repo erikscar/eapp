@@ -9,7 +9,12 @@ import { SearchComponent } from './pages/search/search.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { ProductComponent } from './pages/product/product.component';
-import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { UsersComponent } from './pages/admin/users/users.component';
+import { ProductsComponent } from './pages/admin/products/products.component';
+import { CategoriesComponent } from './pages/admin/categories/categories.component';
+import { SettingsComponent } from './pages/admin/settings/settings.component';
 
 export const routes: Routes = [
   {
@@ -18,8 +23,18 @@ export const routes: Routes = [
     children: [
       { path: '', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'admin-dashboard', component: AdminDashboardComponent },
     ],
+  },
+  {
+    path: 'admin',
+    component: AdminLayoutComponent,
+    children: [
+      { path: 'dashboard', component: DashboardComponent},
+      { path: 'users', component: UsersComponent},
+      { path: 'products', component: ProductsComponent},
+      { path: 'categories', component: CategoriesComponent},
+      { path: 'settings', component: SettingsComponent},
+    ]
   },
   {
     path: '',
