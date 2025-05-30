@@ -12,7 +12,7 @@
   padding: 1rem 1.5rem;
   background-color: $primary-color;
   transform: translateX(-100%);
-  transition: transform 0.5s ease;
+  transition: transform 0.25s ease;
   z-index: 9999;
   text-align: center;
   color: #fff;
@@ -71,12 +71,11 @@
       i {
         font-size: 20px;
       }
-
-      &.active-btn {
+    }
+    a.active-btn {
         background-color: #fff;
         color: $primary-color;
       }
-    }
   }
 
   .exit-btn {
@@ -104,7 +103,7 @@
 }
 
 .app-wrapper {
-  transition: margin-left 0.5s ease;
+  transition: margin-left 0.25s ease;
 
   &.sidebar-open {
     margin-left: 17rem;
@@ -114,7 +113,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 0.5rem 5rem;
+    padding: 0.35rem 5rem;
     width: 100%;
     background: linear-gradient(to bottom, #545a5f, #31373c);
     color: #fff;
@@ -139,21 +138,21 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
+        gap: .25rem;
         img {
-          height: 3rem;
-          width: 3.5rem;
+          height: 1.5rem;
+          width: 2.75rem;
         }
 
         h1 {
-          font-size: 34px;
+          font-size: 26px;
           color: #fff;
           font-family: "Charm", sans-serif;
         }
+      }
 
-        .admin-title {
-          font-weight: 900;
-        }
+      .admin-title {
+        font-size: 14px;
       }
     }
 
@@ -161,13 +160,17 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1rem;
       min-width: 200px;
 
       .user-info {
         h2 {
-          font-size: 18px;
+          font-size: 16px;
           font-weight: 600;
+        }
+
+        p {
+          font-size: 14px;
         }
       }
 

@@ -10,13 +10,13 @@
   </div>
 
   <div class="dashboard-sections-btns">
-    <a routerLink="/admin/dashboard" class="active-btn"><i class="fa-solid fa-chart-pie"></i>Dashboard</a>
-    <a routerLink="/admin/users"><i class="fa-solid fa-user"></i>Usuários</a>
-    <a routerLink="/admin/products"><i class="fa-solid fa-cube"></i>Produtos</a>
-    <a routerLink="/admin/categories"><i class="fa-solid fa-thumbtack"></i>Categorias</a>
-    <a routerLink="/admin/settings"><i class="fa-solid fa-gear"></i>Configurações</a>
+    <a routerLink="/admin/dashboard" routerLinkActive="active-btn" class="active-btn"><i class="fa-solid fa-chart-pie"></i>Dashboard</a>
+    <a routerLink="/admin/users" routerLinkActive="active-btn"><i class="fa-solid fa-user"></i>Usuários</a>
+    <a routerLink="/admin/products" routerLinkActive="active-btn"><i class="fa-solid fa-cube"></i>Produtos</a>
+    <a routerLink="/admin/categories" routerLinkActive="active-btn"><i class="fa-solid fa-thumbtack"></i>Categorias</a>
+    <a routerLink="/admin/settings" routerLinkActive="active-btn"><i class="fa-solid fa-gear"></i>Configurações</a>
   </div>
-  <button class="exit-btn"><i class="fa-solid fa-door-open"></i>Sair</button>
+  <button class="exit-btn" (click)="logOut()"><i class="fa-solid fa-door-open"></i>Sair</button>
 </div>
 
 <div class="app-wrapper" [class.sidebar-open]="sidebarOpen">
