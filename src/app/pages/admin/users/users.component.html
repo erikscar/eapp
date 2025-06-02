@@ -7,7 +7,8 @@
     
     <div class="toolbar">
         <div class="action-btns">
-            <button class="add-btn"><i class="fa-solid fa-plus"></i>Adicionar</button>
+            <button class="add-btn" (click)="toggleModal()"><i class="fa-solid fa-plus"></i>Adicionar</button>
+            <app-admin-modal *ngIf="showModal"></app-admin-modal>
             <button class="export-btn"><i class="fa-solid fa-cloud-arrow-down"></i>Exportar</button>
         </div>
     
@@ -37,40 +38,23 @@
                 <th>Senha</th>
                 <th>Phone</th>
                 <th>URL Imagem</th>
+                <th>Opções</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Erik Scarcela Araujo</td>
-                <td>erikscarcela&#64;gmail.com</td>
+            <tr *ngFor="let user of users">
+                <td>{{ user.id }}</td>
+                <td>{{ user.firstName + " " + user.lastName}}</td>
+                <td>{{ user.email }}</td>
                 <td>•••••••••••</td>
-                <td>(55) 11 94008-0990</td>
-                <td>https://i.pinimg.com/1200xaaaaaaaaaaa</td>
-            </tr>
-             <tr>
-                <td>2</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-             <tr>
-                <td>3</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-             <tr>
-                <td>4</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{ user.phone}}</td>
+                <td>{{ user.IimageUrl}}</td>
+                <td>
+                    <div class="options-area">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        <i class="fa-solid fa-delete-left"></i>
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>

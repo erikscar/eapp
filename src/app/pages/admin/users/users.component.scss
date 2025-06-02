@@ -1,144 +1,163 @@
 @use "../../../../scss/variables.scss" as *;
 @use "../../../../scss/mixins.scss" as *;
 
-
 .admin-user-container {
-    padding: 2rem 6rem;
+  padding: 2rem 6rem;
 
-    .path {
+  .path {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    i {
+      color: $primary-color;
+      cursor: pointer;
+    }
+
+    .slash {
+      color: $light-grey-color;
+    }
+  }
+
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+
+    .action-btns {
+      display: flex;
+      gap: 0.5rem;
+
+      .add-btn {
         display: flex;
+        justify-content: center;
         align-items: center;
-        gap: .75rem;
+        gap: 0.5rem;
+        background-color: $primary-color;
+        border: none;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        font-size: 16px;
+        border-radius: 0.25rem;
+        cursor: pointer;
+      }
+
+      .export-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: $grey-color;
+        border: none;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        font-size: 16px;
+        border-radius: 0.25rem;
+        cursor: pointer;
+      }
+    }
+
+    .search-box {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1rem;
+      border: 1px solid $grey-color;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+
+      input {
+        border: none;
+        outline: none;
+      }
+
+      button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
 
         i {
-            color: $primary-color;
-            cursor: pointer;
+          font-size: 16px;
         }
-
-        .slash {
-            color: $light-grey-color;
-        }
+      }
     }
 
-    .toolbar {
+    .pagination-option {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      select {
+        padding: 0.25rem 1rem;
+      }
+    }
+  }
+
+  .crud-table {
+    width: 100%;
+    margin: 2rem 0;
+    border-collapse: collapse;
+
+    thead {
+      background-color: #31373c;
+      color: #fff;
+
+      th {
+        padding: 0.75rem;
+        text-align: start;
+      }
+    }
+
+    tbody {
+      td {
+        padding: 1rem;
+        text-align: start;
+        border-bottom: 1px solid $light-grey-color;
+      }
+
+      .options-area {
         display: flex;
-        justify-content: space-between;
-        margin-top: 2rem;
-
-        .action-btns {
-            display: flex;
-            gap: .5rem;
-
-            .add-btn {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: .5rem;
-                background-color: $primary-color;
-                border: none;
-                color: #fff;
-                padding: .5rem 1rem;
-                font-size: 16px;
-                border-radius: .25rem;
-                cursor: pointer;
-            }
-
-            .export-btn {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: .5rem;
-                background-color: $grey-color;
-                border: none;
-                color: #fff;
-                padding: .5rem 1rem;
-                font-size: 16px;
-                border-radius: .25rem;
-                cursor: pointer;
-            }
-        }
-
-        .search-box {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 1rem;
-            border: 1px solid $grey-color;
-            padding: .5rem 1rem;
-            border-radius: .25rem;
-
-            input {
-                border: none;
-                outline: none;
-            }
-
-            button {
-                border: none;
-                background-color: transparent;
-                cursor: pointer;
-
-                i {
-                    font-size: 16px;
-                }
-            }
-        }
-
-        .pagination-option {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-
-            select {
-                padding: .25rem 1rem;
-            }
-        }
-    }
-
-    .crud-table {
-        width: 100%;
-        margin: 2rem 0;
-        border-collapse: collapse;
-
-        thead {
-            background-color: #31373c;
-            color: #fff;
-
-            th {
-                padding: .75rem;
-                text-align: start;
-            }
-        }
-
-        tbody {
-            td {
-                padding: 1rem;
-                text-align: start;
-                border-bottom: 1px solid $light-grey-color;
-            }
-        }
-    }
-
-    .table-footer {
-        display: flex;
+        justify-content: center;
         align-items: center;
-        justify-content: space-between;
+        gap: 0.5rem;
+        text-align: center;
 
-        .page-switcher-wrapper {
-            display: flex;
-            align-items: center;
-            gap: .5rem;
-
-            .page-switcher {
-                display: flex;
-                gap: .5rem;
-
-                button {
-                    padding: .35rem .85rem;
-                    border: 0;
-                    background-color: $primary-color;
-                    color: #fff;
-                }
-            }
+        i {
+          font-size: 20px;
         }
+
+        .fa-pen-to-square {
+          color: blue;
+        }
+
+        .fa-delete-left {
+          color: red;
+        }
+      }
     }
+  }
+
+  .table-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .page-switcher-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .page-switcher {
+        display: flex;
+        gap: 0.5rem;
+
+        button {
+          padding: 0.25rem 0.75rem;
+          border: 0;
+          background-color: $primary-color;
+          color: #fff;
+        }
+      }
+    }
+  }
 }
