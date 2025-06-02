@@ -106,6 +106,10 @@
         padding: 0.75rem;
         text-align: start;
       }
+
+      .options-th {
+        text-align: center;
+      }
     }
 
     tbody {
@@ -119,8 +123,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 0.5rem;
         text-align: center;
+        gap: .5rem;
 
         i {
           font-size: 20px;
