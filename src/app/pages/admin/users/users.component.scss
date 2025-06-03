@@ -110,13 +110,36 @@
       .options-th {
         text-align: center;
       }
+
     }
 
     tbody {
       td {
-        padding: 1rem;
+        padding: .5rem;
         text-align: start;
         border-bottom: 1px solid $light-grey-color;
+
+        img {
+          width: 3.5rem;
+          height: 3.5rem;
+          border-radius: 100%;
+        }
+
+        .blank-user-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 3.5rem;
+          height: 3.5rem;
+          border-radius: 100%;
+
+          background-color: $light-grey-color;
+
+          i {
+            font-size: 26px;
+          }
+        }
+
       }
 
       .options-area {

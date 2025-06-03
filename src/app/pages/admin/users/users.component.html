@@ -4,19 +4,19 @@
         <span class="slash">/</span>
         <p>Usuários</p>
     </div>
-    
+
     <div class="toolbar">
         <div class="action-btns">
             <button class="add-btn" (click)="toggleModal()"><i class="fa-solid fa-plus"></i>Adicionar</button>
-            <app-admin-modal *ngIf="showModal"></app-admin-modal>
+            <app-admin-modal *ngIf="showModal" (userAdded)="onUserAdded()" (close)="toggleModal()"></app-admin-modal>
             <button class="export-btn"><i class="fa-solid fa-cloud-arrow-down"></i>Exportar</button>
         </div>
-    
+
         <div class="search-box">
             <input type="text" placeholder="Procure por Usuários...">
             <button><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
-    
+
         <div class="pagination-option">
             <p>Resultados: </p>
             <select name="" id="">
@@ -33,22 +33,30 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Imagem</th>
                 <th>Nome</th>
                 <th>Email</th>
                 <th>Senha</th>
                 <th>Phone</th>
-                <th>URL Imagem</th>
+
                 <th class="options-th">Opções</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let user of users">
                 <td>{{ user.id }}</td>
+                <td class="td-center">
+                    <img [src]="user.imageUrl" alt="" *ngIf="user.imageUrl; else blankUserImage">
+                    <ng-template #blankUserImage>
+                        <div class="blank-user-wrapper">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                    </ng-template>
+                </td>
                 <td>{{ user.firstName + " " + user.lastName}}</td>
                 <td>{{ user.email }}</td>
                 <td>•••••••••••</td>
                 <td>{{ user.phone}}</td>
-                <td>{{ user.IimageUrl}}</td>
                 <td>
                     <div class="options-area">
                         <i class="fa-solid fa-pen-to-square"></i>

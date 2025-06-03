@@ -16,7 +16,11 @@ export class UsersComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    this.userService.getAllUsers().subscribe({
+   this.getUsers();
+  }
+
+  getUsers(): void {
+     this.userService.getAllUsers().subscribe({
       next: (res) => {
         console.log(res);
         this.users = res;
@@ -29,5 +33,10 @@ export class UsersComponent implements OnInit {
 
   toggleModal(): void {
     this.showModal = !this.showModal;
+  }
+
+  onUserAdded(): void {
+    this.getUsers();
+    this.toggleModal();
   }
 }

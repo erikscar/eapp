@@ -1,9 +1,17 @@
-<div class="modal-overlay">
-  <form action="" class="modal">
+<div class="modal-overlay" (click)="closeModal()">
+  <form [formGroup]="addUserForm" class="modal" (submit)="addUser(addUserForm)" (click)="$event.stopPropagation()">
     <div class="modal-topbar">
-      <div class="user-icon-wrapper">
-        <i class="fa-solid fa-user"></i>
+
+      <div *ngIf="previewImageUrl; else defaultIcon" class="preview-image">
+        <img [src]="previewImageUrl" alt="Imagem de Perfil"/>
       </div>
+      <ng-template #defaultIcon>
+        <div class="user-icon-wrapper">
+          <i class="fa-solid fa-user"></i>
+        </div>
+      </ng-template>
+
+
     </div>
     <div class="modal-content">
       <h1 class="username">Erik Scarcela Araujo</h1>
@@ -13,18 +21,27 @@
         <label for="">Nome</label>
         <div class="name-input-wrapper">
           <div class="input-wrapper">
-            <input type="text" placeholder="Nome..." />
+            <input type="text" placeholder="Nome..." formControlName="firstName" />
           </div>
           <div class="input-wrapper">
-            <input type="text" placeholder="Sobrenome..." />
+            <input type="text" placeholder="Sobrenome..." formControlName="lastName" />
           </div>
         </div>
       </div>
+
       <div class="admin-input-wrapper">
         <label for="">Email</label>
         <div class="input-wrapper">
           <i class="fa-solid fa-envelope"></i>
-          <input type="text" placeholder="Email..." />
+          <input type="text" placeholder="Email..." formControlName="email" />
+        </div>
+      </div>
+
+      <div class="admin-input-wrapper">
+        <label for="">Senha</label>
+        <div class="input-wrapper">
+          <i class="fa-solid fa-lock"></i>
+          <input type="text" placeholder="Senha..." formControlName="passwordHash" />
         </div>
       </div>
 
@@ -32,7 +49,7 @@
         <label for="">Telefone</label>
         <div class="input-wrapper">
           <i class="fa-solid fa-phone"></i>
-          <input type="text" placeholder="Telefone..."/>
+          <input type="text" placeholder="Telefone..." formControlName="phone" />
         </div>
       </div>
 
@@ -40,9 +57,9 @@
         <label for="">Permissões</label>
         <div class="input-wrapper">
           <i class="fa-solid fa-key"></i>
-          <select name="" id="">
-            <option value="">Admin</option>
-            <option value="">Usuário</option>
+          <select name="" id="" formControlName="role">
+            <option value="Admin">Admin</option>
+            <option value="User">Usuário</option>
           </select>
         </div>
       </div>
@@ -51,8 +68,8 @@
         <label for="">Foto de Perfil</label>
         <div class="input-wrapper">
           <i class="fa-solid fa-image"></i>
-          <input type="text" name="" id="" placeholder="https://suaimagem.png" />
-          <button class="apply-button">Aplicar</button>
+          <input type="text" name="" id="" placeholder="https://suaimagem.png" formControlName="imageUrl" />
+          <button type="button" (click)="applyImage()" class="apply-button">Aplicar</button>
         </div>
       </div>
 
@@ -60,8 +77,8 @@
     </div>
 
     <div class="admin-modal-btns">
-      <button class="cancel-btn">Cancelar</button>
-      <button class="add-btn">Adicionar</button>
+      <button (click)="closeModal()" class="cancel-btn">Cancelar</button>
+      <button type="submit" class="add-btn">Adicionar</button>
     </div>
   </form>
 </div>

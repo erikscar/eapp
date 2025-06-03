@@ -26,6 +26,20 @@
       background-color: $light-grey-color;
       border-radius: 0.25rem;
 
+      .preview-image {
+        position: absolute;
+        bottom: -2.5rem;
+        left: 1rem;
+        display: inline-block;
+        
+        img {
+          width: 5rem;
+          height: 5rem;
+          border-radius: 100%;
+          border: 2px solid #fff;
+        }
+      }
+
       .user-icon-wrapper {
         position: absolute;
         bottom: -2rem;
