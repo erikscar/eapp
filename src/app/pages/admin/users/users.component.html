@@ -15,7 +15,7 @@
         (userAdded)="onUserAdded()"
         (close)="toggleModal()"
       ></app-admin-modal>
-      <button class="export-btn">
+      <button class="export-btn" (click)="exportForExcel()">
         <i class="fa-solid fa-cloud-arrow-down"></i>Exportar
       </button>
     </div>

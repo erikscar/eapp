@@ -9,6 +9,7 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
+import * as XLSX from 'xlsx';
 import { Router } from '@angular/router';
 
 @Component({
@@ -89,5 +90,13 @@ export class UsersComponent implements OnInit {
         console.log(err);
       },
     });
+  }
+
+  exportForExcel(): void {
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.users);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+    XLSX.writeFile(wb, 'usersEApp.xlsx');
   }
 }
