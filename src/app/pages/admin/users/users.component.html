@@ -66,9 +66,9 @@
         <td>
           <div class="options-area">
             <i class="fa-solid fa-pen-to-square"></i>
-            <i class="fa-solid fa-delete-left" (click)="toggleRemoveModal()"></i>
+            <i class="fa-solid fa-delete-left" (click)="toggleRemoveModal(user.id)"></i>
 
-            <div class="modal-overlay-confirm" (click)="toggleRemoveModal()" *ngIf="showRemoveModal">
+            <div class="modal-overlay-confirm" (click)="toggleRemoveModal()" *ngIf="showRemoveModal && selectedUserId === user.id">
               <div class="confirm-modal" (click)="$event.stopPropagation()">
                 <i class="fa-solid fa-xmark" (click)="toggleRemoveModal()"></i>
 
@@ -82,7 +82,7 @@
 
                 <div class="remove-cancel-btn">
                   <button class="cancel-btn" (click)="toggleRemoveModal()">Cancelar</button>
-                  <button class="remove-btn">Excluir</button>
+                  <button class="remove-btn" (click)="removeUser(user.id)">Excluir</button>
                 </div>
               </div>
             </div>

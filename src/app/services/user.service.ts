@@ -47,4 +47,11 @@ export class UserService {
 
     return this.http.put<User>(`${this.apiUrl}`, data, { headers })
   }
+
+  removeUser(userId: number): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`)
+
+    return this.http.delete<User>(`${this.apiUrl}/${userId}`, { headers })
+  }
 }

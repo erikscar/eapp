@@ -31,6 +31,7 @@ export class UsersComponent implements OnInit {
   pageSize: number = 5;
   showModal: boolean = false;
   showRemoveModal: boolean = false;
+  selectedUserId: number | null = null;
 
   constructor(private userService: UserService, private router: Router) {}
 
@@ -58,8 +59,9 @@ export class UsersComponent implements OnInit {
     this.showModal = !this.showModal;
   }
 
-  toggleRemoveModal(): void {
+  toggleRemoveModal(userId: number | null = null): void {
     this.showRemoveModal = !this.showRemoveModal;
+    this.selectedUserId = userId
   }
 
   onUserAdded(): void {
@@ -103,5 +105,18 @@ export class UsersComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
 
     XLSX.writeFile(wb, 'usersEApp.xlsx');
+  }
+
+  removeUser(userId: number): void {
+    this.userService.removeUser(userId).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.getUsers();
+        this.toggleRemoveModal();
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
   }
 }
