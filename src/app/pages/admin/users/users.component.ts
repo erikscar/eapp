@@ -30,6 +30,7 @@ export class UsersComponent implements OnInit {
   currentPage: number = 1;
   pageSize: number = 5;
   showModal: boolean = false;
+  showRemoveModal: boolean = false;
 
   constructor(private userService: UserService, private router: Router) {}
 
@@ -55,6 +56,10 @@ export class UsersComponent implements OnInit {
 
   toggleModal(): void {
     this.showModal = !this.showModal;
+  }
+
+  toggleRemoveModal(): void {
+    this.showRemoveModal = !this.showRemoveModal;
   }
 
   onUserAdded(): void {
