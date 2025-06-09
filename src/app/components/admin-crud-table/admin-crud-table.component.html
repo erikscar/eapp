@@ -1,1 +1,25 @@
-<p>admin-crud-table works!</p>
+<div class="admin-user-container">
+
+  <table class="crud-table">
+    <thead>
+      <tr>
+        <th *ngFor="let col of tableHeaders">{{ col }}</th>
+        <th class="options-th">Opções</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data">
+        <td *ngFor="let column of tableColumns">{{ row[column] }}</td>
+        <td>
+          <div class="options-area">
+            <i class="fa-solid fa-pen-to-square" (click)="edit.emit(row)"></i>
+            <i class="fa-solid fa-delete-left" (click)="remove.emit(row)"></i>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="table-footer">
+  </div>
+</div>
