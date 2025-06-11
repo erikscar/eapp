@@ -102,4 +102,20 @@
   </div>
 </div> -->
 
-<app-admin-crud-table [data]="users" [tableColumns]="columns" [tableHeaders]="headers"></app-admin-crud-table>
+  <div class="path">
+    <i class="fa-solid fa-house"></i>
+    <span class="slash">/</span>
+    <p>Usuários</p>
+  </div>
+
+<app-admin-toolbar
+[searchForm]="searchForm"
+></app-admin-toolbar>
+
+<app-admin-crud-table
+ [data]="users"
+ [tableColumns]="columns"
+  [tableHeaders]="headers">
+</app-admin-crud-table>
+
+<app-admin-table-footer></app-admin-table-footer>

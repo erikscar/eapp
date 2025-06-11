@@ -1,0 +1,26 @@
+<div class="toolbar">
+    <div class="action-btns">
+      <button class="add-btn" (click)="addData.emit()">
+        <i class="fa-solid fa-plus"></i>Adicionar
+      </button>
+
+      <button class="export-btn" (click)="exportData.emit()">
+        <i class="fa-solid fa-cloud-arrow-down"></i>Exportar
+      </button>
+    </div>
+
+    <form class="search-box" [formGroup]="searchForm" (ngSubmit)="searchData.emit()">
+      <input type="text" placeholder="Procure por Usuários..." formControlName="searchValue" />
+      <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+
+    <div class="pagination-option">
+      <p>Resultados:</p>
+      <select [(ngModel)]="pageSize" (change)="currentPage = 1">
+        <option [value]="5">5</option>
+        <option [value]="10">10</option>
+        <option [value]="15">15</option>
+        <option [value]="30">30</option>
+      </select>
+    </div>
+  </div>

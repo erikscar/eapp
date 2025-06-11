@@ -1,0 +1,17 @@
+<div class="table-footer">
+  <pagination-controls
+    (pageChange)="pageChange.emit($event)"
+    [maxSize]="5"
+    [directionLinks]="true"
+    previousLabel="<"
+    nextLabel=">"
+    [autoHide]="false"
+  />
+
+  <div>
+    <p>
+      Mostrando os Resultados {{ startIndex }}-{{ endIndex }} de
+      {{ totalItems }}
+    </p>
+  </div>
+</div>

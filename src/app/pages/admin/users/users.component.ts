@@ -12,6 +12,8 @@ import {
 import * as XLSX from 'xlsx';
 import { Router } from '@angular/router';
 import { AdminCrudTableComponent } from "../../../components/admin-crud-table/admin-crud-table.component";
+import { AdminToolbarComponent } from "../../../components/admin-toolbar/admin-toolbar.component";
+import { AdminTableFooterComponent } from "../../../components/admin-table-footer/admin-table-footer.component";
 
 @Component({
   selector: 'app-users',
@@ -21,19 +23,24 @@ import { AdminCrudTableComponent } from "../../../components/admin-crud-table/ad
     ReactiveFormsModule,
     AdminModalComponent,
     NgxPaginationModule,
-    AdminCrudTableComponent
+    AdminCrudTableComponent,
+    AdminToolbarComponent,
+    AdminTableFooterComponent
 ],
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss',
 })
 export class UsersComponent implements OnInit {
-  users: any = [];
-  headers: any = ["Id", "Imagem", "Nome"]
+  headers: any = ["Id", "Imagem", "Nome", "Email", "Telefone", "Permissões"]
   columns: any = [
-    {key: 'id', type: 'text'},
-    {key: 'imageUrl', type: 'image'},
-    {key: 'firstName', type: 'text'},
+    { key: 'id', type: 'text' },
+    { key: 'imageUrl', type: 'image' },
+    { key: 'firstName', type: 'text' },
+    { key: 'email', type: 'text' },
+    { key: 'phone', type: 'text' },
+    { key: 'role', type: 'text' },
   ]
+  users: any = [];
   usersPaginated: any = [];
   currentPage: number = 1;
   pageSize: number = 5;
