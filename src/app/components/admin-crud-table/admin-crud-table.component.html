@@ -1,5 +1,37 @@
 <div class="admin-user-container">
 
+  <div class="path">
+    <i class="fa-solid fa-house"></i>
+    <span class="slash">/</span>
+    <p>Usuários</p>
+  </div>
+
+  <div class="toolbar">
+    <div class="action-btns">
+      <button class="add-btn">
+        <i class="fa-solid fa-plus"></i>Adicionar
+      </button>
+      <button class="export-btn">
+        <i class="fa-solid fa-cloud-arrow-down"></i>Exportar
+      </button>
+    </div>
+
+    <form class="search-box">
+      <input type="text" placeholder="Procure por Usuários..." formControlName="searchValue" />
+      <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+
+    <div class="pagination-option">
+      <p>Resultados:</p>
+      <select>
+        <option [value]="5">5</option>
+        <option [value]="10">10</option>
+        <option [value]="15">15</option>
+        <option [value]="30">30</option>
+      </select>
+    </div>
+  </div>
+
   <table class="crud-table">
     <thead>
       <tr>
@@ -9,7 +41,14 @@
     </thead>
     <tbody>
       <tr *ngFor="let row of data">
-        <td *ngFor="let column of tableColumns">{{ row[column] }}</td>
+        <td *ngFor="let column of tableColumns">
+          <ng-container [ngSwitch]="column.type">
+            <img *ngSwitchCase="'image'" [src]="row[column.key]" alt="">
+            <span *ngSwitchCase="'text'">{{ row[column.key ]}}</span>
+          </ng-container>
+
+          
+        </td>
         <td>
           <div class="options-area">
             <i class="fa-solid fa-pen-to-square" (click)="edit.emit(row)"></i>
@@ -21,5 +60,8 @@
   </table>
 
   <div class="table-footer">
+    <div>
+      <p>Mostrando os Resultados</p>
+    </div>
   </div>
 </div>

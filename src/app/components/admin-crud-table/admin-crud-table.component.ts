@@ -10,7 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class AdminCrudTableComponent {
   @Input() data: any[] = [];
   @Input() tableHeaders: string[] = [];
-  @Input() tableColumns: string[] = [];
+  @Input() tableColumns: { key: string, type:string }[] =[]
 
   @Output() edit = new EventEmitter<any>();
   @Output() remove = new EventEmitter<any>();

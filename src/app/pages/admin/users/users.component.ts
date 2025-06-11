@@ -11,6 +11,7 @@ import {
 } from '@angular/forms';
 import * as XLSX from 'xlsx';
 import { Router } from '@angular/router';
+import { AdminCrudTableComponent } from "../../../components/admin-crud-table/admin-crud-table.component";
 
 @Component({
   selector: 'app-users',
@@ -20,12 +21,19 @@ import { Router } from '@angular/router';
     ReactiveFormsModule,
     AdminModalComponent,
     NgxPaginationModule,
-  ],
+    AdminCrudTableComponent
+],
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss',
 })
 export class UsersComponent implements OnInit {
   users: any = [];
+  headers: any = ["Id", "Imagem", "Nome"]
+  columns: any = [
+    {key: 'id', type: 'text'},
+    {key: 'imageUrl', type: 'image'},
+    {key: 'firstName', type: 'text'},
+  ]
   usersPaginated: any = [];
   currentPage: number = 1;
   pageSize: number = 5;
