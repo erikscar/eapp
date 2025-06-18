@@ -17,5 +17,4 @@ export class AdminCrudTableComponent {
 
   @Output() edit = new EventEmitter<any>();
   @Output() remove = new EventEmitter<any>();
-
 }

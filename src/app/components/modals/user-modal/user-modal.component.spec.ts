@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminCrudPageComponent } from './admin-crud-page.component';
+import { UserModalComponent } from './user-modal.component';
 
-describe('AdminCrudPageComponent', () => {
-  let component: AdminCrudPageComponent;
-  let fixture: ComponentFixture<AdminCrudPageComponent>;
+describe('UserModalComponent', () => {
+  let component: UserModalComponent;
+  let fixture: ComponentFixture<UserModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AdminCrudPageComponent]
+      imports: [UserModalComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AdminCrudPageComponent);
+    fixture = TestBed.createComponent(UserModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -7,9 +7,12 @@
 <app-admin-toolbar
   [searchForm]="searchForm"
   (pageSizeChange)="onPageSizeChange($event)"
+  (addData)="toggleUserModal()"
   (exportData)="onExportUsers()"
   (searchData)="searchForUsers()"
 ></app-admin-toolbar>
+
+<app-user-modal *ngIf="showUserModal" (close)="toggleUserModal()" (userAdded)="onAddedUser()"></app-user-modal>
 
 <app-admin-crud-table
   [data]="users"

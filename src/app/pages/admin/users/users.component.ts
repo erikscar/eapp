@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { CommonModule } from '@angular/common';
-import { AdminModalComponent } from '../../../components/admin-modal/admin-modal.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import {
   FormControl,
@@ -9,11 +8,11 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { Router } from '@angular/router';
 import { AdminCrudTableComponent } from '../../../components/admin-crud-table/admin-crud-table.component';
 import { AdminToolbarComponent } from '../../../components/admin-toolbar/admin-toolbar.component';
 import { AdminTableFooterComponent } from '../../../components/admin-table-footer/admin-table-footer.component';
 import { ExcelService } from '../../../services/excel.service';
+import { UserModalComponent } from "../../../components/modals/user-modal/user-modal.component";
 
 @Component({
   selector: 'app-users',
@@ -21,12 +20,12 @@ import { ExcelService } from '../../../services/excel.service';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    AdminModalComponent,
     NgxPaginationModule,
     AdminCrudTableComponent,
     AdminToolbarComponent,
     AdminTableFooterComponent,
-  ],
+    UserModalComponent
+],
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss',
 })
@@ -43,12 +42,13 @@ export class UsersComponent implements OnInit {
   users: any = [];
   pageSize: number = 5;
   currentPage: number = 1;
+  showUserModal: boolean = false;
 
-  constructor(
-    private userService: UserService,
-    private router: Router,
-    private excelService: ExcelService
-  ) {}
+  searchForm: FormGroup = new FormGroup({
+    searchValue: new FormControl(''),
+  });
+
+  constructor(private userService: UserService, private excelService: ExcelService) {}
 
   ngOnInit(): void {
     this.getUsers();
@@ -59,13 +59,21 @@ export class UsersComponent implements OnInit {
     this.currentPage = 1;
   }
 
-  onPageChange(newPage: number){
+  onPageChange(newPage: number) {
     this.currentPage = newPage;
   }
 
-  searchForm: FormGroup = new FormGroup({
-    searchValue: new FormControl(''),
-  });
+  toggleUserModal() {
+    this.showUserModal = !this.showUserModal;
+  }
+  onAddedUser() {
+    this.toggleUserModal()
+    this.getUsers()
+  }
+
+  onExportUsers() {
+    this.excelService.exportAsExcelFile(this.users, 'usersEapp');
+  }
 
   getUsers(): void {
     this.userService.getAllUsers().subscribe({
@@ -76,10 +84,6 @@ export class UsersComponent implements OnInit {
         console.log(err);
       },
     });
-  }
-
-  onExportUsers() {
-    this.excelService.exportAsExcelFile(this.users, 'usersEapp');
   }
 
   searchForUsers(): void {
