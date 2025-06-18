@@ -1,4 +1,4 @@
-<div class="modal-overlay">
+<div class="modal-overlay" (click)="close.emit()">
   <div class="modal" (click)="$event.stopPropagation()">
     <i class="fa-solid fa-xmark" (click)="close.emit()" ></i>
     <div class="remove-icon-wrapper">

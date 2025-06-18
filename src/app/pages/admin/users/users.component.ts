@@ -14,6 +14,7 @@ import { AdminTableFooterComponent } from '../../../components/admin-table-foote
 import { ExcelService } from '../../../services/excel.service';
 import { UserModalComponent } from "../../../components/modals/user-modal/user-modal.component";
 import { RemoveModalComponent } from "../../../components/modals/remove-modal/remove-modal.component";
+import User from '../../../interfaces/User';
 
 @Component({
   selector: 'app-users',
@@ -45,6 +46,7 @@ export class UsersComponent implements OnInit {
   selectedUserId!: number;
   pageSize: number = 5;
   currentPage: number = 1;
+  userToEdit: User | null = null;
   showUserModal: boolean = false;
   showRemoveModal: boolean = false;
   searchForm: FormGroup = new FormGroup({
@@ -69,13 +71,15 @@ export class UsersComponent implements OnInit {
   toggleUserModal() {
     this.showUserModal = !this.showUserModal;
   }
+
    toggleRemoveModal(userId: number) {
     this.selectedUserId = userId;
     this.showRemoveModal = !this.showRemoveModal;
   }
+
   onAddedUser() {
-    this.toggleUserModal()
-    this.getUsers()
+    this.getUsers();
+    this.toggleUserModal();
   }
 
   onExportUsers() {

@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import User from '../../../interfaces/User';
 
 @Component({
   selector: 'app-user-modal',
@@ -12,7 +13,7 @@ import { CommonModule } from '@angular/common';
 export class UserModalComponent {
   @Output() userAdded = new EventEmitter<void>();
   @Output() close = new EventEmitter<void>();
-
+  @Input() userToEdit: User | null = null;
   previewImageUrl: string = '';
 
   constructor(private userService: UserService) {}
@@ -44,7 +45,4 @@ export class UserModalComponent {
     this.previewImageUrl = url;
   }
 
-  closeModal(): void {
-    this.close.emit();
-  }
 }

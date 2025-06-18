@@ -1,4 +1,4 @@
-<div class="modal-overlay" (click)="closeModal()">
+<div class="modal-overlay" (click)="close.emit()">
   <form
     [formGroup]="addUserForm"
     class="modal"
@@ -99,7 +99,7 @@
     </div>
 
     <div class="admin-modal-btns">
-      <button (click)="closeModal()" class="cancel-btn">Cancelar</button>
+      <button (click)="close.emit()" class="cancel-btn">Cancelar</button>
       <button type="submit" class="add-btn">Adicionar</button>
     </div>
   </form>

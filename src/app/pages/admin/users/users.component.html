@@ -21,10 +21,11 @@
   [pageSize]="pageSize"
   [currentPage]="currentPage"
   (remove)="toggleRemoveModal($event)"
+  (edit)="toggleUserModal()"
 >
 </app-admin-crud-table>
 
-<app-remove-modal *ngIf="showRemoveModal" (close)="!showRemoveModal" (remove)="removeUser()"></app-remove-modal>
+<app-remove-modal *ngIf="showRemoveModal" (close)="showRemoveModal = false" (remove)="removeUser()"></app-remove-modal>
 
 <app-admin-table-footer
   [totalItems]="users.length"
