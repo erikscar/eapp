@@ -20,8 +20,11 @@
   [tableHeaders]="headers"
   [pageSize]="pageSize"
   [currentPage]="currentPage"
+  (remove)="toggleRemoveModal($event)"
 >
 </app-admin-crud-table>
+
+<app-remove-modal *ngIf="showRemoveModal" (close)="!showRemoveModal" (remove)="removeUser()"></app-remove-modal>
 
 <app-admin-table-footer
   [totalItems]="users.length"

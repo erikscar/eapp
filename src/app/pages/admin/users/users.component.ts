@@ -13,6 +13,7 @@ import { AdminToolbarComponent } from '../../../components/admin-toolbar/admin-t
 import { AdminTableFooterComponent } from '../../../components/admin-table-footer/admin-table-footer.component';
 import { ExcelService } from '../../../services/excel.service';
 import { UserModalComponent } from "../../../components/modals/user-modal/user-modal.component";
+import { RemoveModalComponent } from "../../../components/modals/remove-modal/remove-modal.component";
 
 @Component({
   selector: 'app-users',
@@ -24,7 +25,8 @@ import { UserModalComponent } from "../../../components/modals/user-modal/user-m
     AdminCrudTableComponent,
     AdminToolbarComponent,
     AdminTableFooterComponent,
-    UserModalComponent
+    UserModalComponent,
+    RemoveModalComponent
 ],
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss',
@@ -40,10 +42,11 @@ export class UsersComponent implements OnInit {
     { key: 'role', type: 'text' },
   ];
   users: any = [];
+  selectedUserId!: number;
   pageSize: number = 5;
   currentPage: number = 1;
   showUserModal: boolean = false;
-
+  showRemoveModal: boolean = false;
   searchForm: FormGroup = new FormGroup({
     searchValue: new FormControl(''),
   });
@@ -65,6 +68,10 @@ export class UsersComponent implements OnInit {
 
   toggleUserModal() {
     this.showUserModal = !this.showUserModal;
+  }
+   toggleRemoveModal(userId: number) {
+    this.selectedUserId = userId;
+    this.showRemoveModal = !this.showRemoveModal;
   }
   onAddedUser() {
     this.toggleUserModal()
@@ -104,10 +111,11 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  removeUser(userId: number): void {
-    this.userService.removeUser(userId).subscribe({
+  removeUser(): void {
+    this.userService.removeUser(this.selectedUserId).subscribe({
       next: (res) => {
         this.getUsers();
+        this.showRemoveModal = false
       },
       error: (err) => {
         console.log(err);

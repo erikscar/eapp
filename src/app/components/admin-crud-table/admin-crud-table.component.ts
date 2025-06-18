@@ -16,5 +16,5 @@ export class AdminCrudTableComponent {
   @Input() currentPage!: number;
 
   @Output() edit = new EventEmitter<any>();
-  @Output() remove = new EventEmitter<any>();
+  @Output() remove = new EventEmitter<number>();
 }

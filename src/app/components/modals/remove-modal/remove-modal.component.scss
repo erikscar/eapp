@@ -1,0 +1,79 @@
+@use "../../../../scss/variables.scss" as *;
+
+.modal-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 100;
+
+    .modal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #fff;
+        z-index: 101;
+        padding: 2rem;
+        text-align: center;
+
+        .fa-xmark {
+            align-self: flex-end;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .remove-icon-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            width: 4.5rem;
+            height: 4.5rem;
+            border-radius: 100%;
+            background-color: #ffc9cb;
+
+            i {
+                font-size: 30px;
+                color: #d92525;
+            }
+        }
+
+        h1 {
+            margin: 1rem 0;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        .remove-cancel-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+            margin-top: 1.5rem;
+
+            button {
+                flex: 1;
+                padding: .5rem;
+                font-size: 18px;
+                background-color: transparent;
+                border: 1px solid $light-grey-color;
+                border-radius: .5rem;
+                cursor: pointer;
+            }
+
+            .remove-btn {
+                color: #fff;
+                background-color: #d92525;
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+<div class="modal-overlay">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <i class="fa-solid fa-xmark" (click)="close.emit()" ></i>
+    <div class="remove-icon-wrapper">
+      <i class="fa-solid fa-trash"></i>
+    </div>
+
+     <h1>Confirmar Remoção</h1>
+      <p>
+        Você tem certeza que deseja excluir {{ itemName }} ? Essa ação não pode
+        ser revertida!
+      </p>
+
+    <div class="remove-cancel-btn">
+      <button class="cancel-btn" (click)="close.emit()">Cancelar</button>
+      <button class="remove-btn" (click)="remove.emit()">Excluir</button>
+    </div>
+  </div>
+</div>
