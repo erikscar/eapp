@@ -5,14 +5,14 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
   selector: 'app-admin-toolbar',
   imports: [ReactiveFormsModule, FormsModule],
   templateUrl: './admin-toolbar.component.html',
-  styleUrl: './admin-toolbar.component.scss'
+  styleUrl: './admin-toolbar.component.scss',
 })
 export class AdminToolbarComponent {
-  pageSize: number = 5;
   currentPage: number = 1;
-
+  pageSize: number = 5;
   @Input() searchForm!: FormGroup;
-  
+
+  @Output() pageSizeChange = new EventEmitter<number>();
   @Output() addData = new EventEmitter<void>();
   @Output() exportData = new EventEmitter<void>();
   @Output() searchData = new EventEmitter<void>();

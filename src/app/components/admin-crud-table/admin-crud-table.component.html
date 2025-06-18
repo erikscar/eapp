@@ -7,7 +7,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of data">
+      <tr *ngFor="let row of data | paginate: { itemsPerPage: pageSize, currentPage: currentPage }">
         <td *ngFor="let column of tableColumns" >
           <ng-container [ngSwitch]="column.type">
 

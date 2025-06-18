@@ -9,11 +9,11 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import * as XLSX from 'xlsx';
 import { Router } from '@angular/router';
-import { AdminCrudTableComponent } from "../../../components/admin-crud-table/admin-crud-table.component";
-import { AdminToolbarComponent } from "../../../components/admin-toolbar/admin-toolbar.component";
-import { AdminTableFooterComponent } from "../../../components/admin-table-footer/admin-table-footer.component";
+import { AdminCrudTableComponent } from '../../../components/admin-crud-table/admin-crud-table.component';
+import { AdminToolbarComponent } from '../../../components/admin-toolbar/admin-toolbar.component';
+import { AdminTableFooterComponent } from '../../../components/admin-table-footer/admin-table-footer.component';
+import { ExcelService } from '../../../services/excel.service';
 
 @Component({
   selector: 'app-users',
@@ -25,13 +25,13 @@ import { AdminTableFooterComponent } from "../../../components/admin-table-foote
     NgxPaginationModule,
     AdminCrudTableComponent,
     AdminToolbarComponent,
-    AdminTableFooterComponent
-],
+    AdminTableFooterComponent,
+  ],
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss',
 })
 export class UsersComponent implements OnInit {
-  headers: any = ["Id", "Imagem", "Nome", "Email", "Telefone", "Permissões"]
+  headers: any = ['Id', 'Imagem', 'Nome', 'Email', 'Telefone', 'Permissões'];
   columns: any = [
     { key: 'id', type: 'text' },
     { key: 'imageUrl', type: 'image' },
@@ -39,19 +39,28 @@ export class UsersComponent implements OnInit {
     { key: 'email', type: 'text' },
     { key: 'phone', type: 'text' },
     { key: 'role', type: 'text' },
-  ]
+  ];
   users: any = [];
-  usersPaginated: any = [];
-  currentPage: number = 1;
   pageSize: number = 5;
-  showModal: boolean = false;
-  showRemoveModal: boolean = false;
-  selectedUserId: number | null = null;
+  currentPage: number = 1;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private excelService: ExcelService
+  ) {}
 
   ngOnInit(): void {
     this.getUsers();
+  }
+
+  onPageSizeChange(newPageSize: number) {
+    this.pageSize = newPageSize;
+    this.currentPage = 1;
+  }
+
+  onPageChange(newPage: number){
+    this.currentPage = newPage;
   }
 
   searchForm: FormGroup = new FormGroup({
@@ -61,7 +70,6 @@ export class UsersComponent implements OnInit {
   getUsers(): void {
     this.userService.getAllUsers().subscribe({
       next: (res) => {
-        console.log(res);
         this.users = res;
       },
       error: (err) => {
@@ -70,29 +78,8 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  toggleModal(): void {
-    this.showModal = !this.showModal;
-  }
-
-  toggleRemoveModal(userId: number | null = null): void {
-    this.showRemoveModal = !this.showRemoveModal;
-    this.selectedUserId = userId
-  }
-
-  onUserAdded(): void {
-    this.getUsers();
-    this.toggleModal();
-  }
-
-  get startIndex(): number {
-    return this.users.length === 0
-      ? 0
-      : (this.currentPage - 1) * this.pageSize + 1;
-  }
-
-  get endIndex(): number {
-    const end = this.currentPage * this.pageSize;
-    return end > this.users.length ? this.users.length : end;
+  onExportUsers() {
+    this.excelService.exportAsExcelFile(this.users, 'usersEapp');
   }
 
   searchForUsers(): void {
@@ -106,7 +93,6 @@ export class UsersComponent implements OnInit {
     this.userService.getUsersBySearchValue(searchValue).subscribe({
       next: (res) => {
         this.users = res;
-        console.log(res);
       },
       error: (err) => {
         console.log(err);
@@ -114,24 +100,14 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  exportForExcel(): void {
-    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.users);
-    const wb: XLSX.WorkBook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-
-    XLSX.writeFile(wb, 'usersEApp.xlsx');
-  }
-
   removeUser(userId: number): void {
     this.userService.removeUser(userId).subscribe({
       next: (res) => {
-        console.log(res);
         this.getUsers();
-        this.toggleRemoveModal();
       },
       error: (err) => {
-        console.log(err)
-      }
-    })
+        console.log(err);
+      },
+    });
   }
 }

@@ -16,7 +16,7 @@
 
     <div class="pagination-option">
       <p>Resultados:</p>
-      <select [(ngModel)]="pageSize" (change)="currentPage = 1">
+      <select [(ngModel)]="pageSize" (change)="pageSizeChange.emit(pageSize)">
         <option [value]="5">5</option>
         <option [value]="10">10</option>
         <option [value]="15">15</option>
