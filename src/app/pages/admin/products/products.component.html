@@ -1,1 +1,31 @@
-<p>products works!</p>
+<app-admin-toolbar
+  [searchForm]="searchForm"
+  (pageSizeChange)="onPageSizeChange($event)"
+  (addData)="toggleUserModal()"
+  (exportData)="onExportProducts()"
+  (searchData)="searchForProducts()"
+  pageName="Usuários"
+></app-admin-toolbar>
+
+<app-product-modal></app-product-modal>
+
+<app-admin-crud-table
+  [data]="products"
+  [tableColumns]="columns"
+  [tableHeaders]="headers"
+  [pageSize]="pageSize"
+  [currentPage]="currentPage"
+  (remove)="toggleRemoveModal($event)"
+  (edit)="onEditProduct($event)"
+>
+</app-admin-crud-table>
+
+<app-remove-modal *ngIf="showRemoveModal" (close)="showRemoveModal = false" (remove)="removeProduct()"></app-remove-modal>
+
+<app-admin-table-footer
+  [totalItems]="products.length"
+  [currentPage]="currentPage"
+  [pageSize]="pageSize"
+  (pageChange)="onPageChange($event)"
+>
+</app-admin-table-footer>
