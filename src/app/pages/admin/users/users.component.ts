@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../../services/user.service';
+import { UserService } from '../../../services/user/user.service';
 import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 import {
@@ -11,7 +11,7 @@ import {
 import { AdminCrudTableComponent } from '../../../components/admin-crud-table/admin-crud-table.component';
 import { AdminToolbarComponent } from '../../../components/admin-toolbar/admin-toolbar.component';
 import { AdminTableFooterComponent } from '../../../components/admin-table-footer/admin-table-footer.component';
-import { ExcelService } from '../../../services/excel.service';
+import { ExcelService } from '../../../services/excel/excel.service';
 import { UserModalComponent } from "../../../components/modals/user-modal/user-modal.component";
 import { RemoveModalComponent } from "../../../components/modals/remove-modal/remove-modal.component";
 import User from '../../../interfaces/User';

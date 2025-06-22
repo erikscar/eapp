@@ -11,6 +11,7 @@ export class AdminToolbarComponent {
   currentPage: number = 1;
   pageSize: number = 5;
   @Input() searchForm!: FormGroup;
+  @Input() pageName: string = "";
 
   @Output() pageSizeChange = new EventEmitter<number>();
   @Output() addData = new EventEmitter<void>();

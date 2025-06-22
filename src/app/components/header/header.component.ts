@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../services/user/user.service';
 import User from '../../interfaces/User';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import Address from '../../interfaces/Address';
-import { AddressService } from '../../services/address.service';
+import { AddressService } from '../../services/address/address.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { ProductService } from '../../services/product.service';
+import { ProductService } from '../../services/product/product.service';
 
 @Component({
   selector: 'app-header',

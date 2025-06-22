@@ -18,6 +18,6 @@ export class AdminLayoutComponent {
   logOut(): void {
     this.router.navigate(['/'])
     localStorage.clear()
+    sessionStorage.clear()
   }
-
 }

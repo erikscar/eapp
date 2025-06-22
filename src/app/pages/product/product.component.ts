@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../services/product.service';
+import { ProductService } from '../../services/product/product.service';
 import { ActivatedRoute } from '@angular/router';
-import { CartService } from '../../services/cart.service';
-import { ReviewService } from '../../services/review.service';
+import { CartService } from '../../services/cart/cart.service';
+import { ReviewService } from '../../services/review/review.service';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 

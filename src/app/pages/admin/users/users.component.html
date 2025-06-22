@@ -1,15 +1,10 @@
-<div class="path">
-  <i class="fa-solid fa-house"></i>
-  <span class="slash">/</span>
-  <p>Usuários</p>
-</div>
-
 <app-admin-toolbar
   [searchForm]="searchForm"
   (pageSizeChange)="onPageSizeChange($event)"
   (addData)="toggleUserModal()"
   (exportData)="onExportUsers()"
   (searchData)="searchForUsers()"
+  pageName="Usuários"
 ></app-admin-toolbar>
 
 <app-user-modal *ngIf="showUserModal" [userToEdit]="userToEdit" (close)="toggleUserModal()" (userAdded)="onAddedUser()"></app-user-modal>
