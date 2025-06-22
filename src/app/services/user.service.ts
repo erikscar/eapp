@@ -48,6 +48,13 @@ export class UserService {
     return this.http.put<User>(`${this.apiUrl}`, data, { headers })
   }
 
+  adminUpdateUser(data: any, id:number):Observable<User> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`)
+
+    return this.http.put<User>(`${this.apiUrl}/${id}`, data, { headers })
+  }
+
   removeUser(userId: number): Observable<any> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`)

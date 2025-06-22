@@ -12,7 +12,7 @@
   (searchData)="searchForUsers()"
 ></app-admin-toolbar>
 
-<app-user-modal *ngIf="showUserModal" (close)="toggleUserModal()" (userAdded)="onAddedUser()"></app-user-modal>
+<app-user-modal *ngIf="showUserModal" [userToEdit]="userToEdit" (close)="toggleUserModal()" (userAdded)="onAddedUser()"></app-user-modal>
 
 <app-admin-crud-table
   [data]="users"
@@ -21,7 +21,7 @@
   [pageSize]="pageSize"
   [currentPage]="currentPage"
   (remove)="toggleRemoveModal($event)"
-  (edit)="toggleUserModal()"
+  (edit)="onEditUser($event)"
 >
 </app-admin-crud-table>
 

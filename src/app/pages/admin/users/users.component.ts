@@ -28,7 +28,7 @@ import User from '../../../interfaces/User';
     AdminTableFooterComponent,
     UserModalComponent,
     RemoveModalComponent
-],
+  ],
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss',
 })
@@ -53,7 +53,7 @@ export class UsersComponent implements OnInit {
     searchValue: new FormControl(''),
   });
 
-  constructor(private userService: UserService, private excelService: ExcelService) {}
+  constructor(private userService: UserService, private excelService: ExcelService) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -70,15 +70,24 @@ export class UsersComponent implements OnInit {
 
   toggleUserModal() {
     this.showUserModal = !this.showUserModal;
+
+    if (!this.showUserModal) {
+      this.userToEdit = null;
+    }
   }
 
-   toggleRemoveModal(userId: number) {
+  toggleRemoveModal(userId: number) {
     this.selectedUserId = userId;
     this.showRemoveModal = !this.showRemoveModal;
   }
 
   onAddedUser() {
     this.getUsers();
+    this.toggleUserModal();
+  }
+
+  onEditUser(user: User) {
+    this.userToEdit = user;
     this.toggleUserModal();
   }
 
