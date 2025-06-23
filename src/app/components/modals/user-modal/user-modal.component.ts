@@ -64,5 +64,4 @@ export class UserModalComponent implements OnInit {
     const url = this.addUserForm.get('imageUrl')?.value;
     this.previewImageUrl = url;
   }
-
 }

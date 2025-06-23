@@ -12,6 +12,10 @@ export class CategoryService {
   apiUrl: string = "http://localhost:5104/api/Category"
   constructor(private http: HttpClient, private authService: AuthService) { }
 
+  getAllCategories(): Observable<any> {
+    return this.http.get<Category>(`${this.apiUrl}`, { headers: this.authService.getHeaders()})
+  }
+
   addCategory(data: Category): Observable<Category> {
     return this.http.post<Category>(`${this.apiUrl}`, data, { headers: this.authService.getHeaders() })
   }

@@ -9,30 +9,35 @@ import { ProductService } from '../../../services/product/product.service';
 import { Product } from '../../../interfaces/Product';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ProductModalComponent } from "../../../components/modals/product-modal/product-modal.component";
+import { CommonModule } from '@angular/common';
+import { Category } from '../../../interfaces/Category';
+import { CategoryService } from '../../../services/category/category.service';
 
 @Component({
   selector: 'app-products',
-  imports: [AdminToolbarComponent, AdminCrudTableComponent, RemoveModalComponent, UserModalComponent, AdminTableFooterComponent, ProductModalComponent],
+  imports: [AdminToolbarComponent, AdminCrudTableComponent, RemoveModalComponent, AdminTableFooterComponent, ProductModalComponent, CommonModule],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
 export class ProductsComponent {
-  constructor(private productService: ProductService,private excelService: ExcelService) {}
-  headers: any = ['Id', 'Imagem', 'Nome', 'Email', 'Telefone', 'Permissões'];
+  constructor(private productService: ProductService, private categoryService: CategoryService, private excelService: ExcelService) {}
+  headers: any = ['Id', 'Imagem', 'Nome', 'Descrição', 'Preço', 'Oferta'];
   columns: any = [
     { key: 'id', type: 'text' },
     { key: 'imageUrl', type: 'image' },
-    { key: 'firstName', type: 'text' },
-    { key: 'email', type: 'text' },
-    { key: 'phone', type: 'text' },
-    { key: 'role', type: 'text' },
+    { key: 'name', type: 'text' },
+    { key: 'description', type: 'text' },
+    { key: 'price', type: 'text' },
+    { key: 'offer', type: 'text' },
   ];
+
   products: Product[] = [];
-  selectedUserId!: number;
+  categories: Category[] = [];
+  selectedProductId!: number;
   pageSize: number = 5;
   currentPage: number = 1;
   productToEdit: Product | null = null;
-  showUserModal: boolean = false;
+  showProductModal: boolean = false;
   showRemoveModal: boolean = false;
   searchForm: FormGroup = new FormGroup({
     searchValue: new FormControl(''),
@@ -40,6 +45,7 @@ export class ProductsComponent {
 
     ngOnInit(): void {
       this.getProducts();
+      this.getCategories();
     }
   
     onPageSizeChange(newPageSize: number) {
@@ -51,27 +57,27 @@ export class ProductsComponent {
       this.currentPage = newPage;
     }
   
-    toggleUserModal() {
-      this.showUserModal = !this.showUserModal;
+    toggleProductModal() {
+      this.showProductModal = !this.showProductModal;
   
-      if (!this.showUserModal) {
+      if (!this.showProductModal) {
         this.productToEdit = null;
       }
     }
   
-    toggleRemoveModal(userId: number) {
-      this.selectedUserId = userId;
+    toggleRemoveModal(productId: number) {
+      this.selectedProductId = productId;
       this.showRemoveModal = !this.showRemoveModal;
     }
   
     onAddedProduct() {
       this.getProducts();
-      this.toggleUserModal();
+      this.toggleProductModal();
     }
   
     onEditProduct(product: Product) {
       this.productToEdit = product;
-      this.toggleUserModal();
+      this.toggleProductModal();
     }
   
     onExportProducts() {
@@ -81,12 +87,25 @@ export class ProductsComponent {
     getProducts(): void {
       this.productService.getProducts().subscribe({
         next: (res) => {
+          console.log(res);
           this.products = res;
         },
         error: (err) => {
           console.log(err);
         },
       });
+    }
+
+    getCategories(): void {
+      this.categoryService.getAllCategories().subscribe({
+        next: (res) => {
+          console.log(res);
+          this.categories = res;
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      })
     }
   
     searchForProducts(): void {
@@ -108,7 +127,7 @@ export class ProductsComponent {
     }
   
     removeProduct(): void {
-      this.productService.removeProduct(this.selectedUserId).subscribe({
+      this.productService.removeProduct(this.selectedProductId).subscribe({
         next: () => {
           this.getProducts();
           this.showRemoveModal = false

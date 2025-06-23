@@ -1,13 +1,13 @@
 <app-admin-toolbar
   [searchForm]="searchForm"
   (pageSizeChange)="onPageSizeChange($event)"
-  (addData)="toggleUserModal()"
+  (addData)="toggleProductModal()"
   (exportData)="onExportProducts()"
   (searchData)="searchForProducts()"
-  pageName="Usuários"
+  pageName="Produtos"
 ></app-admin-toolbar>
 
-<app-product-modal></app-product-modal>
+<app-product-modal *ngIf="showProductModal" [categories]="categories" [productToEdit]="productToEdit" (close)="toggleProductModal()" (productAdded)="onAddedProduct()"></app-product-modal>
 
 <app-admin-crud-table
   [data]="products"
