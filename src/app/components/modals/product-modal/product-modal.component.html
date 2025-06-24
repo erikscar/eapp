@@ -65,10 +65,9 @@
         <div class="input-wrapper">
           <i class="fa-solid fa-thumbtack"></i>
           <select name="" id="" formControlName="categoryId">
-            <option value="" disabled selected>Selecione uma Categoria</option>
+            <option value="" disabled>Selecione uma Categoria</option>
             <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
           </select>
-
         </div>
       </div>
 

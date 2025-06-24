@@ -128,7 +128,8 @@ export class ProductsComponent {
   
     removeProduct(): void {
       this.productService.removeProduct(this.selectedProductId).subscribe({
-        next: () => {
+        next: (res) => {
+          console.log(res.message)
           this.getProducts();
           this.showRemoveModal = false
         },

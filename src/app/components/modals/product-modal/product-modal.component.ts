@@ -23,12 +23,13 @@ export class ProductModalComponent {
 
   ngOnInit(): void {
     this.addProductForm = new FormGroup({
+      id: new FormControl(null),
       imageUrl: new FormControl(""),
       name: new FormControl(""),
       description: new FormControl(""),
       price: new FormControl(""),
       offer: new FormControl(""),
-      categoryId: new FormControl("")
+      categoryId: new FormControl(null)
     });
 
     if (this.productToEdit) {
@@ -38,7 +39,7 @@ export class ProductModalComponent {
 
   onSubmit(form: FormGroup) {
     if (this.productToEdit) {
-      console.log();
+      console.log("ID DA CATEGORIA: " + this.productToEdit.categoryId);
       this.productService
         .adminUpdateProduct(form.value, this.productToEdit.id)
         .subscribe({
