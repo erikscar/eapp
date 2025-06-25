@@ -1,1 +1,31 @@
-<p>categories works!</p>
+<app-admin-toolbar
+  [searchForm]="searchForm"
+  (pageSizeChange)="onPageSizeChange($event)"
+  (addData)="toggleCategoryModal()"
+  (exportData)="onExportCategories()"
+  (searchData)="searchForCategories()"
+  pageName="Categorias"
+></app-admin-toolbar>
+
+<app-category-modal *ngIf="showCategoryModal"  [categoryToEdit]="categoryToEdit" (close)="toggleCategoryModal()" (categoryAdded)="onAddedCategory()"></app-category-modal>
+
+<app-admin-crud-table
+  [data]="categories"
+  [tableColumns]="columns"
+  [tableHeaders]="headers"
+  [pageSize]="pageSize"
+  [currentPage]="currentPage"
+  (remove)="toggleRemoveModal($event)"
+  (edit)="onEditCategory($event)"
+>
+</app-admin-crud-table>
+
+<app-remove-modal *ngIf="showRemoveModal" (close)="showRemoveModal = false" (remove)="removeCategory()"></app-remove-modal>
+
+<app-admin-table-footer
+  [totalItems]="categories.length"
+  [currentPage]="currentPage"
+  [pageSize]="pageSize"
+  (pageChange)="onPageChange($event)"
+>
+</app-admin-table-footer>

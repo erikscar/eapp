@@ -24,7 +24,11 @@ export class CategoryService {
     return this.http.put<Category>(`${this.apiUrl}/${id}`, data, { headers: this.authService.getHeaders() })
   }
 
-  removeCategory(id: number): Observable<Category> {
+  getCategoryBySearchValue(searchValue: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/search?searchValue=${searchValue}`)
+  }
+
+  removeCategory(id: number): Observable<any> {
     return this.http.delete<Category>(`${this.apiUrl}/${id}`, { headers: this.authService.getHeaders() });
   }
 }
