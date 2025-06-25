@@ -15,6 +15,7 @@ import { ExcelService } from '../../../services/excel/excel.service';
 import { UserModalComponent } from "../../../components/modals/user-modal/user-modal.component";
 import { RemoveModalComponent } from "../../../components/modals/remove-modal/remove-modal.component";
 import User from '../../../interfaces/User';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-users',
@@ -53,7 +54,7 @@ export class UsersComponent implements OnInit {
     searchValue: new FormControl(''),
   });
 
-  constructor(private userService: UserService, private excelService: ExcelService) { }
+  constructor(private toastrService: ToastrService,private userService: UserService, private excelService: ExcelService) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -135,4 +136,9 @@ export class UsersComponent implements OnInit {
       },
     });
   }
+
+  show() {
+  this.toastrService.show("BATATA", "batatainha", undefined, 'success')
 }
+}
+
