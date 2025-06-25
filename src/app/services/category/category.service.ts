@@ -25,7 +25,7 @@ export class CategoryService {
   }
 
   getCategoryBySearchValue(searchValue: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/search?searchValue=${searchValue}`)
+    return this.http.get(`${this.apiUrl}/search?searchValue=${searchValue}`, { headers: this.authService.getHeaders()})
   }
 
   removeCategory(id: number): Observable<any> {

@@ -23,7 +23,6 @@ export class ProductModalComponent {
 
   ngOnInit(): void {
     this.addProductForm = new FormGroup({
-      id: new FormControl(null),
       imageUrl: new FormControl(""),
       name: new FormControl(""),
       description: new FormControl(""),

@@ -10,6 +10,7 @@
 <app-category-modal *ngIf="showCategoryModal"  [categoryToEdit]="categoryToEdit" (close)="toggleCategoryModal()" (categoryAdded)="onAddedCategory()"></app-category-modal>
 
 <app-admin-crud-table
+  [dataType]="'category'"
   [data]="categories"
   [tableColumns]="columns"
   [tableHeaders]="headers"

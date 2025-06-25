@@ -20,7 +20,6 @@ export class UserModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.addUserForm = new FormGroup({
-      id: new FormControl(null),
       firstName: new FormControl(''),
       lastName: new FormControl(''),
       email: new FormControl(''),

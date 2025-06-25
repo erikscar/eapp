@@ -16,7 +16,11 @@
           
               <ng-template #blankImage>
                   <div class="blank-user-wrapper">
-                     <i class="fa-solid fa-user"></i>
+                    <ng-container [ngSwitch]="dataType">
+                      <i *ngSwitchCase="'user'" class="fa-solid fa-user"></i>
+                      <i *ngSwitchCase="'product'" class="fa-solid fa-box"></i>
+                      <i *ngSwitchCase="'category'" class="fa-solid fa-thumbtack"></i>
+                    </ng-container>
                   </div>
               </ng-template>
             </ng-container>

@@ -10,6 +10,7 @@
 <app-user-modal *ngIf="showUserModal" [userToEdit]="userToEdit" (close)="toggleUserModal()" (userAdded)="onAddedUser()"></app-user-modal>
 
 <app-admin-crud-table
+  [dataType]="'user'"
   [data]="users"
   [tableColumns]="columns"
   [tableHeaders]="headers"

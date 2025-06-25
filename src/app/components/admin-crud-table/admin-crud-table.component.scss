@@ -5,95 +5,6 @@
 .admin-user-container {
   padding: 0 6rem;
 
-  .path {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-
-    i {
-      color: $primary-color;
-      cursor: pointer;
-    }
-
-    .slash {
-      color: $light-grey-color;
-    }
-  }
-
-  .toolbar {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-
-    .action-btns {
-      display: flex;
-      gap: 0.5rem;
-
-      .add-btn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.5rem;
-        background-color: $primary-color;
-        border: none;
-        color: #fff;
-        padding: 0.5rem 1rem;
-        font-size: 16px;
-        border-radius: 0.25rem;
-        cursor: pointer;
-      }
-
-      .export-btn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.5rem;
-        background-color: $grey-color;
-        border: none;
-        color: #fff;
-        padding: 0.5rem 1rem;
-        font-size: 16px;
-        border-radius: 0.25rem;
-        cursor: pointer;
-      }
-    }
-
-    .search-box {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 1rem;
-      border: 1px solid $grey-color;
-      padding: 0.5rem 1rem;
-      border-radius: 0.25rem;
-
-      input {
-        border: none;
-        outline: none;
-      }
-
-      button {
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-
-        i {
-          font-size: 16px;
-        }
-      }
-    }
-
-    .pagination-option {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-
-      select {
-        padding: 0.25rem 1rem;
-      }
-    }
-  }
-
   .crud-table {
     width: 100%;
     margin: 2rem 0;
@@ -246,29 +157,6 @@
             }
           }
         }
-      }
-    }
-  }
-
-  .table-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    ::ng-deep ul.ngx-pagination {
-      li {
-        a {
-          color: $primary-color;
-          font-size: 18px;
-          border-radius: 0.25rem;
-        }
-      }
-
-      .current {
-        background-color: $primary-color;
-        color: #fff;
-        padding: 0.25rem 0.75rem;
-        border-radius: 0.25rem;
       }
     }
   }

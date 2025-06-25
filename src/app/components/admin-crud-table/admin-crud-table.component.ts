@@ -10,7 +10,7 @@ import User from '../../interfaces/User';
   styleUrl: './admin-crud-table.component.scss'
 })
 export class AdminCrudTableComponent {
-[x: string]: any;
+  @Input() dataType: "category" | "product" | "user" = "user"; 
   @Input() data: any[] = [];
   @Input() tableHeaders: string[] = [];
   @Input() tableColumns: { key: string, type:string }[] =[]

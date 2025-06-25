@@ -21,10 +21,9 @@ export class CategoryModalComponent {
 
   ngOnInit(): void {
     this.addCategoryForm = new FormGroup({
-      id: new FormControl(null),
-      imageUrl: new FormControl(""),
       name: new FormControl(""),
       description: new FormControl(""),
+      imageUrl: new FormControl(""),
     });
 
     if (this.categoryToEdit) {
