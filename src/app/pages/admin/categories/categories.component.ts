@@ -9,6 +9,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ExcelService } from '../../../services/excel/excel.service';
 import { CategoryModalComponent } from "../../../components/modals/category-modal/category-modal.component";
 import { CommonModule } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-categories',
@@ -42,7 +43,7 @@ export class CategoriesComponent implements OnInit {
     searchValue: new FormControl(''),
   });
 
-  constructor(private categoryService: CategoryService, private excelService: ExcelService) {}
+  constructor(private categoryService: CategoryService, private toastrService: ToastrService, private excelService: ExcelService) {}
 
   ngOnInit(): void {
     this.getCategories();
@@ -88,6 +89,7 @@ export class CategoriesComponent implements OnInit {
     this.categoryService.getAllCategories().subscribe({
       next: (res) => {
         this.categories = res;
+        this.toastrService.info('Categorias Carregadas...')
       },
       error: (err) => {
         console.log(err);

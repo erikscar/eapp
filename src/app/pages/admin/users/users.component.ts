@@ -94,13 +94,15 @@ export class UsersComponent implements OnInit {
 
   onExportUsers() {
     this.excelService.exportAsExcelFile(this.users, 'usersEapp');
+    this.toastrService.success("Relatório Excel baixado — confira sua pasta de downloads")
+
   }
 
   getUsers(): void {
     this.userService.getAllUsers().subscribe({
       next: (res) => {
         this.users = res;
-        this.toastrService.info('Usuários Carregados com Sucesso')
+        this.toastrService.info('Usuários Carregados...')
       },
       error: (err) => {
         console.log(err);

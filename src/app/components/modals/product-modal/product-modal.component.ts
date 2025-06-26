@@ -4,6 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ProductService } from '../../../services/product/product.service';
 import { CommonModule } from '@angular/common';
 import { Category } from '../../../interfaces/Category';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-modal',
@@ -19,7 +20,7 @@ export class ProductModalComponent {
   previewImageUrl: string = '';
   addProductForm!: FormGroup;
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private toastrService: ToastrService) {}
 
   ngOnInit(): void {
     this.addProductForm = new FormGroup({
@@ -42,9 +43,9 @@ export class ProductModalComponent {
       this.productService
         .adminUpdateProduct(form.value, this.productToEdit.id)
         .subscribe({
-          next: (res) => {
-            console.log(res);
+          next: () => {
             this.productAdded.emit();
+            this.toastrService.success("Produto Atualizado com Sucesso!")
           },
           error: (err) => {
             console.log(err);
@@ -52,9 +53,9 @@ export class ProductModalComponent {
         });
     } else {
       this.productService.addProduct(form.value).subscribe({
-        next: (res) => {
-          console.log(res);
+        next: () => {
           this.productAdded.emit();
+          this.toastrService.success("Produto Adicionado com Sucesso!")
         },
         error: (err) => {
           console.log(err);

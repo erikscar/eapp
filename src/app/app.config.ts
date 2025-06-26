@@ -22,6 +22,7 @@ export const appConfig: ApplicationConfig = {
       timeOut: 5000,
       tapToDismiss: true,
       easeTime: 700,
+      positionClass: 'toast-bottom-right'
     })
   ],
 };

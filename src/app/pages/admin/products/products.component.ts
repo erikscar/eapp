@@ -12,6 +12,7 @@ import { ProductModalComponent } from "../../../components/modals/product-modal/
 import { CommonModule } from '@angular/common';
 import { Category } from '../../../interfaces/Category';
 import { CategoryService } from '../../../services/category/category.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-products',
@@ -20,7 +21,7 @@ import { CategoryService } from '../../../services/category/category.service';
   styleUrl: './products.component.scss'
 })
 export class ProductsComponent {
-  constructor(private productService: ProductService, private categoryService: CategoryService, private excelService: ExcelService) {}
+  constructor(private productService: ProductService, private toastrService: ToastrService, private categoryService: CategoryService, private excelService: ExcelService) {}
   headers: any = ['Id', 'Imagem', 'Nome', 'Descrição', 'Preço', 'Oferta'];
   columns: any = [
     { key: 'id', type: 'text' },
@@ -87,8 +88,8 @@ export class ProductsComponent {
     getProducts(): void {
       this.productService.getProducts().subscribe({
         next: (res) => {
-          console.log(res);
           this.products = res;
+          this.toastrService.info('Produtos Carregados....');
         },
         error: (err) => {
           console.log(err);
@@ -99,7 +100,6 @@ export class ProductsComponent {
     getCategories(): void {
       this.categoryService.getAllCategories().subscribe({
         next: (res) => {
-          console.log(res);
           this.categories = res;
         },
         error: (err) => {

@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Category } from '../../../interfaces/Category';
 import { CategoryService } from '../../../services/category/category.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-category-modal',
@@ -17,7 +18,7 @@ export class CategoryModalComponent {
   previewImageUrl: string = '';
   addCategoryForm!: FormGroup;
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(private categoryService: CategoryService, private toastrService: ToastrService) {}
 
   ngOnInit(): void {
     this.addCategoryForm = new FormGroup({
@@ -36,9 +37,9 @@ export class CategoryModalComponent {
       this.categoryService
         .adminUpdateCategory(form.value, this.categoryToEdit.id)
         .subscribe({
-          next: (res) => {
-            console.log(res);
+          next: () => {
             this.categoryAdded.emit();
+            this.toastrService.success("Categoria Atualizada com Sucesso!")
           },
           error: (err) => {
             console.log(err);
@@ -46,9 +47,9 @@ export class CategoryModalComponent {
         });
     } else {
       this.categoryService.addCategory(form.value).subscribe({
-        next: (res) => {
-          console.log(res);
+        next: () => {
           this.categoryAdded.emit();
+          this.toastrService.success("Categoria Adicionada com Sucesso!")
         },
         error: (err) => {
           console.log(err);

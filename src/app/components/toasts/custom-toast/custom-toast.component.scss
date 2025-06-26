@@ -5,16 +5,15 @@
   align-items: center;
   gap: 1rem;
   padding: 1.25rem;
-  margin: 1.5rem;
+  margin: .5rem 1rem;
   position: relative;
   background-color: #fff;
   border-radius: .5rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  min-width: 300px;
-  max-width: 450px;
-  animation: slideInLeft 0.4s ease-out forwards;
+  min-width: 450px;
+  max-width: 1000px;
+  animation: slideInLeft .75s ease-out backwards;
   z-index: 9999;
-
 
   &.toast-success {
     border-left: 14px solid #47d764;
@@ -76,15 +75,11 @@
     cursor: pointer;
     z-index: 1;
   }
-
-  
 }
-
-
 
 @keyframes slideInLeft {
   from {
-    transform: translateX(-100%);
+    transform: translateX(100%);
     opacity: 0;
   }
 

@@ -17,3 +17,17 @@ a {
     text-decoration: none;
     color: #3a3939;
 }
+
+.toast-container.toast-bottom-right {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  top: auto !important;
+  left: auto !important;
+  display: flex !important;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  gap: 10px;
+  max-width: 320px;
+  z-index: 9999 !important; /* importante para ficar sobre tudo */
+}
