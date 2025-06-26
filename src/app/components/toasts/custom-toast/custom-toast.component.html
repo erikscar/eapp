@@ -1,15 +1,8 @@
-<div class="custom-toast-wrapper" [ngClass]="toastPackage.toastType">
-  <div class="icon">
-    <i [ngClass]="{
-      'fa-solid fa-circle-check': toastPackage.toastType === 'success',
-      'fa-solid fa-circle-xmark': toastPackage.toastType === 'error',
-      'fa-solid fa-circle-info': toastPackage.toastType === 'info',
-      'fa-solid fa-circle-exclamation': toastPackage.toastType === 'warning'
-    }"></i>
-  </div>
-
+<div class="toast" [ngClass]="toastPackage.toastType">
+  <i class="fa-solid" [ngClass]="iconClass"></i>
+  
   <div class="content">
-    <div class="title">{{ title }}</div>
+    <h1 class="title">{{ defaultTitle }}</h1>
     <div class="message">{{ message }}</div>
   </div>
 

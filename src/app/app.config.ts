@@ -7,7 +7,7 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
-import { ToastrModule } from 'ngx-toastr';
+import { provideToastr, ToastrModule } from 'ngx-toastr';
 import { CustomToastComponent } from './components/toasts/custom-toast/custom-toast.component';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
@@ -17,10 +17,11 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(),
     provideAnimations(),
-    importProvidersFrom(
-      ToastrModule.forRoot({
-        toastComponent: CustomToastComponent,
-      })
-    ),
+    provideToastr({
+      toastComponent: CustomToastComponent,
+      timeOut: 5000,
+      tapToDismiss: true,
+      easeTime: 700
+    })
   ],
 };

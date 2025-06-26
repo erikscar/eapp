@@ -54,7 +54,7 @@ export class UsersComponent implements OnInit {
     searchValue: new FormControl(''),
   });
 
-  constructor(private toastrService: ToastrService,private userService: UserService, private excelService: ExcelService) { }
+  constructor(private toastrService: ToastrService, private userService: UserService, private excelService: ExcelService) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -138,7 +138,7 @@ export class UsersComponent implements OnInit {
   }
 
   show() {
-  this.toastrService.show("BATATA", "batatainha", undefined, 'success')
-}
+    this.toastrService.warning('Abacate')
+  }
 }
 

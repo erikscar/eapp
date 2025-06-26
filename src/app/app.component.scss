@@ -1,3 +1,18 @@
 @use "../scss/variables.scss" as *;
 @use "../scss/mixins.scss" as *;
 
+.my-toast-anim {
+  animation: slideInLeft 0.4s ease-out forwards;
+  opacity: 1 !important;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
