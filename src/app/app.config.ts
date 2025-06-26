@@ -21,7 +21,7 @@ export const appConfig: ApplicationConfig = {
       toastComponent: CustomToastComponent,
       timeOut: 5000,
       tapToDismiss: true,
-      easeTime: 700
+      easeTime: 700,
     })
   ],
 };

@@ -104,6 +104,7 @@
 
 .app-wrapper {
   transition: margin-left 0.25s ease;
+  min-height: 85vh;
 
   &.sidebar-open {
     margin-left: 17rem;

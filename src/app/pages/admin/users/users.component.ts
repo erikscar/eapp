@@ -100,6 +100,7 @@ export class UsersComponent implements OnInit {
     this.userService.getAllUsers().subscribe({
       next: (res) => {
         this.users = res;
+        this.toastrService.info('Usuários Carregados com Sucesso')
       },
       error: (err) => {
         console.log(err);
@@ -135,10 +136,6 @@ export class UsersComponent implements OnInit {
         console.log(err);
       },
     });
-  }
-
-  show() {
-    this.toastrService.warning('Abacate')
   }
 }
 

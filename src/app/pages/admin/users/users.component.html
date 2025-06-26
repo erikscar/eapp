@@ -1,34 +1,34 @@
-<app-admin-toolbar
-  [searchForm]="searchForm"
-  (pageSizeChange)="onPageSizeChange($event)"
-  (addData)="toggleUserModal()"
-  (exportData)="onExportUsers()"
-  (searchData)="searchForUsers()"
-  pageName="Usuários"
-></app-admin-toolbar>
-
-<app-user-modal *ngIf="showUserModal" [userToEdit]="userToEdit" (close)="toggleUserModal()" (userAdded)="onAddedUser()"></app-user-modal>
-
-<app-admin-crud-table
-  [dataType]="'user'"
-  [data]="users"
-  [tableColumns]="columns"
-  [tableHeaders]="headers"
-  [pageSize]="pageSize"
-  [currentPage]="currentPage"
-  (remove)="toggleRemoveModal($event)"
-  (edit)="onEditUser($event)"
->
-</app-admin-crud-table>
-
-<app-remove-modal *ngIf="showRemoveModal" (close)="showRemoveModal = false" (remove)="removeUser()"></app-remove-modal>
-
-<app-admin-table-footer
-  [totalItems]="users.length"
-  [currentPage]="currentPage"
-  [pageSize]="pageSize"
-  (pageChange)="onPageChange($event)"
->
-</app-admin-table-footer>
-
-<button style="font-size: 30px; cursor: pointer;" (click)="show()">TESTANDO</button>
+<div class="teste">
+  <app-admin-toolbar
+    [searchForm]="searchForm"
+    (pageSizeChange)="onPageSizeChange($event)"
+    (addData)="toggleUserModal()"
+    (exportData)="onExportUsers()"
+    (searchData)="searchForUsers()"
+    pageName="Usuários"
+  ></app-admin-toolbar>
+  
+  <app-user-modal *ngIf="showUserModal" [userToEdit]="userToEdit" (close)="toggleUserModal()" (userAdded)="onAddedUser()"></app-user-modal>
+  
+  <app-admin-crud-table
+    [dataType]="'user'"
+    [data]="users"
+    [tableColumns]="columns"
+    [tableHeaders]="headers"
+    [pageSize]="pageSize"
+    [currentPage]="currentPage"
+    (remove)="toggleRemoveModal($event)"
+    (edit)="onEditUser($event)"
+  >
+  </app-admin-crud-table>
+  
+  <app-remove-modal *ngIf="showRemoveModal" (close)="showRemoveModal = false" (remove)="removeUser()"></app-remove-modal>
+  
+  <app-admin-table-footer
+    [totalItems]="users.length"
+    [currentPage]="currentPage"
+    [pageSize]="pageSize"
+    (pageChange)="onPageChange($event)"
+  >
+  </app-admin-table-footer>
+</div>
