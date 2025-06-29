@@ -46,6 +46,7 @@ export class CategoriesComponent implements OnInit {
   constructor(private categoryService: CategoryService, private toastrService: ToastrService, private excelService: ExcelService) {}
 
   ngOnInit(): void {
+    this.toastrService.info('Categorias Carregadas....');
     this.getCategories();
   }
 
@@ -89,7 +90,6 @@ export class CategoriesComponent implements OnInit {
     this.categoryService.getAllCategories().subscribe({
       next: (res) => {
         this.categories = res;
-        this.toastrService.info('Categorias Carregadas...')
       },
       error: (err) => {
         console.log(err);
@@ -108,6 +108,7 @@ export class CategoriesComponent implements OnInit {
       this.categoryService.getCategoryBySearchValue(searchValue).subscribe({
         next: (res) => {
           this.categories = res
+          this.toastrService.info(`Exibindo Resultados para: "${searchValue}"`)
         },
         error: (err) => {
           console.log(err);

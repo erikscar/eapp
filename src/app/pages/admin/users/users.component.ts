@@ -57,6 +57,7 @@ export class UsersComponent implements OnInit {
   constructor(private toastrService: ToastrService, private userService: UserService, private excelService: ExcelService) { }
 
   ngOnInit(): void {
+    this.toastrService.info('Usuários Carregados...')
     this.getUsers();
   }
 
@@ -102,7 +103,6 @@ export class UsersComponent implements OnInit {
     this.userService.getAllUsers().subscribe({
       next: (res) => {
         this.users = res;
-        this.toastrService.info('Usuários Carregados...')
       },
       error: (err) => {
         console.log(err);
@@ -121,6 +121,7 @@ export class UsersComponent implements OnInit {
     this.userService.getUsersBySearchValue(searchValue).subscribe({
       next: (res) => {
         this.users = res;
+        this.toastrService.info(`Exibindo Resultados para: "${searchValue}"`)
       },
       error: (err) => {
         console.log(err);
@@ -130,7 +131,7 @@ export class UsersComponent implements OnInit {
 
   removeUser(): void {
     this.userService.removeUser(this.selectedUserId).subscribe({
-      next: (res) => {
+      next: () => {
         this.getUsers();
         this.showRemoveModal = false
       },

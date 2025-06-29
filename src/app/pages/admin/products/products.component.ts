@@ -45,6 +45,7 @@ export class ProductsComponent {
   });
 
     ngOnInit(): void {
+      this.toastrService.info('Produtos Carregados....');
       this.getProducts();
       this.getCategories();
     }
@@ -89,7 +90,6 @@ export class ProductsComponent {
       this.productService.getProducts().subscribe({
         next: (res) => {
           this.products = res;
-          this.toastrService.info('Produtos Carregados....');
         },
         error: (err) => {
           console.log(err);
@@ -119,6 +119,7 @@ export class ProductsComponent {
       this.productService.getProductsBySearchValue(searchValue).subscribe({
         next: (res) => {
           this.products = res;
+          this.toastrService.info(`Exibindo Resultados para: "${searchValue}"`)
         },
         error: (err) => {
           console.log(err);
