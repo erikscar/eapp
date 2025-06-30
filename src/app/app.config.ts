@@ -1,13 +1,11 @@
 import {
   ApplicationConfig,
-  importProvidersFrom,
   provideZoneChangeDetection,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
-import { provideToastr, ToastrModule } from 'ngx-toastr';
+import { provideToastr } from 'ngx-toastr';
 import { CustomToastComponent } from './components/toasts/custom-toast/custom-toast.component';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
