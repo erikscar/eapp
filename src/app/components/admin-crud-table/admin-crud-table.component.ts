@@ -1,11 +1,11 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgxPaginationModule } from 'ngx-pagination';
 import User from '../../interfaces/User';
 
 @Component({
   selector: 'app-admin-crud-table',
-  imports: [CommonModule, NgxPaginationModule],
+  imports: [NgxPaginationModule],
   templateUrl: './admin-crud-table.component.html',
   styleUrl: './admin-crud-table.component.scss'
 })

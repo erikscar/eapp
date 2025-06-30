@@ -9,14 +9,14 @@ import { ProductService } from '../../../services/product/product.service';
 import { Product } from '../../../interfaces/Product';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ProductModalComponent } from "../../../components/modals/product-modal/product-modal.component";
-import { CommonModule } from '@angular/common';
+
 import { Category } from '../../../interfaces/Category';
 import { CategoryService } from '../../../services/category/category.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-products',
-  imports: [AdminToolbarComponent, AdminCrudTableComponent, RemoveModalComponent, AdminTableFooterComponent, ProductModalComponent, CommonModule],
+  imports: [AdminToolbarComponent, AdminCrudTableComponent, RemoveModalComponent, AdminTableFooterComponent, ProductModalComponent],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })

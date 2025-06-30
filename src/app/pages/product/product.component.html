@@ -1,67 +1,81 @@
 <div class="product-page-container">
-    <img src="ps5-controller.png" alt="">
-    <div class="product-features-container">
-        <h1 class="product-title ">{{product.name}}</h1>
-        <div class="title-bar"></div>
-        <h2 class="product-price">R${{product.price}}</h2>
+  <img src="ps5-controller.png" alt="">
+  <div class="product-features-container">
+    <h1 class="product-title ">{{product.name}}</h1>
+    <div class="title-bar"></div>
+    <h2 class="product-price">R${{product.price}}</h2>
 
-        <div class="stars-container">
+    <div class="stars-container">
+      <div>
+        @for (star of getStars(product.averageRating / 2); track star) {
+          <i class="fa-solid fa-star"></i>
+        }
+        @for (star of getStars(5 - product.averageRating / 2); track star) {
+          <i class="fa-regular fa-star"></i>
+        }
+      </div>
+      <p> {{ product.averageRating | number:'1.1-1' }} - ({{reviews.length}}) Avaliações</p>
+    </div>
+
+    <p class="product-description">
+      <!-- 100% algodão, respirável e produzido de forma ética. Disponível nos tamanhos P ao GG. <br><br>
+      Esta não é apenas uma camisa — é a peça essencial do seu dia a dia. Feita com algodão premium, é macia ao
+      toque, leve e projetada para garantir conforto o dia inteiro. Ideal tanto para sair quanto para relaxar em
+      casa. <br><br>
+      Com acabamento cuidadoso, possui corte clássico, costuras reforçadas e um design minimalista que combina com
+      tudo. Durável, versátil e cheia de estilo — é a camisa que faltava no seu guarda-roupa. -->
+
+      {{product.description}}
+    </p>
+
+    <button class="addcart-btn" (click)="addProductTocart(product.id)">Adicionar ao Carrinho</button>
+
+    <div class="rating-title-wrapper">
+      <h2 class="rating-title">Avaliações<i class="fa-solid fa-comments"></i><span>{{reviews.length}}</span></h2>
+      <div class="most-recent-wrapper">
+        <i class="fa-solid fa-arrow-up-wide-short"></i>
+        <p>Mais Recentes</p>
+      </div>
+    </div>
+    <div class="comments-container">
+      @for (review of reviews; track review) {
+        <div class="comment">
+          <img src="https://pbs.twimg.com/profile_images/1836440445510946817/sgxQsMlP_400x400.jpg" alt="">
+          <div class="comment-content">
+            <h3 class="comment-name">Erik Scarcela Araujo <span>{{ getTimeAgo(review.createdAt) }}</span></h3>
+            <p class="comment-description">{{ review.content }}</p>
             <div>
-                <i class="fa-solid fa-star" *ngFor="let star of getStars(product.averageRating / 2)"></i>
-                <i class="fa-regular fa-star" *ngFor="let star of getStars(5 - product.averageRating / 2)"></i>
+              @for (star of getStars(review.rating); track star) {
+                <i class="fa-solid fa-star"></i>
+              }
+              @for (star of getStars(5 - review.rating); track star) {
+                <i class="fa-regular fa-star"></i>
+              }
             </div>
-            <p> {{ product.averageRating | number:'1.1-1' }} - ({{reviews.length}}) Avaliações</p>
+          </div>
         </div>
+      }
+    </div>
+    <form class="review-form" [formGroup]="reviewForm" (ngSubmit)="addReview(reviewForm, product.id)">
+      <input type="text" class="review-input" placeholder="Adicione um Comentário" (focus)="showReviewBtn = true"
+        formControlName="content">
 
-        <p class="product-description">
-            <!-- 100% algodão, respirável e produzido de forma ética. Disponível nos tamanhos P ao GG. <br><br>
-            Esta não é apenas uma camisa — é a peça essencial do seu dia a dia. Feita com algodão premium, é macia ao
-            toque, leve e projetada para garantir conforto o dia inteiro. Ideal tanto para sair quanto para relaxar em
-            casa. <br><br>
-            Com acabamento cuidadoso, possui corte clássico, costuras reforçadas e um design minimalista que combina com
-            tudo. Durável, versátil e cheia de estilo — é a camisa que faltava no seu guarda-roupa. -->
-
-            {{product.description}}
-        </p>
-
-        <button class="addcart-btn" (click)="addProductTocart(product.id)">Adicionar ao Carrinho</button>
-
-        <div class="rating-title-wrapper">
-            <h2 class="rating-title">Avaliações<i class="fa-solid fa-comments"></i><span>{{reviews.length}}</span></h2>
-            <div class="most-recent-wrapper">
-                <i class="fa-solid fa-arrow-up-wide-short"></i>
-                <p>Mais Recentes</p>
+        @if (showReviewBtn) {
+          <div class="review-form-btns">
+            <div class="star-rating">
+              @for (star of stars; track star) {
+                <i class="fa-star"
+                  [ngClass]="{'fa-solid': star <= reviewForm.get('rating')?.value,'fa-regular': star > reviewForm.get('rating')?.value}"
+                (click)="setRating(star)"></i>
+              }
             </div>
-        </div>
-        <div class="comments-container">
-            <div class="comment" *ngFor="let review of reviews">
-                <img src="https://pbs.twimg.com/profile_images/1836440445510946817/sgxQsMlP_400x400.jpg" alt="">
-                <div class="comment-content">
-                    <h3 class="comment-name">Erik Scarcela Araujo <span>{{ getTimeAgo(review.createdAt) }}</span></h3>
-                    <p class="comment-description">{{ review.content }}</p>
-                    <div>
-                        <i class="fa-solid fa-star" *ngFor="let star of getStars(review.rating)"></i>
-                        <i class="fa-regular fa-star" *ngFor="let star of getStars(5 - review.rating)"></i>
-                    </div>
-                </div>
+            <div class="review-submit">
+              <button (click)="showReviewBtn = false">Cancelar</button>
+              <button type="submit">Comentar</button>
             </div>
-        </div>
-        <form class="review-form" [formGroup]="reviewForm" (ngSubmit)="addReview(reviewForm, product.id)">
-            <input type="text" class="review-input" placeholder="Adicione um Comentário" (focus)="showReviewBtn = true"
-                formControlName="content">
-
-            <div class="review-form-btns" *ngIf="showReviewBtn">
-                <div class="star-rating">
-                    <i *ngFor="let star of stars" class="fa-star"
-                        [ngClass]="{'fa-solid': star <= reviewForm.get('rating')?.value,'fa-regular': star > reviewForm.get('rating')?.value}"
-                        (click)="setRating(star)"></i>
-                </div>
-                <div class="review-submit">
-                    <button (click)="showReviewBtn = false">Cancelar</button>
-                    <button type="submit">Comentar</button>
-                </div>
-            </div>
-        </form>
+          </div>
+        }
+      </form>
 
     </div>
-</div>
+  </div>

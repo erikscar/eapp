@@ -7,7 +7,9 @@
   pageName="Produtos"
 ></app-admin-toolbar>
 
-<app-product-modal *ngIf="showProductModal" [categories]="categories" [productToEdit]="productToEdit" (close)="toggleProductModal()" (productAdded)="onAddedProduct()"></app-product-modal>
+@if (showProductModal) {
+  <app-product-modal [categories]="categories" [productToEdit]="productToEdit" (close)="toggleProductModal()" (productAdded)="onAddedProduct()"></app-product-modal>
+}
 
 <app-admin-crud-table
   [dataType]="'product'"
@@ -18,15 +20,17 @@
   [currentPage]="currentPage"
   (remove)="toggleRemoveModal($event)"
   (edit)="onEditProduct($event)"
->
+  >
 </app-admin-crud-table>
 
-<app-remove-modal *ngIf="showRemoveModal" (close)="showRemoveModal = false" (remove)="removeProduct()"></app-remove-modal>
+@if (showRemoveModal) {
+  <app-remove-modal (close)="showRemoveModal = false" (remove)="removeProduct()"></app-remove-modal>
+}
 
 <app-admin-table-footer
   [totalItems]="products.length"
   [currentPage]="currentPage"
   [pageSize]="pageSize"
   (pageChange)="onPageChange($event)"
->
+  >
 </app-admin-table-footer>

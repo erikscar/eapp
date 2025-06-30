@@ -10,13 +10,13 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+
 import { AddressService } from '../../services/address/address.service';
 import Address from '../../interfaces/Address';
 
 @Component({
   selector: 'app-user',
-  imports: [RouterLink, ReactiveFormsModule, CommonModule],
+  imports: [RouterLink, ReactiveFormsModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss',
 })

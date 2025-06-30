@@ -8,46 +8,46 @@
   </div>
 
   <div class="card-layout">
-  <div class="main-left">
-    <img src="homepage1.png" alt="Essenciais do Dia a Dia">
-    <div class="overlay">
-      <h2>Essenciais do Dia a Dia</h2>
-      <p>Versáteis, modernos e prontos pra você, pensados para facilitar sua rotina com estilo e eficiência.</p>
-      <button (click)="searchByCategory('Roupas')">Compre Agora</button>
-    </div>
-  </div>
-
-  <div class="main-right">
-    <div class="top-right">
-      <img src="homepage2.png" alt="Vida Inteligente">
+    <div class="main-left">
+      <img src="homepage1.png" alt="Essenciais do Dia a Dia">
       <div class="overlay">
-        <h2>Vida Inteligente</h2>
-        <p>Eletrônicos que combinam inovação, qualidade e praticidade.</p>
-        <button (click)="searchByCategory('Eletrônicos')">Compre Agora</button>
+        <h2>Essenciais do Dia a Dia</h2>
+        <p>Versáteis, modernos e prontos pra você, pensados para facilitar sua rotina com estilo e eficiência.</p>
+        <button (click)="searchByCategory('Roupas')">Compre Agora</button>
       </div>
     </div>
-    <div class="bottom-right">
-      <div class="card">
-        <img src="homepage3.png" alt="Esportes">
+
+    <div class="main-right">
+      <div class="top-right">
+        <img src="homepage2.png" alt="Vida Inteligente">
         <div class="overlay">
-          <span>Novos</span>
-          <h2>ESPORTES</h2>
-          <p>Confira as últimas novidades em esportes</p>
-          <button (click)="searchByCategory('Esportes')">Compre Agora</button>
+          <h2>Vida Inteligente</h2>
+          <p>Eletrônicos que combinam inovação, qualidade e praticidade.</p>
+          <button (click)="searchByCategory('Eletrônicos')">Compre Agora</button>
         </div>
       </div>
-      <div class="card">
-        <img src="homepage4.png" alt="Roupas">
-        <div class="overlay">
-          <span>Ofertas</span>
-          <h2>ROUPAS</h2>
-          <p>Explore as últimas novidades da moda mundial</p>
-          <button (click)="searchByCategory('Roupas')">Compre Agora</button>
+      <div class="bottom-right">
+        <div class="card">
+          <img src="homepage3.png" alt="Esportes">
+          <div class="overlay">
+            <span>Novos</span>
+            <h2>ESPORTES</h2>
+            <p>Confira as últimas novidades em esportes</p>
+            <button (click)="searchByCategory('Esportes')">Compre Agora</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="homepage4.png" alt="Roupas">
+          <div class="overlay">
+            <span>Ofertas</span>
+            <h2>ROUPAS</h2>
+            <p>Explore as últimas novidades da moda mundial</p>
+            <button (click)="searchByCategory('Roupas')">Compre Agora</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
 
 
@@ -59,37 +59,41 @@
     <h3>Ofertas de Hoje</h3>
     <div class="carrousel-switcher">
       <button (click)="onCarrouselClick('left')" [disabled]="!(index > 0)"><i
-          class="fa-solid fa-arrow-left"></i></button>
+      class="fa-solid fa-arrow-left"></i></button>
       <button (click)="onCarrouselClick('right')" [disabled]="!(index + productsPerSection < products.length)"><i
-          class="fa-solid fa-arrow-right"></i></button>
+      class="fa-solid fa-arrow-right"></i></button>
     </div>
   </div>
 
   <div class="products-container">
-    <div class="product-card" *ngFor="let product of products.slice(index, index + productsPerSection); let i = index"
-      [ngStyle]="{'--delay': (i * 0.2) + 's'}">
-      <div class="product-img-wrapper">
-        <img src="ps5-controller.png" alt="" [routerLink]="`/product/${product.id}`" />
-        <div class="product-offer" *ngIf="product.offer">{{ product.offer }}%</div>
-        <div class="product-actions">
-          <i class="fa-solid fa-heart"></i>
-          <i class="fa-solid fa-eye" [routerLink]="`/product/${product.id}`"></i>
+    @for (product of products.slice(index, index + productsPerSection); track product; let i = $index) {
+      <div class="product-card"
+        [ngStyle]="{'--delay': (i * 0.2) + 's'}">
+        <div class="product-img-wrapper">
+          <img src="ps5-controller.png" alt="" [routerLink]="`/product/${product.id}`" />
+          @if (product.offer) {
+            <div class="product-offer">{{ product.offer }}%</div>
+          }
+          <div class="product-actions">
+            <i class="fa-solid fa-heart"></i>
+            <i class="fa-solid fa-eye" [routerLink]="`/product/${product.id}`"></i>
+          </div>
         </div>
-      </div>
-      <h3>{{ product.name }}</h3>
-      <p class="price">R$ {{ product.price }}</p>
-      <div class="stars-container">
-        <div>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
+        <h3>{{ product.name }}</h3>
+        <p class="price">R$ {{ product.price }}</p>
+        <div class="stars-container">
+          <div>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p>({{ product.reviewsNumber}})</p>
         </div>
-        <p>({{ product.reviewsNumber}})</p>
+        <button class="addcart-btn" (click)="addProductTocart(product.id)">Adicionar ao Carrinho</button>
       </div>
-      <button class="addcart-btn" (click)="addProductTocart(product.id)">Adicionar ao Carrinho</button>
-    </div>
+    }
   </div>
 
   <div class="viewall-products-btn">

@@ -3,27 +3,29 @@
 
   <div class="products-cart-container-wrapper">
     <div class="products-cart-container">
-      <div class="product-cart-card" *ngFor="let productCart of cart.cartItems">
-        <div class="img-wrapper">
-          <img src="/ps5-controller.png" alt="">
-        </div>
-        <div class="product-info">
-          <div class="title-wrapper">
-            <h2>{{ productCart.product.name }}</h2>
-            <i (click)="removeProductFromCart(productCart.id)" class="fa-solid fa-trash"></i>
+      @for (productCart of cart.cartItems; track productCart) {
+        <div class="product-cart-card">
+          <div class="img-wrapper">
+            <img src="/ps5-controller.png" alt="">
           </div>
-          <p>{{ productCart.product.description }}</p>
-          <p>Cor: Branca</p>
-          <div class="price-wrapper">
-            <p>R${{productCart.product.price}}</p>
-            <div class="quantity-btns">
-              <button (click)="removeProductFromCart(productCart.id)"><i class="fa-solid fa-minus"></i></button>
-              <p>{{ productCart.quantity}}</p>
-              <button (click)="addProductToCart(productCart.productId)"><i class="fa-solid fa-plus"></i></button>
+          <div class="product-info">
+            <div class="title-wrapper">
+              <h2>{{ productCart.product.name }}</h2>
+              <i (click)="removeProductFromCart(productCart.id)" class="fa-solid fa-trash"></i>
+            </div>
+            <p>{{ productCart.product.description }}</p>
+            <p>Cor: Branca</p>
+            <div class="price-wrapper">
+              <p>R${{productCart.product.price}}</p>
+              <div class="quantity-btns">
+                <button (click)="removeProductFromCart(productCart.id)"><i class="fa-solid fa-minus"></i></button>
+                <p>{{ productCart.quantity}}</p>
+                <button (click)="addProductToCart(productCart.productId)"><i class="fa-solid fa-plus"></i></button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      }
 
     </div>
 
@@ -42,84 +44,84 @@
         <p>R$10,00</p>
       </div>
       <hr>
-      <div class="order-info">
-        <p>Total</p>
-        <p class="total-price">{{ cart.totalWithDiscountBRL }}</p>
-      </div>
-      <div class="coupon-btn-wrapper">
-        <div class="input-group">
-          <i class="fa-solid fa-tag"></i>
-          <input type="text" placeholder="Adicionar Cupom">
+        <div class="order-info">
+          <p>Total</p>
+          <p class="total-price">{{ cart.totalWithDiscountBRL }}</p>
         </div>
-        <button>Aplicar</button>
+        <div class="coupon-btn-wrapper">
+          <div class="input-group">
+            <i class="fa-solid fa-tag"></i>
+            <input type="text" placeholder="Adicionar Cupom">
+          </div>
+          <button>Aplicar</button>
+        </div>
+        <button class="checkout-btn">Finalizar Compra</button>
       </div>
-      <button class="checkout-btn">Finalizar Compra</button>
-    </div>
-  </div>
-</div>
-
-<footer>
-  <div class="footer-links">
-    <h2>Eapp</h2>
-    <p class="subscribe">Inscreva-se</p>
-    <p>Adquira 10% OFF em Compras</p>
-    <div class="footer-input">
-      <input type="text" placeholder="Insira seu Email" />
-      <i class="fa-regular fa-paper-plane"></i>
     </div>
   </div>
 
-  <div class="footer-links">
-    <h3>Endereço</h3>
-    <p>Rua Rui Barbosa 377 Santo André, São Paulo</p>
-    <p>erikscarcela&#64;gmail.com</p>
-    <p>+55 (11) 94008-0990</p>
-  </div>
+  <footer>
+    <div class="footer-links">
+      <h2>Eapp</h2>
+      <p class="subscribe">Inscreva-se</p>
+      <p>Adquira 10% OFF em Compras</p>
+      <div class="footer-input">
+        <input type="text" placeholder="Insira seu Email" />
+        <i class="fa-regular fa-paper-plane"></i>
+      </div>
+    </div>
 
-  <div class="footer-links">
-    <h3>Conta</h3>
-    <p>Minha Conta</p>
-    <p>Login / Registro</p>
-    <p>Carrinho</p>
-    <p>Favoritos</p>
-  </div>
+    <div class="footer-links">
+      <h3>Endereço</h3>
+      <p>Rua Rui Barbosa 377 Santo André, São Paulo</p>
+      <p>erikscarcela&#64;gmail.com</p>
+      <p>+55 (11) 94008-0990</p>
+    </div>
 
-  <div class="footer-links">
-    <h3>Links Rápidos</h3>
-    <p>Política de Privacidade</p>
-    <p>Termos de Uso</p>
-    <p>FAQ</p>
-    <p>Contato</p>
-  </div>
+    <div class="footer-links">
+      <h3>Conta</h3>
+      <p>Minha Conta</p>
+      <p>Login / Registro</p>
+      <p>Carrinho</p>
+      <p>Favoritos</p>
+    </div>
 
-  <div class="footer-links">
-    <h3>Baixe o APP</h3>
-    <p class="new-user-offer">Usuário Novos Ganham R$10,00.</p>
-    <div class="qrcode-wrapper">
-      <img src="/qrcode.png" class="qrcode-img" />
-      <div class="footer-btns-wrapper">
-        <div class="download-btns">
-          <img src="/googleplay.png" alt="" />
-          <div class="btn-text">
-            <p class="get-it">GET IT ON</p>
-            <p class="brand-name">Google Play</p>
+    <div class="footer-links">
+      <h3>Links Rápidos</h3>
+      <p>Política de Privacidade</p>
+      <p>Termos de Uso</p>
+      <p>FAQ</p>
+      <p>Contato</p>
+    </div>
+
+    <div class="footer-links">
+      <h3>Baixe o APP</h3>
+      <p class="new-user-offer">Usuário Novos Ganham R$10,00.</p>
+      <div class="qrcode-wrapper">
+        <img src="/qrcode.png" class="qrcode-img" />
+        <div class="footer-btns-wrapper">
+          <div class="download-btns">
+            <img src="/googleplay.png" alt="" />
+            <div class="btn-text">
+              <p class="get-it">GET IT ON</p>
+              <p class="brand-name">Google Play</p>
+            </div>
+          </div>
+
+          <div class="download-btns">
+            <img src="/apple.png" alt="" />
+            <div class="btn-text">
+              <p class="get-it">Donwload on the</p>
+              <p class="brand-name">Apple Store</p>
+            </div>
           </div>
         </div>
-
-        <div class="download-btns">
-          <img src="/apple.png" alt="" />
-          <div class="btn-text">
-            <p class="get-it">Donwload on the</p>
-            <p class="brand-name">Apple Store</p>
-          </div>
-        </div>
+      </div>
+      <div class="social-links">
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-github"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-linkedin-in"></i>
       </div>
     </div>
-    <div class="social-links">
-      <i class="fa-brands fa-facebook-f"></i>
-      <i class="fa-brands fa-github"></i>
-      <i class="fa-brands fa-instagram"></i>
-      <i class="fa-brands fa-linkedin-in"></i>
-    </div>
-  </div>
-</footer>
+  </footer>

@@ -18,29 +18,31 @@
   <div class="search-container-wrapper">
 
     <div class="products-found-container">
-      <div class="product-card" *ngFor="let product of products">
-        <div class="product-img-wrapper">
-          <img src="ps5-controller.png" alt="" />
-          <div class="product-offer">{{ product.offer}}</div>
-          <div class="product-actions">
-            <i class="fa-solid fa-heart"></i>
-            <i class="fa-solid fa-eye"></i>
+      @for (product of products; track product) {
+        <div class="product-card">
+          <div class="product-img-wrapper">
+            <img src="ps5-controller.png" alt="" />
+            <div class="product-offer">{{ product.offer}}</div>
+            <div class="product-actions">
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-eye"></i>
+            </div>
           </div>
-        </div>
-        <h3>{{ product.name}}</h3>
-        <p class="price">R${{ product.price }}</p>
-        <div class="stars-container">
-          <div>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
+          <h3>{{ product.name}}</h3>
+          <p class="price">R${{ product.price }}</p>
+          <div class="stars-container">
+            <div>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p>(54)</p>
           </div>
-          <p>(54)</p>
+          <button class="addcart-btn">Adicionar ao Carrinho</button>
         </div>
-        <button class="addcart-btn">Adicionar ao Carrinho</button>
-      </div>
+      }
     </div>
   </div>
 

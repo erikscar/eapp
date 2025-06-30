@@ -2,40 +2,51 @@
   <table class="crud-table">
     <thead>
       <tr>
-        <th *ngFor="let col of tableHeaders">{{ col }}</th>
+        @for (col of tableHeaders; track col) {
+          <th>{{ col }}</th>
+        }
         <th class="options-th">Ações</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of data | paginate: { itemsPerPage: pageSize, currentPage: currentPage }">
-        <td *ngFor="let column of tableColumns" >
-          <ng-container [ngSwitch]="column.type">
-
-            <ng-container *ngSwitchCase="'image'" >
-              <img *ngIf="row[column.key]; else blankImage" [src]="row[column.key]" alt="">
-          
-              <ng-template #blankImage>
-                  <div class="blank-user-wrapper">
-                    <ng-container [ngSwitch]="dataType">
-                      <i *ngSwitchCase="'user'" class="fa-solid fa-user"></i>
-                      <i *ngSwitchCase="'product'" class="fa-solid fa-box"></i>
-                      <i *ngSwitchCase="'category'" class="fa-solid fa-thumbtack"></i>
-                    </ng-container>
-                  </div>
-              </ng-template>
-            </ng-container>
-    
-            <span *ngSwitchCase="'text'">{{ row[column.key ]}}</span>
-          </ng-container>
-
-        </td>
-        <td>
-          <div class="options-area">
-            <i class="fa-solid fa-pen-to-square" (click)="edit.emit(row)"></i>
-            <i class="fa-solid fa-delete-left" (click)="remove.emit(row.id)"></i>
-          </div>
-        </td>
-      </tr>
+      @for (row of data | paginate: { itemsPerPage: pageSize, currentPage: currentPage }; track row) {
+        <tr>
+          @for (column of tableColumns; track column) {
+            <td >
+              @switch (column.type) {
+                @case ('image') {
+                  @if (row[column.key]) {
+                    <img [src]="row[column.key]" alt="">
+                  } @else {
+                    <div class="blank-user-wrapper">
+                      @switch (dataType) {
+                        @case ('user') {
+                          <i class="fa-solid fa-user"></i>
+                        }
+                        @case ('product') {
+                          <i class="fa-solid fa-box"></i>
+                        }
+                        @case ('category') {
+                          <i class="fa-solid fa-thumbtack"></i>
+                        }
+                      }
+                    </div>
+                  }
+                }
+                @case ('text') {
+                  <span>{{ row[column.key ]}}</span>
+                }
+              }
+            </td>
+          }
+          <td>
+            <div class="options-area">
+              <i class="fa-solid fa-pen-to-square" (click)="edit.emit(row)"></i>
+              <i class="fa-solid fa-delete-left" (click)="remove.emit(row.id)"></i>
+            </div>
+          </td>
+        </tr>
+      }
     </tbody>
   </table>
 </div>

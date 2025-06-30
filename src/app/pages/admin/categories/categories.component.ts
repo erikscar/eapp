@@ -8,7 +8,7 @@ import { CategoryService } from '../../../services/category/category.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ExcelService } from '../../../services/excel/excel.service';
 import { CategoryModalComponent } from "../../../components/modals/category-modal/category-modal.component";
-import { CommonModule } from '@angular/common';
+
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -18,8 +18,7 @@ import { ToastrService } from 'ngx-toastr';
     AdminCrudTableComponent,
     RemoveModalComponent,
     AdminTableFooterComponent,
-    CategoryModalComponent,
-    CommonModule
+    CategoryModalComponent
 ],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.scss',

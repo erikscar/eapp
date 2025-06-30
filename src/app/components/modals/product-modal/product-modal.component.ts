@@ -2,13 +2,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../../interfaces/Product';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ProductService } from '../../../services/product/product.service';
-import { CommonModule } from '@angular/common';
+
 import { Category } from '../../../interfaces/Category';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-modal',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './product-modal.component.html',
   styleUrl: './product-modal.component.scss',
 })

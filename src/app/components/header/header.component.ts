@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user/user.service';
 import User from '../../interfaces/User';
-import { CommonModule } from '@angular/common';
+
 import { Router, RouterLink } from '@angular/router';
 import Address from '../../interfaces/Address';
 import { AddressService } from '../../services/address/address.service';
@@ -10,7 +10,7 @@ import { ProductService } from '../../services/product/product.service';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })

@@ -4,92 +4,95 @@
     class="modal"
     (submit)="onSubmit(addProductForm)"
     (click)="$event.stopPropagation()"
-  >
+    >
     <div class="modal-topbar">
-      <div *ngIf="previewImageUrl; else defaultIcon" class="preview-image">
-        <img [src]="previewImageUrl" alt="Imagem de Perfil" />
-      </div>
-      <ng-template #defaultIcon>
+      @if (previewImageUrl) {
+        <div class="preview-image">
+          <img [src]="previewImageUrl" alt="Imagem de Perfil" />
+        </div>
+      } @else {
         <div class="user-icon-wrapper">
           <i class="fa-solid fa-box"></i>
         </div>
-      </ng-template>
+      }
     </div>
     <div class="modal-content">
       <h1 class="username">{{productToEdit != null ? "Editar" : "Adicionar"}} Produto</h1>
 
       <div class="admin-input-wrapper">
         <label for="">Nome</label>
-          <div class="input-wrapper">
-            <input
-              type="text"
-              placeholder="Nome..."
-              formControlName="name"
+        <div class="input-wrapper">
+          <input
+            type="text"
+            placeholder="Nome..."
+            formControlName="name"
             />
           </div>
-      </div>
-
-      <div class="admin-input-wrapper">
-        <label for="">Descrição</label>
-        <div class="input-wrapper">
-          <textarea cols="10" rows="4" formControlName="description"></textarea>
         </div>
-      </div>
 
-      <div class="admin-input-wrapper">
-        <label for="">Preço</label>
-        <div class="input-wrapper">
-          <i class="fa-solid fa-dollar-sign"></i>
-          <input
-            type="text"
-            placeholder="Preço..."
-            formControlName="price"
-          />
+        <div class="admin-input-wrapper">
+          <label for="">Descrição</label>
+          <div class="input-wrapper">
+            <textarea cols="10" rows="4" formControlName="description"></textarea>
+          </div>
         </div>
-      </div>
 
-      <div class="admin-input-wrapper">
-        <label for="">Oferta</label>
-        <div class="input-wrapper">
-          <i class="fa-solid fa-tag"></i>
-          <input
-            type="text"
-            placeholder="Oferta..."
-            formControlName="offer"
-          />
+        <div class="admin-input-wrapper">
+          <label for="">Preço</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <input
+              type="text"
+              placeholder="Preço..."
+              formControlName="price"
+              />
+            </div>
+          </div>
+
+          <div class="admin-input-wrapper">
+            <label for="">Oferta</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-tag"></i>
+              <input
+                type="text"
+                placeholder="Oferta..."
+                formControlName="offer"
+                />
+              </div>
+            </div>
+
+            <div class="admin-input-wrapper">
+              <label for="">Categorias</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-thumbtack"></i>
+                <select name="" id="" formControlName="categoryId">
+                  <option value="" disabled>Selecione uma Categoria</option>
+                  @for (category of categories; track category) {
+                    <option [value]="category.id">{{ category.name }}</option>
+                  }
+                </select>
+              </div>
+            </div>
+
+            <div class="admin-input-wrapper">
+              <label for="">Foto do Produto</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-image"></i>
+                <input
+                  type="text"
+                  placeholder="https://suaimagem.png"
+                  formControlName="imageUrl"
+                  />
+                  <button type="button" (click)="applyImage()" class="apply-button">
+                    Aplicar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="admin-modal-btns">
+              <button type="button" (click)="close.emit()" class="cancel-btn">Cancelar</button>
+              <button type="submit" class="add-btn">{{productToEdit !== null ? "Editar": "Adicionar"}}</button>
+            </div>
+          </form>
         </div>
-      </div>
-
-      <div class="admin-input-wrapper">
-        <label for="">Categorias</label>
-        <div class="input-wrapper">
-          <i class="fa-solid fa-thumbtack"></i>
-          <select name="" id="" formControlName="categoryId">
-            <option value="" disabled>Selecione uma Categoria</option>
-            <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="admin-input-wrapper">
-        <label for="">Foto do Produto</label>
-        <div class="input-wrapper">
-          <i class="fa-solid fa-image"></i>
-          <input
-            type="text"
-            placeholder="https://suaimagem.png"
-            formControlName="imageUrl"
-          />
-          <button type="button" (click)="applyImage()" class="apply-button">
-            Aplicar
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="admin-modal-btns">
-      <button type="button" (click)="close.emit()" class="cancel-btn">Cancelar</button>
-      <button type="submit" class="add-btn">{{productToEdit !== null ? "Editar": "Adicionar"}}</button>
-    </div>
-  </form>
-</div>

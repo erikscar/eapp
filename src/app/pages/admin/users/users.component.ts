@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user/user.service';
-import { CommonModule } from '@angular/common';
+
 import { NgxPaginationModule } from 'ngx-pagination';
 import {
   FormControl,
@@ -20,7 +20,6 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-users',
   imports: [
-    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
@@ -29,7 +28,7 @@ import { ToastrService } from 'ngx-toastr';
     AdminTableFooterComponent,
     UserModalComponent,
     RemoveModalComponent
-  ],
+],
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss',
 })

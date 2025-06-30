@@ -1,13 +1,13 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { UserService } from '../../../services/user/user.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+
 import User from '../../../interfaces/User';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-modal',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './user-modal.component.html',
   styleUrl: './user-modal.component.scss',
 })
