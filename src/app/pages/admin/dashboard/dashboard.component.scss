@@ -1,0 +1,85 @@
+@use "../../../../scss/mixins.scss" as *;
+@use "../../../../scss/variables.scss" as *;
+
+.dashboard-container {
+  padding: 0 6rem;
+
+  .dashboard-title {
+    margin-top: 1rem;
+  }
+
+  .dashboard-description {
+    color: $grey-color;
+  }
+
+  .overview-cards-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+
+    .overview-card {
+      flex: 1;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      color: #fff;
+      padding: 1rem;
+      border-radius: 1rem;
+      &.total {
+        background: linear-gradient(to right, #5c6e6e, #d9cba0);
+        i {
+          color: #5c6e6e;
+        }
+      }
+
+      &.users {
+        background: linear-gradient(to right, #a678e2, #715ae0);
+        i {
+          color: #715ae0;
+        }
+      }
+
+      &.products {
+        background: linear-gradient(to right, #f57c42, #f9c96b);
+        i {
+          color: #f9a03f;
+        }
+      }
+
+      &.categories {
+        background: linear-gradient(to right, #5ac9b2, #b8da7c);
+        i {
+          color: #7cb58a;
+        }
+      }
+      .overview-card-content {
+        h2 {
+          font-size: 28px;
+          font-weight: 900;
+        }
+        p {
+          font-size: 20px;
+          font-weight: 600;
+          min-width: 12rem;
+          letter-spacing: .15rem;
+        }
+      }
+
+      .icon-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        width: 3.25rem;
+        height: 3.25rem;
+        background-color: #fff;
+
+        i {
+          font-size: 26px;
+        }
+      }
+    }
+  }
+}
