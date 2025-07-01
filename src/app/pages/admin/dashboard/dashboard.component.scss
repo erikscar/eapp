@@ -51,7 +51,7 @@
       &.categories {
         background: linear-gradient(to right, #5ac9b2, #b8da7c);
         i {
-          color: #7cb58a;
+          color: #b8da7c;
         }
       }
       .overview-card-content {
@@ -81,5 +81,10 @@
         }
       }
     }
+  }
+
+  #chart {
+    width: 75%;
+
   }
 }

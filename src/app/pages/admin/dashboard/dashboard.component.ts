@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgApexchartsModule } from 'ng-apexcharts';
+import { ApexTitleSubtitle, NgApexchartsModule } from 'ng-apexcharts';
 import {
   ApexAxisChartSeries,
   ApexChart,
@@ -23,28 +23,42 @@ import {
 export class DashboardComponent {
   public series: ApexAxisChartSeries = [
     {
-      name: 'Net Profit',
-      data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+      name: 'Usuários',
+      data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
+      color: '#715ae0'
     },
     {
-      name: 'Revenue',
-      data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+      name: 'Produtos',
+      data: [76, 85, 101, 98, 87, 105, 91, 114, 94],
+      color: '#f9a03f'
     },
     {
-      name: 'Free Cash Flow',
-      data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
+      name: 'Categorias',
+      data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
+      color: '#b8da7c'
     }
   ];
 
+  public chartTitle: ApexTitleSubtitle = {
+    text: "Relatório de Registros",
+    offsetY: 20,
+    style: {
+      fontFamily: "Poppins",
+      fontWeight: 600,
+      fontSize: '22px'
+    }
+  }
+
   public chart: ApexChart = {
     type: 'bar',
-    height: 350
+    height: 300
   };
 
   public plotOptions: ApexPlotOptions = {
     bar: {
       horizontal: false,
-      columnWidth: '55%'
+      columnWidth: '40%',
+      borderRadius: 4
     }
   };
 
@@ -59,12 +73,16 @@ export class DashboardComponent {
   };
 
   public xaxis: ApexXAxis = {
-    categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct']
+    categories: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
   };
 
   public yaxis: ApexYAxis = {
     title: {
-      text: '$ (thousands)'
+      text: 'Quantidade',
+      style: {
+        fontSize: '14px',
+        fontFamily: 'Poppins'
+      }
     }
   };
 
@@ -74,7 +92,7 @@ export class DashboardComponent {
 
   public tooltip: ApexTooltip = {
     y: {
-      formatter: (val: number) => '$ ' + val + ' thousands'
+      formatter: (val: number) =>  val + ' Unidades'
     }
   };
 
