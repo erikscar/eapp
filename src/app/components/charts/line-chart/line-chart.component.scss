@@ -1,0 +1,22 @@
+.card-purple {
+  background: #7f36f5;
+  color: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 250px;
+
+  h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+
+  p {
+    margin: 0 0 1rem 0;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+
+  apx-chart {
+    margin-top: 0.5rem;
+  }
+}
