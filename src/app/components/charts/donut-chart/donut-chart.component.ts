@@ -1,27 +1,28 @@
 import { Component } from '@angular/core';
-import { NgApexchartsModule } from 'ng-apexcharts';
 import {
   ApexNonAxisChartSeries,
   ApexChart,
   ApexLegend,
+  ApexDataLabels,
   ApexFill,
-  ApexTooltip
+  ApexTooltip,
+  NgApexchartsModule,
+  ApexPlotOptions,
 } from 'ng-apexcharts';
 
 @Component({
-  selector: 'app-pie-chart',
+  selector: 'app-donut-chart',
   imports: [NgApexchartsModule],
-  templateUrl: './pie-chart.component.html',
-  styleUrl: './pie-chart.component.scss'
+  templateUrl: './donut-chart.component.html',
+  styleUrl: './donut-chart.component.scss',
 })
-export class PieChartComponent {
-   public series: ApexNonAxisChartSeries = [45, 16, 23];
-  public labels = ['Eletrônicos', 'Hardware', 'Automóveis'];
+export class DonutChartComponent {
+  public series: ApexNonAxisChartSeries = [45, 16, 23];
+  public labels = ['Usuários', 'Produtos', 'Categorias'];
 
   public chartTitle: ApexTitleSubtitle = {
-    text: 'Produtos por Categoria',
-    align: 'left',
-    offsetY: -2,
+    text: 'Total de Registros',
+    align: 'center',
     style: {
       fontFamily: 'Poppins',
       fontWeight: 600,
@@ -31,7 +32,7 @@ export class PieChartComponent {
 
   public chart: ApexChart = {
     type: 'donut',
-    height: 300,
+    height: 290,
   };
 
   public colors: string[] = ['#715ae0', '#f9a03f', '#b8da7c'];

@@ -14,11 +14,12 @@ import {
 } from 'ng-apexcharts';
 import { BarChartComponent } from "../../../components/charts/bar-chart/bar-chart.component";
 import { PieChartComponent } from "../../../components/charts/pie-chart/pie-chart.component";
+import { DonutChartComponent } from "../../../components/charts/donut-chart/donut-chart.component";
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [NgApexchartsModule, BarChartComponent, PieChartComponent],
+  imports: [NgApexchartsModule, BarChartComponent, PieChartComponent, DonutChartComponent],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })

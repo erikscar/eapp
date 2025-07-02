@@ -47,7 +47,7 @@ export class BarChartComponent {
       style: {
         fontFamily: "Poppins",
         fontWeight: 600,
-        fontSize: '22px'
+        fontSize: '18px'
       }
     }
   
@@ -62,7 +62,7 @@ export class BarChartComponent {
     public plotOptions: ApexPlotOptions = {
       bar: {
         horizontal: false,
-        columnWidth: '50%',
+        columnWidth: '70%',
         borderRadius: 4
       }
     };

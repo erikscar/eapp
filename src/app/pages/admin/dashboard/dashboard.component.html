@@ -1,44 +1,54 @@
 <div class="dashboard-container">
-    <h1 class="dashboard-title">Dashboard</h1>
-    <p class="dashboard-description">Visão Geral do Sistema</p>
+  <h1 class="dashboard-title">Dashboard</h1>
+  <p class="dashboard-description">Visão Geral do Sistema</p>
 
-    <div class="overview-cards-container">
-        <div class="overview-card total">
-            <div class="overview-card-content">
-                <h2>990</h2>
-                <p>TOTAL DE REGISTROS</p>
-            </div>
-            <div class="icon-wrapper"><i class="fa-solid fa-hashtag"></i></div>
-        </div>
-
-        <div class="overview-card users">
-            <div class="overview-card-content">
-                <h2>990</h2>
-                <p>USUÁRIOS</p>
-            </div>
-            <div class="icon-wrapper"><i class="fa-solid fa-user"></i></div>
-        </div>
-
-        <div class="overview-card products">
-            <div class="overview-card-content">
-                <h2>990</h2>
-                <p>PRODUTOS</p>
-            </div>
-            <div class="icon-wrapper"><i class="fa-solid fa-box"></i></div>
-        </div>
-
-        <div class="overview-card categories">
-            <div class="overview-card-content">
-                <h2>990</h2>
-                <p>CATEGORIAS</p>
-            </div>
-            <div class="icon-wrapper"><i class="fa-solid fa-thumbtack"></i></div>
-        </div>
+  <div class="overview-cards-container">
+    <div class="overview-card total">
+      <div class="overview-card-content">
+        <h2>990</h2>
+        <p>TOTAL DE REGISTROS</p>
+      </div>
+      <div class="icon-wrapper"><i class="fa-solid fa-hashtag"></i></div>
     </div>
 
-    <div class="charts-container">
-        <app-bar-chart class="chart-large"></app-bar-chart>
+    <div class="overview-card users">
+      <div class="overview-card-content">
+        <h2>990</h2>
+        <p>USUÁRIOS</p>
+      </div>
+      <div class="icon-wrapper"><i class="fa-solid fa-user"></i></div>
+    </div>
+
+    <div class="overview-card products">
+      <div class="overview-card-content">
+        <h2>990</h2>
+        <p>PRODUTOS</p>
+      </div>
+      <div class="icon-wrapper"><i class="fa-solid fa-box"></i></div>
+    </div>
+
+    <div class="overview-card categories">
+      <div class="overview-card-content">
+        <h2>990</h2>
+        <p>CATEGORIAS</p>
+      </div>
+      <div class="icon-wrapper"><i class="fa-solid fa-thumbtack"></i></div>
+    </div>
+  </div>
+
+  <div class="charts-container">
+    <div class="charts-wrapper">
+      <app-bar-chart class="bar-chart"></app-bar-chart>
+      <div class="donut-container">
+        <app-donut-chart class="donut-chart"></app-donut-chart>
+        <div class="donut-center">
+          <i class="fas fa-hashtag"></i>
+        </div>
+      </div>
+    </div>
+    <div class="chart-overlay">
         <app-pie-chart class="chart-small"></app-pie-chart>
+        <div class="box-center"><i class="fas fa-box"></i></div>
     </div>
-
+  </div>
 </div>
