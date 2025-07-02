@@ -15,11 +15,11 @@ import {
   styleUrl: './pie-chart.component.scss'
 })
 export class PieChartComponent {
-   public series: ApexNonAxisChartSeries = [45, 16, 23];
+   public series: ApexNonAxisChartSeries = [50, 25, 25];
   public labels = ['Eletrônicos', 'Hardware', 'Automóveis'];
 
   public chartTitle: ApexTitleSubtitle = {
-    text: 'Produtos por Categoria',
+    text: 'Produtos por Categoria ( % )',
     align: 'left',
     offsetY: -2,
     style: {
@@ -42,7 +42,7 @@ export class PieChartComponent {
 
   public tooltip: ApexTooltip = {
     y: {
-      formatter: (val: number) => val + ' Unidades',
+      formatter: (val: number) => val + '%',
     },
   };
 

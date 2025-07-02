@@ -7,7 +7,7 @@
   min-height: 100vh;
 
   .dashboard-title {
-    padding-top: 1rem;
+    padding-top: .5rem;
   }
 
   .dashboard-description {
@@ -19,7 +19,7 @@
     justify-content: space-around;
     align-items: center;
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
 
     .overview-card {
       flex: 1;
@@ -27,8 +27,9 @@
       justify-content: space-around;
       align-items: center;
       color: #fff;
-      padding: 1rem;
+      padding: .75rem;
       border-radius: 1rem;
+
       &.total {
         background: linear-gradient(to right, #5c6e6e, #d9cba0);
         i {
@@ -58,11 +59,11 @@
       }
       .overview-card-content {
         h2 {
-          font-size: 28px;
+          font-size: 22px;
           font-weight: 900;
         }
         p {
-          font-size: 20px;
+          font-size: 16px;
           font-weight: 600;
           min-width: 12rem;
           letter-spacing: 0.15rem;
@@ -74,12 +75,12 @@
         justify-content: center;
         align-items: center;
         border-radius: 100%;
-        width: 3rem;
-        height: 3rem;
+        width: 2.25rem;
+        height: 2.25rem;
         background-color: #fff;
 
         i {
-          font-size: 22px;
+          font-size: 18px;
         }
       }
     }
