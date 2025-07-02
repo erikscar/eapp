@@ -36,20 +36,9 @@
         </div>
     </div>
 
-    <div id="chart">
-        <apx-chart 
-            [series]="series" 
-            [chart]="chart" 
-            [dataLabels]="dataLabels" 
-            [plotOptions]="plotOptions"
-            [yaxis]="yaxis" 
-            [legend]="legend" 
-            [fill]="fill" 
-            [stroke]="stroke" 
-            [tooltip]="tooltip"
-            [title]="chartTitle"
-            [xaxis]="xaxis">
-        </apx-chart>
+    <div class="charts-container">
+        <app-bar-chart class="chart-large"></app-bar-chart>
+        <app-pie-chart class="chart-small"></app-pie-chart>
     </div>
 
 </div>

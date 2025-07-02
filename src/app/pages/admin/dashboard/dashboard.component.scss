@@ -3,9 +3,11 @@
 
 .dashboard-container {
   padding: 0 6rem;
+  background-color: #f5f6fa;
+  min-height: 100vh;
 
   .dashboard-title {
-    margin-top: 1rem;
+    padding-top: 1rem;
   }
 
   .dashboard-description {
@@ -63,7 +65,7 @@
           font-size: 20px;
           font-weight: 600;
           min-width: 12rem;
-          letter-spacing: .15rem;
+          letter-spacing: 0.15rem;
         }
       }
 
@@ -83,8 +85,26 @@
     }
   }
 
-  #chart {
-    width: 75%;
+  .charts-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
 
+    .chart-large,
+    .chart-small {
+      background-color: #fff;
+      padding: 0 1rem;
+      border-radius: .5rem;
+      box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+        rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    }
+    .chart-large {
+      width: 70%;
+    }
+
+    .chart-small {
+      width: 23%;
+    }
   }
 }
