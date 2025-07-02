@@ -7,7 +7,7 @@
   min-height: 100vh;
 
   .dashboard-title {
-    padding-top: .5rem;
+    padding-top: 0.5rem;
   }
 
   .dashboard-description {
@@ -27,7 +27,7 @@
       justify-content: space-around;
       align-items: center;
       color: #fff;
-      padding: .75rem;
+      padding: 0.75rem;
       border-radius: 1rem;
 
       &.total {
@@ -146,6 +146,66 @@
         pointer-events: none;
         color: $grey-color;
       }
+    }
+  }
+
+  .second-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    .first-section {
+      display: flex;
+      gap: 2rem;
+      width: 74%;
+    }
+
+    .recent-data {
+      flex: 2;
+    }
+
+    .products-category {
+      background-color: #fff;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+        rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      width: 30%;
+      .products-category-title {
+        font-size: 16px;
+        margin-bottom: 0.75rem;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        
+        th {
+          text-align: center;
+          padding: 1rem 0;
+          border-top: 1px solid $light-grey-color;
+          color: $grey-color;
+        }
+        td {
+          padding: 0.75rem 0.25rem ;
+          text-align: center;
+        }
+      }
+
+      .icon-wrapper {
+        text-align: center;
+        margin-top: .75rem;
+        cursor: pointer;
+        i {
+          font-size: 20px;
+          color: $grey-color;
+        }
+      }
+    }
+
+    .chart-small {
+      width: 23%;
     }
   }
 }

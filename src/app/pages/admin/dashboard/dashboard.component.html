@@ -47,40 +47,72 @@
       </div>
     </div>
     <div class="chart-overlay">
-        <app-pie-chart class="chart-small"></app-pie-chart>
-        <div class="box-center"><i class="fas fa-box"></i></div>
+      <app-pie-chart class="chart-small"></app-pie-chart>
+      <div class="box-center"><i class="fas fa-box"></i></div>
     </div>
   </div>
 
   <div class="second-row">
-    <table>
-        <tbody>
-            <td>#100</td>
-            <td>Fone de Ouvido Gamer</td>
-            <td>25 Set. 2022</td>
-            <td>$300,00</td>
-        </tbody>
-    </table>
-    <div>
-        <div class="products-category-title-wrapper">
-            <h1>Produtos por Categoria (Qtd)</h1>
-            <i class="fa-solid fa-angle-down"></i>
-        </div>
-        <table>
-            <thead>
-                <th><i class="fa-solid fa-thumbtack"></i></th>
-                <th>Categoria</th>
-                <th>Qtd</th>
-            </thead>
-            <tbody>
-                <td>247</td>
-                <td>333</td>
-                <td>222</td>
-            </tbody>
+    <div class="first-section">
+      <div class="recent-data">
+        <table class="recent-data-table">
+          <thead>
+            <tr>
+              <th>
+                <h1>Registros Recentes</h1>
+              </th>
+              <th></th>
+              <th></th>
+              <th>
+                <p class="ver-todos">Ver Todos</p>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#100</td>
+              <td>Fone de Ouvido Gamer</td>
+              <td>25 Set. 2022</td>
+              <td>$300,00</td>
+            </tr>
+          </tbody>
         </table>
+      </div>
+
+      <div class="products-category">
+        <h1 class="products-category-title">Produtos por Categoria (Qtd)</h1>
+        <table>
+          <thead>
+            <tr>
+              <th><i class="fa-solid fa-thumbtack"></i></th>
+              <th>Categoria</th>
+              <th>Qtd</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><i class="fa fa-paper-plane"></i></td>
+              <td>Eletrônicos</td>
+              <td>222</td>
+            </tr>
+             <tr>
+              <td><i class="fa fa-paper-plane"></i></td>
+              <td>Eletrônicos</td>
+              <td>222</td>
+            </tr>
+             <tr>
+              <td><i class="fa fa-paper-plane"></i></td>
+              <td>Eletrônicos</td>
+              <td>222</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="icon-wrapper">
+          <i class="fa-solid fa-angle-down"></i>
+        </div>
+      </div>
     </div>
 
-    <app-line-chart></app-line-chart>
-
+    <app-line-chart class="chart-small"></app-line-chart>
   </div>
 </div>
