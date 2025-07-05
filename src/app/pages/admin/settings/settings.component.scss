@@ -5,20 +5,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
 
     .settings-content {
+        margin-top: 2rem;
         .section-header {
             border-bottom: 2px solid $light-grey-color;
-            padding-bottom: 2rem;
+            padding-bottom: 1rem;
 
             h1 {
                 font-weight: 600;
-                font-size: 26px;
+                font-size: 24px;
             }
 
             p {
                 color: $grey-color;
+                font-size: 15px;
             }
         }
 
@@ -26,12 +28,13 @@
             margin-top: 2rem;
 
             h1 {
-                font-size: 20px;
+                font-size: 16px;
                 font-weight: 600;
             }
 
             p {
                 color: $grey-color;
+                font-size: 15px;
             }
         }
 
@@ -45,7 +48,7 @@
                 text-align: center;
 
                 img {
-                    width: 20rem;
+                    width: 17rem;
                     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15), 0 0 10px rgba(0, 0, 0, 0.05);
                     border-radius: .5rem;
 
@@ -59,8 +62,52 @@
                     font-size: 14px;
                 }
             }
-
         }
 
+        .change-color-container {
+            margin-top: 2rem;
+            padding: 1.5rem 0;
+            border-top: 2px solid $light-grey-color;
+            border-bottom: 2px solid $light-grey-color;
+            h2 {
+                font-size: 16px;
+                font-weight: 600;
+            }
+
+            p {
+                color: $grey-color;
+                font-size: 15px;
+            }
+
+            .color-inputs {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 1rem;
+
+                .light-color-picker,
+                .dark-color-picker {
+                    margin-top: .5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    input-color-wrapper {
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+
+        button {
+            font-size: 16px;
+            border: 0;
+            background-color: $primary-color;
+            color: #fff;
+            padding: .5rem .75rem;
+            margin-top: 2rem;
+            border-radius: .5rem;
+        }
     }
 }
