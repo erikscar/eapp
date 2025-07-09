@@ -4,7 +4,6 @@ import * as XLSX from 'xlsx';
   providedIn: 'root',
 })
 export class ExcelService {
-  
   exportAsExcelFile(data: any[], fileName: string) {
     const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(data);
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
