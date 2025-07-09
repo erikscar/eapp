@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import {
   ApexNonAxisChartSeries,
   ApexChart,
@@ -9,6 +9,9 @@ import {
   NgApexchartsModule,
   ApexPlotOptions,
 } from 'ng-apexcharts';
+import User from '../../../interfaces/User';
+import { Category } from '../../../interfaces/Category';
+import { Product } from '../../../interfaces/Product';
 
 @Component({
   selector: 'app-donut-chart',
@@ -16,8 +19,17 @@ import {
   templateUrl: './donut-chart.component.html',
   styleUrl: './donut-chart.component.scss',
 })
-export class DonutChartComponent {
-  public series: ApexNonAxisChartSeries = [45, 16, 23];
+export class DonutChartComponent implements OnChanges {
+  @Input() users: User[] = []
+  @Input() categories: Category[] = []
+  @Input() products: Product[] = []
+
+  public series: ApexNonAxisChartSeries = [];
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.series = [this.users.length, this.products.length, this.categories.length]
+  }
+
   public labels = ['Usuários', 'Produtos', 'Categorias'];
 
   public chartTitle: ApexTitleSubtitle = {

@@ -26,8 +26,8 @@ export class UserService {
     return this.http.get<User>(`${this.apiUrl}/profile`, { headers: this.authService.getHeaders() })
   }
 
-  getAllUsers(): Observable<User> {
-    return this.http.get<User>(`${this.apiUrl}/users`, { headers: this.authService.getHeaders() })
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.apiUrl}/users`, { headers: this.authService.getHeaders() })
   }
 
   getUsersBySearchValue(searchValue: string): Observable<User> {

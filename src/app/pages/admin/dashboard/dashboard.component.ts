@@ -1,9 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApexTitleSubtitle, NgApexchartsModule } from 'ng-apexcharts';
 import { BarChartComponent } from "../../../components/charts/bar-chart/bar-chart.component";
 import { PieChartComponent } from "../../../components/charts/pie-chart/pie-chart.component";
 import { DonutChartComponent } from "../../../components/charts/donut-chart/donut-chart.component";
 import { LineChartComponent } from "../../../components/charts/line-chart/line-chart.component";
+import { CategoryService } from '../../../services/category/category.service';
+import { UserService } from '../../../services/user/user.service';
+import { ProductService } from '../../../services/product/product.service';
+import { Category } from '../../../interfaces/Category';
+import User from '../../../interfaces/User';
+import { Product } from '../../../interfaces/Product';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,6 +18,40 @@ import { LineChartComponent } from "../../../components/charts/line-chart/line-c
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
+  categories: Category[] = [];
+  users: User[] = [];
+  products: Product[] = [];
+  constructor(private categoryService: CategoryService, private userService: UserService, private productService: ProductService) {}
+
+  ngOnInit(): void {
+    this.userService.getAllUsers().subscribe({
+      next: (res) =>  {
+        this.users = res;
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    })
+
+    this.categoryService.getAllCategories().subscribe({
+      next: (res) =>  {
+        this.categories = res;
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    })
+
+    this.productService.getProducts().subscribe({
+      next: (res) =>  {
+        this.products = res;
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    })
+  }
+
   
 }

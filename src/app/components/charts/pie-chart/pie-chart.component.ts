@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import {
   ApexNonAxisChartSeries,
@@ -7,6 +7,9 @@ import {
   ApexFill,
   ApexTooltip
 } from 'ng-apexcharts';
+import User from '../../../interfaces/User';
+import { Category } from '../../../interfaces/Category';
+import { Product } from '../../../interfaces/Product';
 
 @Component({
   selector: 'app-pie-chart',
@@ -14,9 +17,20 @@ import {
   templateUrl: './pie-chart.component.html',
   styleUrl: './pie-chart.component.scss'
 })
-export class PieChartComponent {
-   public series: ApexNonAxisChartSeries = [50, 25, 25];
-  public labels = ['Eletrônicos', 'Hardware', 'Automóveis'];
+export class PieChartComponent implements OnChanges {
+  @Input() users: User[] = []
+  @Input() categories: any[] = []
+  @Input() products: Product[] = []
+
+  public series: ApexNonAxisChartSeries = [];
+  public labels: string[] = [];
+
+  ngOnChanges(): void {
+    if (this.categories.length) {
+      this.series = this.categories.map(c => c.products?.length || 0);
+      this.labels = this.categories.map(c => c.name);
+    }
+  }
 
   public chartTitle: ApexTitleSubtitle = {
     text: 'Produtos por Categoria ( % )',
