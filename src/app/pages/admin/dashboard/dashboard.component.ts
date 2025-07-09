@@ -28,7 +28,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  categories: Category[] = [];
+  categories: any[] = [];
   users: User[] = [];
   products: Product[] = [];
   latestRecords: any[] = [];
