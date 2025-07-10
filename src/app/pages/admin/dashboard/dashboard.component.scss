@@ -34,6 +34,7 @@
 
       &.total {
         background: linear-gradient(to right, #5c6e6e, #d9cba0);
+
         i {
           color: #5c6e6e;
         }
@@ -41,6 +42,7 @@
 
       &.users {
         background: linear-gradient(to right, #a678e2, #715ae0);
+
         i {
           color: #715ae0;
         }
@@ -48,6 +50,7 @@
 
       &.products {
         background: linear-gradient(to right, #f57c42, #f9c96b);
+
         i {
           color: #f9a03f;
         }
@@ -55,15 +58,18 @@
 
       &.categories {
         background: linear-gradient(to right, #5ac9b2, #b8da7c);
+
         i {
           color: #b8da7c;
         }
       }
+
       .overview-card-content {
         h2 {
           font-size: 22px;
           font-weight: 900;
         }
+
         p {
           font-size: 16px;
           font-weight: 600;
@@ -103,6 +109,7 @@
       box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
         rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
     }
+
     .charts-wrapper {
       width: 74%;
       display: flex;
@@ -112,6 +119,7 @@
       .bar-chart {
         width: 70%;
       }
+
       .donut-chart {
         width: 30%;
       }
@@ -154,12 +162,12 @@
   .second-row {
     display: flex;
     justify-content: space-between;
-    align-items: stretch;
     gap: 1rem;
-    margin: 1rem 0 ;
+    margin: 1rem 0;
 
     .first-section {
       display: flex;
+      align-items: flex-start;
       gap: 2rem;
       width: 74%;
     }
@@ -167,22 +175,27 @@
     .recent-data {
       flex: 2;
       text-align: center;
+
       .recent-data-table {
         width: 100%;
         border-collapse: collapse;
 
-        td, th {
+        td,
+        th {
           padding: 1rem .5rem;
         }
+
         td {
           border-bottom: 1px solid $light-grey-color;
           border-top: 1px solid $light-grey-color;
         }
+
         thead {
           tr {
             th:first-child {
               text-align: start;
               color: $primary-color;
+
               h1 {
                 font-size: 22px;
               }
@@ -196,16 +209,29 @@
             }
           }
         }
-        tbody tr {
-          color: $grey-color;
-          td:first-child {
-            color: #000;
+
+        tbody {
+          .table-items {
+            opacity: 0;
+            transition: transform 0.3s ease;
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: var(--delay);
           }
-          td:last-child {
-            text-align: end;
+
+          tr {
+            color: $grey-color;
+
+            td:first-child {
+              color: #000;
+            }
+
+            td:last-child {
+              text-align: end;
+            }
           }
         }
       }
+
       .fa-angle-down {
         margin-top: 1.5rem;
         font-size: 18px;
@@ -223,7 +249,9 @@
       border-spacing: 0;
       padding: .75rem 1.25rem;
       width: 22%;
-      .products-category-title {  
+      margin-top: 1rem;
+
+      .products-category-title {
         font-size: 14px;
         margin-bottom: 0.75rem;
         color: $grey-color;
@@ -239,9 +267,18 @@
           border-top: 1px solid $light-grey-color;
           color: $grey-color;
         }
+
         td {
           padding: 0.75rem 0.25rem;
           text-align: center;
+        }
+
+        
+        .table-items {
+          opacity: 0;
+          transition: transform 0.3s ease;
+          animation: fadeInUp 0.6s ease-out forwards;
+          animation-delay: var(--delay);
         }
       }
 
@@ -249,6 +286,7 @@
         text-align: center;
         margin-top: 0.5rem;
         cursor: pointer;
+
         i {
           font-size: 18px;
           color: $grey-color;
@@ -258,6 +296,19 @@
 
     .chart-small {
       width: 23%;
+      margin-top: 1rem;
     }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

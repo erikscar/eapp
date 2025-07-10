@@ -32,6 +32,8 @@ export class DashboardComponent implements OnInit {
   users: User[] = [];
   products: Product[] = [];
   latestRecords: any[] = [];
+  recentDataIndex: number = 0;
+  productsCategoryIndex: number = 0;
 
   constructor(
     private categoryService: CategoryService,
@@ -77,5 +79,19 @@ export class DashboardComponent implements OnInit {
         console.error(err);
       },
     });
+  }
+
+  onCarousselRecentDataClick(): void {
+    this.recentDataIndex += 4;
+    if(this.recentDataIndex >= this.latestRecords.length) {
+      this.recentDataIndex = 0
+    }
+  }
+
+  onCarousselProductCategoryClick(): void {
+    this.productsCategoryIndex += 3;
+    if(this.productsCategoryIndex >= this.categories.length) {
+      this.productsCategoryIndex = 0
+    }
   }
 }

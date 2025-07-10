@@ -80,7 +80,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of latestRecords.slice(0, 4)">
+            <tr class="table-items" *ngFor="let item of latestRecords.slice(recentDataIndex, recentDataIndex + 4); let i = index" [ngStyle]="{ '--delay': (i * 0.1) + 's' }">
               <td>{{ item.id }}</td>
               <td>{{ item.name }}</td>
               <td>{{ item.type }}</td>
@@ -91,7 +91,7 @@
             </tr>
           </tbody>
         </table>
-        <i class="fa fa-angle-down"></i>
+        <i class="fa fa-angle-down" (click)="onCarousselRecentDataClick()"></i>
       </div>
 
       <div class="products-category">
@@ -105,7 +105,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let category of categories.slice(0, 3)">
+            <tr class="table-items" *ngFor="let category of categories.slice(productsCategoryIndex, productsCategoryIndex + 3); let i = index" [ngStyle]="{ '--delay': (i * 0.1) + 's' }" >
               <td><i class="fa-solid fa-thumbtack"></i></td>
               <td>{{category.name}}</td>
               <td>{{category.products.length}}</td>
@@ -113,7 +113,7 @@
           </tbody>
         </table>
         <div class="icon-wrapper">
-          <i class="fa-solid fa-angle-down"></i>
+          <i class="fa-solid fa-angle-down" (click)="onCarousselProductCategoryClick()"></i>
         </div>
       </div>
     </div>

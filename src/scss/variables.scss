@@ -2,3 +2,19 @@ $primary-color: #622dbd;
 $secondary-color: #f5f0fa;
 $grey-color: #828282;
 $light-grey-color: #d4d4d4;
+
+
+::root {
+    --bg-color: #fff;
+    --primary-color: #622dbd
+    --secondary-color: #f5f0fa;
+    --grey-color: #828282;
+    --light-grey-color: #d4d4d4;
+}
+
+.dark-theme {
+  --primary-color: #a78bfa;
+  --secondary-color: #1e1e1e;
+  --grey-color: #e0e0e0;
+  --light-grey-color: #3c3c3c;
+}
