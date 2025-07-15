@@ -1,36 +1,38 @@
-<app-admin-toolbar
-  [searchForm]="searchForm"
-  (pageSizeChange)="onPageSizeChange($event)"
-  (addData)="toggleCategoryModal()"
-  (exportData)="onExportCategories()"
-  (searchData)="searchForCategories()"
-  pageName="Categorias"
-></app-admin-toolbar>
-
-@if (showCategoryModal) {
-  <app-category-modal  [categoryToEdit]="categoryToEdit" (close)="toggleCategoryModal()" (categoryAdded)="onAddedCategory()"></app-category-modal>
-}
-
-<app-admin-crud-table
-  [dataType]="'category'"
-  [data]="categories"
-  [tableColumns]="columns"
-  [tableHeaders]="headers"
-  [pageSize]="pageSize"
-  [currentPage]="currentPage"
-  (remove)="toggleRemoveModal($event)"
-  (edit)="onEditCategory($event)"
-  >
-</app-admin-crud-table>
-
-@if (showRemoveModal) {
-  <app-remove-modal (close)="showRemoveModal = false" (remove)="removeCategory()"></app-remove-modal>
-}
-
-<app-admin-table-footer
-  [totalItems]="categories.length"
-  [currentPage]="currentPage"
-  [pageSize]="pageSize"
-  (pageChange)="onPageChange($event)"
-  >
-</app-admin-table-footer>
+<div class="admin-category-container">
+  <app-admin-toolbar
+    [searchForm]="searchForm"
+    (pageSizeChange)="onPageSizeChange($event)"
+    (addData)="toggleCategoryModal()"
+    (exportData)="onExportCategories()"
+    (searchData)="searchForCategories()"
+    pageName="Categorias"
+  ></app-admin-toolbar>
+  
+  @if (showCategoryModal) {
+    <app-category-modal  [categoryToEdit]="categoryToEdit" (close)="toggleCategoryModal()" (categoryAdded)="onAddedCategory()"></app-category-modal>
+  }
+  
+  <app-admin-crud-table
+    [dataType]="'category'"
+    [data]="categories"
+    [tableColumns]="columns"
+    [tableHeaders]="headers"
+    [pageSize]="pageSize"
+    [currentPage]="currentPage"
+    (remove)="toggleRemoveModal($event)"
+    (edit)="onEditCategory($event)"
+    >
+  </app-admin-crud-table>
+  
+  @if (showRemoveModal) {
+    <app-remove-modal (close)="showRemoveModal = false" (remove)="removeCategory()"></app-remove-modal>
+  }
+  
+  <app-admin-table-footer
+    [totalItems]="categories.length"
+    [currentPage]="currentPage"
+    [pageSize]="pageSize"
+    (pageChange)="onPageChange($event)"
+    >
+  </app-admin-table-footer>
+</div>

@@ -8,6 +8,7 @@ import {
   ApexTooltip,
   NgApexchartsModule,
   ApexPlotOptions,
+  ApexTheme
 } from 'ng-apexcharts';
 import User from '../../../interfaces/User';
 import { Category } from '../../../interfaces/Category';

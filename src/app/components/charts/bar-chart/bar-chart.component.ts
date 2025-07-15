@@ -11,7 +11,8 @@ import {
   ApexXAxis,
   ApexFill,
   ApexTooltip,
-  ApexGrid
+  ApexGrid,
+  ApexTheme
 } from 'ng-apexcharts';
 import User from '../../../interfaces/User';
 import { Category } from '../../../interfaces/Category';
@@ -70,7 +71,7 @@ export class BarChartComponent implements OnChanges {
     style: {
       fontFamily: "Poppins",
       fontWeight: 600,
-      fontSize: '18px'
+      fontSize: '18px',
     }
   }
 

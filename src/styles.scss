@@ -1,8 +1,17 @@
+:root {
+  --bg-color: #fff;
+  --font-color: #000;
+}
+
+.dark-theme {
+  --bg-color: #050a15;
+  --font-color: #fff
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    // color: #3a3939;
     font-family: "Poppins", sans-serif;
 }
 
@@ -19,15 +28,15 @@ a {
 }
 
 .toast-container.toast-bottom-right {
-  position: fixed !important;
-  bottom: 20px !important;
-  right: 20px !important;
-  top: auto !important;
-  left: auto !important;
-  display: flex !important;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  top: auto;
+  left: auto;
+  display: flex;
   flex-direction: column-reverse;
   align-items: flex-end;
   gap: 10px;
   max-width: 320px;
-  z-index: 9999 !important; /* importante para ficar sobre tudo */
+  z-index: 9999;
 }

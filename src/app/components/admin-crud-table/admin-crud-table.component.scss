@@ -16,7 +16,7 @@
       color: #fff;
 
       th {
-        padding: 0.75rem;
+        padding: 0.75rem 1rem;
         text-align: start;
       }
 
@@ -26,8 +26,18 @@
     }
 
     tbody {
+
+      tr {
+        transition: .5s;
+        color: var(--font-color);
+        background-color: #121826;
+
+        &:hover { 
+          background-color: #505050;
+        }
+      }
       td {
-        padding: 0.5rem;
+        padding: 0.75rem 1rem;
         text-align: start;
         border-bottom: 1px solid $light-grey-color;
         max-width: 200px;
