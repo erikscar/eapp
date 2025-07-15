@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, effect, inject, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import {
   ApexAxisChartSeries,
@@ -17,6 +17,8 @@ import {
 import User from '../../../interfaces/User';
 import { Category } from '../../../interfaces/Category';
 import { Product } from '../../../interfaces/Product';
+import { ThemeService } from '../../../services/theme.service';
+import { applyChartTheme } from '../../../utils/chart-theme.util';
 
 
 @Component({
@@ -30,6 +32,19 @@ export class BarChartComponent implements OnChanges {
   @Input() categories: Category[] = []
   @Input() products: Product[] = []
   public series: ApexAxisChartSeries = [];
+
+  private themeService = inject(ThemeService);
+
+  constructor() {
+    effect(() => {
+      applyChartTheme(() => this.themeService.theme(),
+      this.chart,
+      this.chartTitle,
+      this.legend,
+      this.series.length 
+    )
+  });
+  }
 
   dataPerMonth(data: any[]): number[] {
     const count: { [key: number]: number } = {
@@ -72,6 +87,7 @@ export class BarChartComponent implements OnChanges {
       fontFamily: "Poppins",
       fontWeight: 600,
       fontSize: '18px',
+      color: ''
     }
   }
 
@@ -102,7 +118,12 @@ export class BarChartComponent implements OnChanges {
   };
 
   public xaxis: ApexXAxis = {
-    categories: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
+    categories: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+    labels: {
+      style: {
+        colors: []
+      }
+    }
   };
 
   public yaxis: ApexYAxis = {
@@ -110,7 +131,13 @@ export class BarChartComponent implements OnChanges {
       text: 'Quantidade',
       style: {
         fontSize: '14px',
-        fontFamily: 'Poppins'
+        fontFamily: 'Poppins',
+        color: ''
+      },
+    },
+    labels: {
+      style: {
+        colors: []
       }
     }
   };
@@ -126,6 +153,9 @@ export class BarChartComponent implements OnChanges {
   };
 
   public legend: ApexLegend = {
-    position: 'top'
+    position: 'top',
+    labels: {
+      colors: []
+    }
   };
 }

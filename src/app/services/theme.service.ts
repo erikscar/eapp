@@ -1,11 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ThemeService {
-  setTheme(theme: "dark" | "light") {
-    document.body.classList.remove('dark-theme', 'light-theme')
-    document.body.classList.add(`${theme}-theme`)
+  theme = signal<'light' | 'dark'>('light')
+
+  switchTheme() {
+    const newTheme = this.theme() === "light" ? 'dark' : 'light';
+
+    this.theme.set(newTheme);
+
+    document.body.classList.remove('light-theme', 'dark-theme')
+    document.body.classList.add(`${newTheme}-theme`)
   }
 }

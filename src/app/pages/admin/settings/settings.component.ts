@@ -10,8 +10,8 @@ import { ThemeService } from '../../../services/theme.service';
 export class SettingsComponent {
   constructor(private themeService: ThemeService) {}
 
-  switchTheme(theme: "dark" | "light") {
-    this.themeService.setTheme(theme);
+  switchTheme() {
+    this.themeService.switchTheme();
   }
   
 }
