@@ -195,7 +195,7 @@
           tr {
             th:first-child {
               text-align: start;
-              color: $primary-color;
+              color: var(--primary-color);
 
               h1 {
                 font-size: 22px;
@@ -204,7 +204,7 @@
 
             th:last-child {
               text-align: end;
-              color: $primary-color;
+              color: var(--primary-color);
               cursor: pointer;
               font-weight: 400;
             }
@@ -228,7 +228,7 @@
             }
 
             td:first-child {
-              color: $primary-color;
+              color: var(--primary-color);
             }
 
             td:last-child {

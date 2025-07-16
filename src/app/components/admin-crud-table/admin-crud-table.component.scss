@@ -33,7 +33,7 @@
         background-color: var(--card-color);
 
         &:hover { 
-          background-color: #505050;
+          background-color: var(--table-hover-color);
         }
       }
       td {
@@ -59,7 +59,7 @@
 
           i {
             font-size: 26px;
-            color: $primary-color;
+            color: var(--primary-color);
           }
         }
       }
