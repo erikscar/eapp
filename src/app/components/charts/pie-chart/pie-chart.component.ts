@@ -81,7 +81,7 @@ export class PieChartComponent implements OnChanges {
 
   public chartTitle: ApexTitleSubtitle = {
     text: 'Produtos por Categoria ( % )',
-    align: 'left',
+    align: 'center',
     offsetY: -2,
     style: {
       fontFamily: 'Poppins',

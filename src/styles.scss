@@ -4,6 +4,8 @@
   --card-color: #fff;
   --table-hover-color: rgba(0, 0, 0, 0.1);
   --recent-table-font-color: #828282;
+  --light-primary-color: #622dbd;
+  --dark-primary-color: #622dbd;
 }
 
 .dark-theme {
@@ -12,7 +14,12 @@
   --card-color: #201f24;
   --table-hover-color: rgba(0, 0, 0, 0.8);
   --recent-table-font-color: #fff;
+  --primary-color: var(--dark-primary-color);
 }
+
+.light-theme {
+   --primary-color: var(--light-primary-color);
+} 
 
 * {
     margin: 0;

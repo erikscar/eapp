@@ -11,17 +11,17 @@
         </div>
 
         <div class="theme-container">
-            <div class="theme-wrapper">
+            <div class="theme-wrapper" (click)="applySystemTheme()">
                 <img src="/darkAndLight.png" alt="">
                 <p>Padrão do Sistema</p>
             </div>
-            <div class="theme-wrapper" (click)="switchTheme()">
-                <img src="/light.png" alt="">
-                <p>Light</p>
-            </div>
-            <div class="theme-wrapper" (click)="switchTheme()">
+            <div class="theme-wrapper" (click)="switchTheme('dark')">
                 <img src="/dark.png" class="dark-theme-img" alt="">
                 <p>Dark</p>
+            </div>
+             <div class="theme-wrapper" (click)="switchTheme('light')">
+                <img src="/light.png" alt="">
+                <p>Light</p>
             </div>
         </div>
 
@@ -34,23 +34,23 @@
                     <h2>Cor do Sistema (Tema Light)</h2>
                     <div class="input-color-wrapper">
                         <div class="color-wrapper">
-                            <input type="color" name="" id="">
+                            <input type="color" id="light-picker" [(ngModel)]="lightColor">
                         </div>
-                        <input type="text">
+                        <input type="text" [value]="lightColor">
                     </div>
                 </div>
                 <div class="dark-color-picker">
                     <h2>Cor do Sistema (Tema Dark)</h2>
                     <div class="input-color-wrapper">
                         <div class="color-wrapper">
-                            <input type="color" name="" id="">
+                            <input type="color" id="dark-picker" [(ngModel)]="darkColor">
                         </div>
-                        <input type="text">
+                        <input type="text" [value]="darkColor">
                     </div>
                 </div>
             </div>
         </div>
 
-        <button class="update-button">Atualizar</button>
+        <button class="update-button" (click)="applyThemeColors()">Atualizar</button>
     </div>
 </div>

@@ -13,6 +13,10 @@ export class AdminLayoutComponent {
 
   toggleSidebar(): void {
     this.sidebarOpen = !this.sidebarOpen;
+
+    setTimeout(() => {
+    window.dispatchEvent(new Event('resize'));
+  }, 250);
   }
 
   logOut(): void {

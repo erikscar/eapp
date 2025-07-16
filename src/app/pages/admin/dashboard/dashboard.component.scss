@@ -32,7 +32,7 @@
       color: #fff;
       padding: 0.75rem;
       border-radius: 0.5rem;
-
+      white-space: nowrap;
       &.total {
         background-color: #666666;
 
@@ -148,7 +148,6 @@
       align-items: center;
       width: 23%;
       background-color: var(--card-color);
-
       .box-center {
         position: absolute;
         top: 49%;
