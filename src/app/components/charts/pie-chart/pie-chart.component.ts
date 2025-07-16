@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, effect, inject, Input, OnChanges } from '@angular/core';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import {
   ApexNonAxisChartSeries,
@@ -6,10 +6,13 @@ import {
   ApexLegend,
   ApexFill,
   ApexTooltip,
+  ApexStroke
 } from 'ng-apexcharts';
 import User from '../../../interfaces/User';
 import { Category } from '../../../interfaces/Category';
 import { Product } from '../../../interfaces/Product';
+import { ThemeService } from '../../../services/theme.service';
+import { applyChartTheme } from '../../../utils/chart-theme.util';
 
 @Component({
   selector: 'app-pie-chart',
@@ -24,7 +27,33 @@ export class PieChartComponent implements OnChanges {
 
   public series: ApexNonAxisChartSeries = [];
   public labels: string[] = [];
+  private themeService = inject(ThemeService);
 
+  constructor() {
+    effect(() => { this.updateThemeColors()
+    });
+  }
+
+  updateThemeColors() {
+  const theme = this.themeService.theme();
+  const fontColor = theme === 'dark' ? '#fff' : '#000';
+
+  this.chartTitle = {
+    ...this.chartTitle,
+    style: {
+      ...this.chartTitle.style,
+      color: fontColor,
+    },
+  };
+
+  this.legend = {
+    ...this.legend,
+    labels: {
+      ...this.legend.labels,
+      colors: new Array(this.series.length).fill(fontColor),
+    },
+  };
+}
   ngOnChanges(): void {
     if (this.categories.length) {
       const sortedItems = [...this.categories].sort(
@@ -46,6 +75,8 @@ export class PieChartComponent implements OnChanges {
         this.labels.push('Outros');
       }
     }
+
+    this.updateThemeColors();
   }
 
   public chartTitle: ApexTitleSubtitle = {
@@ -65,11 +96,11 @@ export class PieChartComponent implements OnChanges {
   };
 
   public colors: string[] = [
-    '#715ae0',
-    '#f9a03f',
-    '#b8da7c',
-    '#3ac2c8',
-    '#999999',
+    '#3399CC',
+    '#FF4C4C',
+    '#FFA500',
+    '#B399FF',
+    '#7CFF79',
   ];
 
   public fill: ApexFill = {
@@ -77,19 +108,22 @@ export class PieChartComponent implements OnChanges {
   };
 
   public tooltip: ApexTooltip = {
-  y: {
-    formatter: function (value: number, opts?: any): string {
-      try {
-        const total = opts?.w?.globals?.seriesTotals?.reduce((a: number, b: number) => a + b, 0) || 1;
-        const percent = (value / total) * 10;
-        return `${percent}% (${value})`;
-      } catch (e) {
-        return value.toString();
-      }
-    }
-  }
-};
-
+    y: {
+      formatter: function (value: number, opts?: any): string {
+        try {
+          const total =
+            opts?.w?.globals?.seriesTotals?.reduce(
+              (a: number, b: number) => a + b,
+              0
+            ) || 1;
+          const percent = (value / total) * 10;
+          return `${percent}% (${value})`;
+        } catch (e) {
+          return value.toString();
+        }
+      },
+    },
+  };
 
   public plotOptions: ApexPlotOptions = {
     pie: {
@@ -103,12 +137,18 @@ export class PieChartComponent implements OnChanges {
     enabled: false,
   };
 
-  public legend: ApexLegend = {
+   public legend: ApexLegend = {
     position: 'bottom',
     fontFamily: 'Poppins',
     labels: {
       useSeriesColors: false,
-      colors: '#000',
+      colors: [],
     },
   };
+
+    public stroke: ApexStroke = {
+    show: false,
+    width: 0,
+  };
+  
 }

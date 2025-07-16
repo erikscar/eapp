@@ -1,11 +1,17 @@
 :root {
   --bg-color: #fff;
   --font-color: #000;
+  --card-color: #fff;
+  --table-hover-color: rgba(0, 0, 0, 0.1);
+  --recent-table-font-color: #828282;
 }
 
 .dark-theme {
-  --bg-color: #050a15;
-  --font-color: #fff
+  --bg-color: #15151a;
+  --font-color: #fff;
+  --card-color: #201f24;
+  --table-hover-color: rgba(0, 0, 0, 0.8);
+  --recent-table-font-color: #fff;
 }
 
 * {
