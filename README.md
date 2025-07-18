@@ -1,59 +1,75 @@
-# EApp
+# eApp - Aplicação Web com Angular e ASP.NET Core
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
+Este repositório contém uma aplicação web fullstack dividida em dois projetos:
 
-## Development server
+- **Frontend:** [eApp](https://github.com/erikscar/eapp) – Repositório `AngularJS`
+- **Backend:** [eaAppApi](https://github.com/erikscar/eAppApi) – Repositório `ASP.NET Core`
+---
 
-To start a local development server, run:
+- ## Visão Geral
+
+**Frontend (Marketplace):** Uma plataforma onde os usuários podem visualizar produtos, pesquisar por meio de um mecanismo de busca, adicionar itens ao carrinho e comentar em produtos. A interface foi projetada para ser intuitiva e responsiva, proporcionando uma experiência agradável tanto para navegação quanto para interação com os itens disponíveis.
+
+**Backend (API REST):** Uma API robusta, desenvolvida com **ASP.NET Core**, que oferece funcionalidades completas de **CRUD** para gerenciamento dos recursos do sistema. A autenticação e autorização são gerenciadas por meio de **Tokens JWT**, permitindo controle refinado de roles e permissões com base no nível de acesso do usuário. Além disso, a arquitetura segue o padrão de projeto Repository Pattern, promovendo maior organização, testabilidade e desacoplamento entre as camadas da aplicação.
+
+*O usuário pode clonar este repositório, iniciar os dois serviços localmente e visualizar a aplicação completa rodando em sua máquina.*
+
+- ## Tecnologias Utilizadas
+
+- **AngularJS** - Front-End
+- **ASP.NET Core** - Back-End
+- **Entity Framework**
+- **SQL Server** - Banco de Dados
+- **Fluent API**
+- **API REST**
+- **TypeScript**
+- **C#**
+- **.NET 6+**
+- **HTML5 + SCSS**
+
+---
+- ### Pré-Requisitos
+- [Node.js](https://nodejs.org/) (v16 ou superior)
+- [Angular CLI](https://angular.dev/installation)
+- [.NET SDK](https://dotnet.microsoft.com/en-us/download) (v6.0 ou superior)
+- Git instalado
+---
+
+### 1. Clone o Repositório (Front-End = eApp)
 
 ```bash
+git clone https://github.com/erikscar/eapp.git
+```
+
+### 2. Inicie o Front-End (Angular)
+
+```bash
+cd eApp
+npm intall
 ng serve
 ```
+*O Angular rodará por padrão em: http://localhost:4200*
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### 3. Clone o Repositório (Back-End = eAppApi)
 
 ```bash
-ng generate component component-name
+git clone https://github.com/erikscar/eapp.git
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### 4. Inicie o Back-End (ASP.NET Core)
 
 ```bash
-ng generate --help
+cd eApp
+npm intall
+ng serve
 ```
+*O API será executada por padrão em: http://localhost:4200*
 
-## Building
+*Pull requests são bem-vindos! Sinta-se livre para abrir issues para reportar bugs, sugerir melhorias ou discutir funcionalidades.*
 
-To build the project run:
+## 👤 Autor
 
-```bash
-ng build
-```
+Desenvolvido por [Erik Scarcela](https://www.linkedin.com/in/erik-scarcela)  
+GitHub: [@erikscar](https://github.com/erikscar)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
