@@ -116,6 +116,14 @@ ng serve
 
 *Pull requests são bem-vindos! Sinta-se livre para abrir issues para reportar bugs, sugerir melhorias ou discutir funcionalidades.*
 
+
+## Aprendizado 
+
+- Integração entre frontend Angular e backend ASP.NET Core com Entity Framework.
+- Implementação de autenticação JWT e gerenciamento de roles.
+- Manipulação de dados em tempo real com filtros, pesquisas e gráficos.
+- Boas práticas com Repository Pattern e organização em camadas.
+
 ## 👤 Autor
 
 Desenvolvido por [Erik Scarcela](https://www.linkedin.com/in/erik-scarcela)  
