@@ -53,6 +53,7 @@ Este repositório contém uma aplicação web fullstack dividida em dois projeto
   - Produtos
   - Categorias
   - Usuários
+- Botão com funcionalidade de exportação para uma **TABELA EXCEL**
  
 ---
 
@@ -101,17 +102,17 @@ ng serve
 ### 3. Clone o Repositório (Back-End = eAppApi)
 
 ```bash
-git clone https://github.com/erikscar/eapp.git
+git clone https://github.com/erikscar/eAppApi.git
 ```
 
 ### 4. Inicie o Back-End (ASP.NET Core)
 
 ```bash
 cd eApp
-npm intall
+npm install
 ng serve
 ```
-*O API será executada por padrão em: http://localhost:4200*
+*O API será executada por padrão em: http://localhost:5104*
 
 *Pull requests são bem-vindos! Sinta-se livre para abrir issues para reportar bugs, sugerir melhorias ou discutir funcionalidades.*
 
