@@ -120,7 +120,7 @@ ng serve
 ## Aprendizado 
 
 - Integração entre frontend Angular e backend ASP.NET Core com Entity Framework.
-- Implementação de autenticação JWT e gerenciamento de roles.
+- Implementação de autenticação JWT e gerenciamento de roles + guards em Angular.
 - Manipulação de dados em tempo real com filtros, pesquisas e gráficos.
 - Boas práticas com Repository Pattern e organização em camadas.
 
