@@ -14,6 +14,54 @@ Este repositório contém uma aplicação web fullstack dividida em dois projeto
 
 *O usuário pode clonar este repositório, iniciar os dois serviços localmente e visualizar a aplicação completa rodando em sua máquina.*
 
+## Funcionalidades
+
+### Autenticação e Autorização
+- Cadastro e login de usuários
+- Sistema de "Lembrar de Mim" para manter uma sessão ativa
+- Controle de acesso ao sistema baseado em **Roles (Admin / Usuário) com JWT**
+  - Usuário => Página de Produtos
+  - Admin   => Painel Administrativo do Admin
+
+---
+ 
+### Página Inicial
+- Exibição de **Cards de Categorias** com botão para pesquisar os produtos relacionados
+- Cards exibindo:
+  - **Todos os Produtos** disponíveis
+  - **Produtos Populares** de acordo com a avaliação dos usuários
+ 
+---
+
+### Funcionalidades do Usuário
+- Página Individual de Produtos com:
+  - Botão "Adicionar ao Carrinho"
+  - Campo para "Adicionar Comentário / Avaliação"
+- Carrinho de Compras com:
+  - Alteração da **quantidade de produtos**
+  - Cálculo **dinâmico de ofertas e valor total**
+- Página de Perfil com opção de **atualizar dados pessoais e endereço**
+- Barra de pesquisa para localizar produtos por **nome, categoria ou palavra-chave**
+
+---
+
+### Painel Administrativo
+- **Dashboard** com visão geral do sistema:
+  - Gráficos de **registros recentes**, **produtos por categoria (% e quantidade)** e **overview de receita**.
+- Página de **configurações de tema e cores do sistema**.
+- Área de administração com **CRUD completo** e Tabelas para:
+  - Produtos
+  - Categorias
+  - Usuários
+ 
+---
+
+### Tratamento de Erros
+- Página personalizada de erro **404 - Rota não encontrada**
+- Feedback visual amigável para o usuário em páginas inválidas
+
+---
+
 - ## Tecnologias Utilizadas
 
 - **AngularJS** - Front-End
