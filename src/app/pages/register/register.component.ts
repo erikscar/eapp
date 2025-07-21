@@ -25,8 +25,8 @@ export class RegisterComponent {
     this.userService.register(form.value).subscribe({
       next: (res) => {
         console.log("Usuário Registrado com Sucesso: ", res);
-        this.router.navigate(["/home"]);
         sessionStorage.setItem('token', res.token);
+        this.router.navigate(["/home"]);
       },
       error: (err) => {
         console.error(err);
