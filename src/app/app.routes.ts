@@ -15,6 +15,8 @@ import { UsersComponent } from './pages/admin/users/users.component';
 import { ProductsComponent } from './pages/admin/products/products.component';
 import { CategoriesComponent } from './pages/admin/categories/categories.component';
 import { SettingsComponent } from './pages/admin/settings/settings.component';
+import { roleGuard } from './guards/role.guard';
+import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
 
 export const routes: Routes = [
   {
@@ -28,6 +30,7 @@ export const routes: Routes = [
   {
     path: 'admin',
     component: AdminLayoutComponent,
+    canActivate: [roleGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent},
       { path: 'users', component: UsersComponent},
@@ -45,6 +48,7 @@ export const routes: Routes = [
       { path: 'user', component: UserComponent },
       { path: 'cart', component: CartComponent },
       { path: 'product/:id', component: ProductComponent },
+      { path: 'unauthorized', component: UnauthorizedComponent},
       { path: '**', component: ErrorComponent },
     ],
   },

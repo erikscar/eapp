@@ -1,0 +1,41 @@
+@use "../../../scss/variables.scss" as *;
+@use "../../../scss/mixins.scss" as *;
+
+.unauthorized-container {
+  padding: 0 8rem;
+
+  .unauthorized-info {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem 0 4rem 0;
+
+    h1 {
+      font-size: 120px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 20px;
+    }
+
+    a {
+      border: 0;
+      border-radius: 0.25rem;
+      font-size: 16px;
+      padding: 1rem 1.75rem;
+      margin-top: 2rem;
+      color: #fff;
+      background-color: $primary-color;
+      transition: 1s;
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: 0 0 20px $primary-color;
+        transform: scale(1.03);
+      }
+    }
+  }
+}
